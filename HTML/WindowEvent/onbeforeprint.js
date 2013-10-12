@@ -1,0 +1,3 @@
+onbeforeprint = function(){
+	alert('onbeforeprint!')
+}

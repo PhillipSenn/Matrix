@@ -1,0 +1,19 @@
+ SqlCommand comm = new SqlCommand();
+    comm.CommandText = "INSERT INTO AUTHORS (FirstName, LastName) VALUES ('Sally', 'Smith')";
+
+    comm.Connection = conn;
+
+    conn.Open();
+    comm.ExecuteNonQuery();
+    conn.Close();
+}
+}
+
+[Microsoft.SqlServer.Server.SqlFunction]
+public static SqlString isActive(SqlInt32 ActiveBit)
+{
+
+if (ActiveBit == 1)
+    return "Active";
+else
+    return "Not Active";

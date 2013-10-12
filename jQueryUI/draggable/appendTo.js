@@ -1,0 +1,3 @@
+$('.tile').draggable({ 
+	appendTo: '#PlayArea' 
+});

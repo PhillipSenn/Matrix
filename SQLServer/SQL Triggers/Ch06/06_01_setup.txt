@@ -1,0 +1,75 @@
+CREATE PROCEDURE [dbo].[Students_Insert]
+(	@ID int,
+    	@LASTNAME varchar(50),
+    	@FIRSTNAME varchar(50),
+    	@STATE varchar(50),
+    	@PHONE varchar(50),
+    	@EMAIL varchar(50),
+    	@GRADYEAR int,
+    	@GPA decimal(20,10),
+	@PROGRAM varchar(50),
+	@NEWSLETTER bit
+)
+AS
+BEGIN
+
+	--Check to make sure the ID does not already exist
+	--If it does, return error
+	DECLARE @existing AS int = 0
+	SELECT @existing = count(ID)  
+	FROM Students
+	WHERE ID = @ID
+	
+	IF @existing > 0
+	BEGIN
+		RAISERROR ('ID already exists', 1, 1)
+		RETURN 0
+	END
+
+
+
+	--Format GPA as 2 decimal places
+	DECLARE @TwoDecimalGPA AS DECIMAL(3,2)
+	SELECT @TwoDecimalGPA = CAST(@GPA as numeric(3,2))
+
+	--Make sure GPA is within range
+	IF ((@TwoDecimalGPA > 4) OR (@TwoDecimalGPA < 0))
+	BEGIN
+		RAISERROR ('GPA value is invalid', 1, 1)
+		RETURN 0
+	END	 
+
+
+	--Attempt insert
+INSERT INTO [dbo].[Students]
+           ([ID]
+           ,[LASTNAME]
+           ,[FIRSTNAME]
+           ,[STATE]
+           ,[PHONE]
+           ,[EMAIL]
+           ,[GRADYEAR]
+           ,[GPA]
+           ,[PROGRAM]
+           ,[NEWSLETTER])
+     VALUES
+           (@ID
+           ,@LASTNAME
+           ,@FIRSTNAME
+           ,@STATE
+           ,@PHONE
+           ,@EMAIL
+           ,@GRADYEAR
+           ,@TwoDecimalGPA
+           ,@PROGRAM
+           ,@NEWSLETTER)
+
+		   --check to see if insert occured 
+		   --and return status
+		   IF @@ROWCOUNT = 1
+				RETURN 1
+		   ELSE 
+				RETURN 0
+END
+
+GO

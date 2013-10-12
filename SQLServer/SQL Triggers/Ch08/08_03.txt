@@ -1,0 +1,51 @@
+CREATE PROC InsertNewAuthor 
+(@firstName varchar(20), @lastName varchar(20))
+AS
+BEGIN
+	INSERT INTO Authors (FirstName, LastName, Active)
+	VALUES(@firstName, @lastName, 1)
+END
+
+
+----------------------------------------------------
+
+using System;
+using System.Configuration;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data;
+using System.Data.SqlClient;
+using System.Data.SqlTypes;
+
+public partial class _Default : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["myDatabaseConnectionString"].ConnectionString);
+        SqlCommand comm = new SqlCommand();
+
+        comm.CommandText = "InsertNewAuthor";
+        comm.CommandType = CommandType.StoredProcedure;
+        comm.Connection = conn;
+
+        SqlParameter firstNameParam = new SqlParameter("firstName", FirstName.Text);
+        SqlParameter lastNameParam = new SqlParameter("lastName", LastName.Text);
+
+        comm.Parameters.Add(firstNameParam);
+        comm.Parameters.Add(lastNameParam);
+   
+        conn.Open();
+        comm.ExecuteNonQuery();
+        conn.Close();
+
+        GridView1.DataBind();
+
+    }
+}

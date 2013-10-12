@@ -1,0 +1,367 @@
+@charset "utf-8";
+
+/* santorini.css - version 0.3 - Spry Pre-Release 1.7 */
+
+/* Copyright (c) 2010. Adobe Systems Incorporated. All rights reserved. */
+
+
+/* This is the rule for the top-level slide show element. A width is specified so that an auto margin can be used to
+ * center the slide show on-screen. There is a background gradient placed on this element, with a background color
+ * that matches the last color used at the bottom of the gradient.
+ *
+ * This design requires that the slide show top level element be 3-sliced so that there are enough elements to
+ * create a frame and matte around the slide show view.
+ */
+.SantoriniSlideShow {
+	width: 520px;
+	margin: auto;
+	border: solid 1px black;
+	background: #424242 url(images/page-gradient.png) top left repeat-x;
+}
+
+/* This rule uses padding on the SlideShowRight element of the 3-slice to visually create a frame around the entire
+ * slide show. A striped semi-transparent image is used to give the frame some texture and allow the underlying gradient
+ * to show through.
+ */
+.SantoriniSlideShow .SantoriniSlideShowRight {
+	padding: 10px;
+	background: transparent url(images/white-stripes-bkg.png) top left repeat; 
+}
+
+/* This rule is used to draw a border around the slide show clip view and thumbnail film-strip. A semi-transparent solid
+ * white image is used to lighten the frame background to make it look like there is a matte with a similar gradient and
+ * texture. The padding-top used within this rule controls the matte thickness at the top. It would normally be specified
+ * as part of the .ISSClip rule below, but doing so exposes an IE6 bug. If you change the left, right and bottom
+ * matte thickness in the .ISSClip rule, remember to change it here too.
+ */
+.SantoriniSlideShow .SantoriniSlideShowCenter {
+	width: 520px; /* We really want to use auto, but this is a workaround for IE6. If auto is used, IE6 will position the SlideShowName outside (to the right) of the SlideShowCenter. */
+	border: solid 1px white;
+	background: transparent url(images/white-solid-bkg.png) top left repeat;
+	position: relative;
+	padding-top: 10px;
+}
+
+/* This rule controls the position of the slide show name. By default, it is anchored to the top left of the
+ * slide show clip.
+ */
+.SantoriniSlideShow .ISSName {
+	position: absolute;
+	left: 0;
+	top: -24px;
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	text-transform: uppercase;
+	color: white;
+}
+
+/* This rule controls the position of the slide title. By default, it is anchored to the top right of the
+ * slide show clip.
+ */
+.SantoriniSlideShow .ISSSlideTitle {
+	position: absolute;
+	right: 0;
+	top: -18px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	overflow: hidden;
+	text-transform: none;
+	color: white;
+}
+
+/* This rule controls the size of the clip view. The margins used here provide the left, right and bottom thickness of the
+ * matte area for the slide show. If you change the thickness, you should also modify the padding-top property of the
+ * SlideShowCenter rule.
+ */
+.SantoriniSlideShow .ISSClip {
+	clear: both;
+	width: 500px;
+	height: 326px;
+	margin: 0 10px 10px 10px;
+	overflow: hidden;
+	position: relative;
+	border: solid 1px white;
+	background-color: black;
+}
+
+/* This rule controls the size of the view that is inside the clip view. It should be exactly the same
+ * size as the clip view for fading transitions.
+ */
+.SantoriniSlideShow .ISSView {
+	width: 100%;
+	height: 100%;
+}
+
+/* This rule controls the size of each slide. Note that the image that is displayed is *inside* of a
+ * slide so they are not the same thing. For this particular design, a slide is the same size as the
+ * clip and view.
+ */
+.SantoriniSlideShow .ISSSlide {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+
+/* The slide show controls element is positioned over and sized to exactly match the width and height of the slide show's
+ * clip view. The back, forward and play buttons are positioned relative to the slide show controls element so that the
+ * size and position of the controls only needs to be changed in one place (this rule).
+ */
+.SantoriniSlideShow .ISSControls {
+	position: absolute;
+	top: 11px;
+	left: 11px;
+	width: 500px;
+	height: 326px;
+}
+
+/* We don't expose the first or last navigation buttons for this particular design,
+ * so hide them with display none.
+ */
+.SantoriniSlideShow .ISSFirstButton, .SantoriniSlideShow .ISSLastButton {
+	display: none;
+}
+
+/* The prev, next, and play buttons span the entire height of the controls element.
+ * The width of each button will be set in rules that follow this one. By default,
+ * we make each button entirely transparent, they will become visible as the user
+ * hovers over them.
+ *
+ * A negative text indent is used to hide, off-screen, any text inside the buttons.
+ */
+.SantoriniSlideShow .ISSPreviousButton, .SantoriniSlideShow .ISSNextButton, .SantoriniSlideShow .ISSPlayButton {
+	display: block;
+	position: absolute;
+	top: 0;
+	height: 326px; /* We can't use 100% here because of IE6, so we set the height to be the same as SlideShowControls. */
+	opacity: 0;
+	filter: alpha(opacity=0);
+	background-repeat: no-repeat;
+	text-indent: -10000em;
+}
+
+/* The previous button is anchored to the left of the controls element and is about
+ * 30% of the width of the controls element.
+ */
+.SantoriniSlideShow .ISSPreviousButton {
+	left: 0;
+	width: 30%;
+	background-image: url(images/nav-left.png);
+	background-position:  center;
+}
+
+.SantoriniSlideShow .ISSPreviousButtonDown {
+	background-image: url(images/nav-left-active.png);
+}
+
+/* The next button is anchored to the right of the controls element and is about
+ * 30% of the width of the controls element.
+ */
+.SantoriniSlideShow .ISSNextButton {
+	right: 0;
+	width: 30%;
+	background-image: url(images/nav-right.png);
+	background-position:  center;
+}
+
+.SantoriniSlideShow .ISSNextButtonDown {
+	background-image: url(images/nav-right-active.png);
+}
+
+/* The play button spans the entire area of the controls element between
+ * the prev and next buttons.
+ */
+.SantoriniSlideShow .ISSPlayButton {
+	left: 30%;
+	width: 40%;
+	background-image: url(images/play.png);
+	background-position:  center;
+}
+
+.SantoriniSlideShow .ISSPlayButtonDown {
+	background-image: url(images/play-active.png);
+}
+
+/* If the user hovers over the prev, next or play button, change
+ * its opacity so that it becomes visible.
+ */
+.SantoriniSlideShow .ISSPreviousButtonHover, .SantoriniSlideShow .ISSNextButtonHover, .SantoriniSlideShow .ISSPlayButtonHover {
+	opacity: 0.75;
+	filter: alpha(opacity=75);
+}
+
+/* If the slide show is busy, show the busy icon in the view.
+ */
+.SantoriniSlideShow.ISSBusy .ISSView {
+	background-image: url(images/busy.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+	opacity: 0.5;
+	filter: alpha(opacity=100);
+}
+
+/* If the slide show is playing, change the play button image to "pause".
+ */
+.SantoriniSlideShow.ISSPlaying .ISSPlayButton {
+	background-image: url(images/pause.png);
+}
+
+.SantoriniSlideShow.ISSPlaying .ISSPlayButtonDown {
+	background-image: url(images/pause-active.png);
+}
+
+/* Don't show the player controls if the slide show is busy!
+*/
+.SantoriniSlideShow.ISSBusy .ISSPreviousButton,
+.SantoriniSlideShow.ISSBusy .ISSNextButton,
+.SantoriniSlideShow.ISSBusy .ISSPlayButton
+{
+	display: none;
+}
+
+/* This rule controls the top-level film strip element that contains the thumbnails.
+ */
+.SantoriniSlideShow .FilmStrip {
+	height: 80px;
+	background-color: #2A3A5B;
+}
+
+/* This rule controls the height and width of the previous and next buttons of the thumbnail filmstrip.
+ */
+.SantoriniSlideShow .FilmStripPreviousButton, .SantoriniSlideShow .FilmStripNextButton {
+	display: block;
+	width: 25px;
+	height: 80px;
+	background-repeat: no-repeat;
+}
+
+/* This rule positions the previous button on the left side of the film strip. The directional arrow
+ * for the button is actually a centered bacground-image on the previous button element.
+ */
+.SantoriniSlideShow .FilmStripPreviousButton {
+	float: left;
+	background-image: url(images/arrow-left.png);
+	background-position: right center;
+}
+
+/* This rule positions the next button on the right side of the film strip. The directional arrow
+ * for the button is actually a centered bacground-image on the previous button element.
+ */
+.SantoriniSlideShow .FilmStripNextButton {
+	float: right;
+	background-image: url(images/arrow-right.png);
+	background-position: left center;
+}
+
+/* This rule swaps out the previous button image when the user hovers over it.
+ */
+.SantoriniSlideShow .FilmStripPreviousButtonHover {
+	background-image: url(images/arrow-left-hover.png);
+}
+
+/* This rule swaps out the next button image when the user hovers over it.
+ */
+.SantoriniSlideShow .FilmStripNextButtonHover {
+	background-image: url(images/arrow-right-hover.png);
+}
+
+/* This rule swaps out the previous button image when the user clicks on it.
+ */
+.SantoriniSlideShow .FilmStripPreviousButtonDown {
+	background-image: url(images/arrow-left-active.png);
+}
+
+/* This rule swaps out the next button image when the user clicks on it.
+ */
+.SantoriniSlideShow .FilmStripNextButtonDown {
+	background-image: url(images/arrow-right-active.png);
+}
+
+/* The FimStripTrack acts as a clip for the film strip. This rule simply gives it
+ * dimensions and sets the overflow:hidden so it actually clips the content inside it.
+ */
+.SantoriniSlideShow .FilmStripTrack {
+	overflow: hidden;
+	width: auto;
+	height: 80px;
+	position: relative;
+}
+
+/* The FilmStripContainer holds all of the thumbnails. It is what gets positioned to give the
+ * illusion that things are sliding around. It is initially set to a very wide width so that
+ * thumbnails inside it don't wrap vertically.
+ */
+.SantoriniSlideShow .FilmStripContainer {
+	width: 10000em;
+	height: 80px;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* Each film strip panel acts as a container for the thumbnail and its frame.
+ * The panel's height is exactly the height of the film strip track, and its
+ * width is automatically adjusted/determined by the size of the thumbnail and
+ * its frame.
+ *
+ * A left padding is used to set the spacing between the first thumbnail frame
+ * and the left edge of the film strip view, as well as the spacing between
+ * the thumbnail frames. The spacing *BETWEEN* the thumbnail frames can be adjusted
+ * by setting the right margin of the panel. To bring the thumbs closer, use a
+ * negative margin, to space them out more, use a positive margin.
+ */
+.SantoriniSlideShow .FilmStripPanel {
+	float: left;
+	height: 80px;
+	padding-left: 10px;  /* Spacing on the left of the thumbs */
+	margin-right: 0;     /* Adjusted spacing *between* thumbs */
+}
+
+/* The slide show link that is inside each film strip panel needs to be 2 or 3 sliced.
+ * The link itself serves as the frame for the thumbnail. The border for the link is the
+ * outer border, the border around the frame, and the background color serves as the color
+ * of the frame. A top margin is used to center the thumbnail frame veritcally within the
+ * film strip track/view.
+ */
+.SantoriniSlideShow .FilmStripPanel .ISSSlideLink {
+	float: left;
+	display: block;
+	margin-top: 10px;
+	border: solid 1px #2A3A5B;
+	background-color: #2A3A5B;
+}
+
+/* The span inside the link provides the inner border of the thumbnail frame. The inner border
+ * is used to provide some definition of where the thumbnail image ends, and the thumbnail frame
+ * begins.
+ *
+ * The margin for this span provides the frame thickness.
+ */
+.SantoriniSlideShow .FilmStripPanel .ISSSlideLinkRight {
+	display: block;
+	border: solid 1px #404F6B;
+	width: 56px;
+	height: 47px;
+	margin: 4px;
+	text-indent: -1000em;
+	background-position: center;
+}
+
+.SantoriniSlideShow .FilmStripPanel .ISSSlideLinkCenter {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+/* This rule adjusts the color of the thumbnail frame's outer border and frame for
+ * the currently selected thumbnail.
+ */
+ 
+.SantoriniSlideShow .FilmStripCurrentPanel .ISSSlideLink {
+	background-color: #59647D;
+	border: solid 1px #59647D;
+}

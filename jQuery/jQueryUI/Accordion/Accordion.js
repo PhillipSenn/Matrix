@@ -1,0 +1,1 @@
+$('#myAccordion').accordion();

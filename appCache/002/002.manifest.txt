@@ -1,0 +1,35 @@
+CACHE MANIFEST
+# 20111201:v4
+
+# png and jpg
+http://code.jquery.com/mobile/latest/images/ajax-loader.png 
+../images/may2007_offline.jpg
+
+# css
+http://code.jquery.com/mobile/latest/jquery.mobile.min.css
+/Library/css/table.border.css
+002.css
+
+# js
+http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js
+http://code.jquery.com/mobile/latest/jquery.mobile.min.js
+/Library/js/log.js
+002.js
+
+# htm
+002.htm
+
+# Resources that require the user to be online.
+NETWORK:
+
+
+
+FALLBACK:
+# if dynamic.htm is inaccessible, serve static.htm instead.
+dynamic.htm static.htm
+
+# if jQuery/Images is inaccessible, serve may2007_offline.jpg instead.
+../../jQuery/Images/ ../images/may2007_offline.jpg
+
+# all other .html files, serve offline.htm instead.
+*.htm offline.htm

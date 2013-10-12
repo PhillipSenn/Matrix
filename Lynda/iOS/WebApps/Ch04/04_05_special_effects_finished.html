@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Typography</title>
+	<style>
+	.box {
+		width: 400px;
+		height: 110px;
+		background-image:
+		-webkit-gradient(
+			linear,
+			left top,
+			right bottom,
+			from(#F90),
+			to(#930),
+			color-stop(0.3,#F80)
+		 );
+		font: 90px arial, serif;
+		font-weight: bold;
+		color: #F90;
+		text-align: center;
+	}
+	#text-dropshadow {
+		text-shadow: 2px 2px 3px #000;
+	}
+	#text-glow {
+		text-shadow: 0px 0px 100px #FC0;
+	}
+	#text-emboss {
+		text-shadow: -1px -1px 1px rgba(255,255,255,.5), 1px 1px 3px rgba(0,0,0,.6);
+	}
+	#text-outline {
+		-webkit-text-stroke: 2px rgba(255,255,255,.8);
+	}
+	</style>
+</head>
+<body>
+<div id="textsamples">
+	<div class="box" id="text-dropshadow">shadow</div>
+	<div class="box" id="text-glow">glow</div>
+	<div class="box" id="text-emboss">emboss</div>
+	<div class="box" id="text-outline">outline</div>
+</div>
+</body>
+</html>

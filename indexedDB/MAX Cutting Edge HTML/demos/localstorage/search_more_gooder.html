@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head></head>
+<body>
+
+<form id="searchForm">
+<input type="search" id="search" placeholder="Search Term"> <input type="submit">
+<div id="suggestions"></div>
+</form>
+
+<div id="results"></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+	var resultDiv = document.querySelector("#results");
+	var pastDiv = document.querySelector("#suggestions");
+
+	if(window.localStorage && window.localStorage.getItem("pastsearches")) {
+		renderPastSearches();
+	}
+
+	function renderPastSearches() {
+		var pastsearches = window.localStorage.getItem("pastsearches");
+		pastsearches = JSON.parse(pastsearches);
+		if(pastsearches.length) {
+			var s = "Past searches: ";
+			pastsearches.forEach(function(term) {
+				s += "<a href='' class='pastsearchlink'>"+term+"</a> ";
+			});
+			pastDiv.innerHTML = s;
+		}
+	}
+
+	function addPastSearch(term) {
+		var pastsearches = window.localStorage.getItem("pastsearches");
+		if(pastsearches) {
+			pastsearches = JSON.parse(pastsearches);
+		} else {
+			pastsearches = [];
+		}
+
+		if(pastsearches.indexOf(term) === -1) {
+			pastsearches.push(term);
+		}
+
+		if(pastsearches.length > 5) {
+			pastsearches.shift();
+		}
+
+		window.localStorage.setItem("pastsearches", JSON.stringify(pastsearches));
+		renderPastSearches();
+	}
+
+	document.addEventListener("click", function(e) {
+		if(e.target.className != 'pastsearchlink') return;
+
+		e.preventDefault();
+		var term = e.target.text;
+
+		doSearch(term);
+
+	}, false);
+
+	document.querySelector("#searchForm").addEventListener("submit", function(e) {
+		e.preventDefault();
+
+		var terms = document.querySelector("#search").value;
+
+		if(terms.length === 0) return;
+
+		doSearch(terms);
+	}, false);
+
+	function doSearch(t) {
+		resultDiv.innerHTML = "";
+		
+		addPastSearch(t);
+
+		//fake a search
+		resultDiv.innerHTML = "<p>You searched for "+t+ " and got some stuff.</p>";
+
+	}
+
+}, false);
+
+</script>
+</body>
+</html>

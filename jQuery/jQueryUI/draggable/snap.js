@@ -1,0 +1,3 @@
+$('.tile').draggable({ 
+	snap: '#PlayArea' 
+});

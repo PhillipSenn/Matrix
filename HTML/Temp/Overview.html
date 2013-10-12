@@ -1,0 +1,1273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US-x-Hixie"><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"><title>HTML5 (Edition for Web Authors)</title><meta content="width=device-width;" name="viewport"><link href="Overview_files/whatwg.css" rel="stylesheet"><style type="text/css">
+   pre { margin-left: 2em; white-space: pre-wrap; }
+   h2 { margin: 3em 0 1em 0; }
+   h3 { margin: 2.5em 0 1em 0; }
+   h4 { margin: 2.5em 0 0.75em 0; }
+   h5, h6 { margin: 2.5em 0 1em; }
+   h1 + h2, h1 + h2 + h2 { margin: 0.75em 0 0.75em; }
+   h2 + h3, h3 + h4, h4 + h5, h5 + h6 { margin-top: 0.5em; }
+   p { margin: 1em 0; }
+   hr:not(.top) { display: block; background: none; border: none; padding: 0; margin: 2em 0; height: auto; }
+   dl, dd { margin-top: 0; margin-bottom: 0; }
+   dt { margin-top: 0.75em; margin-bottom: 0.25em; clear: left; }
+   dt + dt { margin-top: 0; }
+   dd dt { margin-top: 0.25em; margin-bottom: 0; }
+   dd p { margin-top: 0; }
+   dd dl + p { margin-top: 1em; }
+   dd table + p { margin-top: 1em; }
+   p + * > li, dd li { margin: 1em 0; }
+   dt, dfn { font-weight: bold; font-style: normal; }
+   dt dfn { font-style: italic; }
+   pre, code { font-size: inherit; font-family: monospace; font-variant: normal; }
+   pre strong { color: black; font: inherit; font-weight: bold; background: yellow; }
+   pre em { font-weight: bolder; font-style: normal; }
+   @media screen { code { color: orangered; } code :link, code :visited { color: inherit; } }
+   var sub { vertical-align: bottom; font-size: smaller; position: relative; top: 0.1em; }
+   table { border-collapse: collapse; border-style: hidden hidden none hidden; }
+   table thead, table tbody { border-bottom: solid; }
+   table tbody th:first-child { border-left: solid; }
+   table tbody th { text-align: left; }
+   table td, table th { border-left: solid; border-right: solid; border-bottom: solid thin; vertical-align: top; padding: 0.2em; }
+   blockquote { margin: 0 0 0 2em; border: 0; padding: 0; font-style: italic; }
+
+   .bad, .bad *:not(.XXX) { color: gray; border-color: gray; background: transparent; }
+   .matrix, .matrix td { border: none; text-align: right; }
+   .matrix { margin-left: 2em; }
+   .dice-example { border-collapse: collapse; border-style: hidden solid solid hidden; border-width: thin; margin-left: 3em; }
+   .dice-example caption { width: 30em; font-size: smaller; font-style: italic; padding: 0.75em 0; text-align: left; }
+   .dice-example td, .dice-example th { border: solid thin; width: 1.35em; height: 1.05em; text-align: center; padding: 0; }
+
+   .toc dfn, h1 dfn, h2 dfn, h3 dfn, h4 dfn, h5 dfn, h6 dfn { font: inherit; }
+   img.extra { float: right; }
+   pre.idl { border: solid thin; background: #EEEEEE; color: black; padding: 0.5em 1em; }
+   pre.idl :link, pre.idl :visited { color: inherit; background: transparent; }
+   pre.css { border: solid thin; background: #FFFFEE; color: black; padding: 0.5em 1em; }
+   pre.css:first-line { color: #AAAA50; }
+   dl.domintro { color: green; margin: 2em 0 2em 2em; padding: 0.5em 1em; border: none; background: #DDFFDD; }
+   hr + dl.domintro, div.impl + dl.domintro { margin-top: 2.5em; margin-bottom: 1.5em; }
+   dl.domintro dt, dl.domintro dt * { color: black; text-decoration: none; }
+   dl.domintro dd { margin: 0.5em 0 1em 2em; padding: 0; }
+   dl.domintro dd p { margin: 0.5em 0; }
+   dl.switch { padding-left: 2em; }
+   dl.switch > dt { text-indent: -1.5em; }
+   dl.switch > dt:before { content: '\21AA'; padding: 0 0.5em 0 0; display: inline-block; width: 1em; text-align: right; line-height: 0.5em; }
+   dl.triple { padding: 0 0 0 1em; }
+   dl.triple dt, dl.triple dd { margin: 0; display: inline }
+   dl.triple dt:after { content: ':'; }
+   dl.triple dd:after { content: '\A'; white-space: pre; }
+   .diff-old { text-decoration: line-through; color: silver; background: transparent; }
+   .diff-chg, .diff-new { text-decoration: underline; color: green; background: transparent; }
+   a .diff-new { border-bottom: 1px blue solid; }
+
+   h2 { page-break-before: always; }
+   h1, h2, h3, h4, h5, h6 { page-break-after: avoid; }
+   h1 + h2, hr + h2.no-toc { page-break-before: auto; }
+
+   p  > span:not([title=""]):not([class="XXX"]):not([class="impl"]):not([class="note"]),
+   li > span:not([title=""]):not([class="XXX"]):not([class="impl"]):not([class="note"]), { border-bottom: solid #9999CC; }
+
+   div.head { margin: 0 0 1em; padding: 1em 0 0 0; }
+   div.head p { margin: 0; }
+   div.head h1 { margin: 0; }
+   div.head .logo { float: right; margin: 0 1em; }
+   div.head .logo img { border: none } /* remove border from top image */
+   div.head dl { margin: 1em 0; }
+   div.head p.copyright, div.head p.alt { font-size: x-small; font-style: oblique; margin: 0; }
+
+   body > .toc > li { margin-top: 1em; margin-bottom: 1em; }
+   body > .toc.brief > li { margin-top: 0.35em; margin-bottom: 0.35em; }
+   body > .toc > li > * { margin-bottom: 0.5em; }
+   body > .toc > li > * > li > * { margin-bottom: 0.25em; }
+   .toc, .toc li { list-style: none; }
+
+   .brief { margin-top: 1em; margin-bottom: 1em; line-height: 1.1; }
+   .brief li { margin: 0; padding: 0; }
+   .brief li p { margin: 0; padding: 0; }
+
+   .category-list { margin-top: -0.75em; margin-bottom: 1em; line-height: 1.5; }
+   .category-list::before { content: '\21D2\A0'; font-size: 1.2em; font-weight: 900; }
+   .category-list li { display: inline; }
+   .category-list li:not(:last-child)::after { content: ', '; }
+   .category-list li > span, .category-list li > a { text-transform: lowercase; }
+   .category-list li * { text-transform: none; } /* don't affect <code> nested in <a> */
+
+   .XXX { color: #E50000; background: white; border: solid red; padding: 0.5em; margin: 1em 0; }
+   .XXX > :first-child { margin-top: 0; }
+   p .XXX { line-height: 3em; }
+   .annotation { border: solid thin black; background: #0C479D; color: white; position: relative; margin: 8px 0 20px 0; }
+   .annotation:before { position: absolute; left: 0; top: 0; width: 100%; height: 100%; margin: 6px -6px -6px 6px; background: #333333; z-index: -1; content: ''; }
+   .annotation :link, .annotation :visited { color: inherit; }
+   .annotation :link:hover, .annotation :visited:hover { background: transparent; }
+   .annotation span { border: none ! important; }
+   .note { color: green; background: transparent; font-family: sans-serif; }
+   .warning { color: red; background: transparent; }
+   .note, .warning { font-weight: bolder; font-style: italic; }
+   p.note, div.note { padding: 0.5em 2em; }
+   span.note { padding: 0 2em; }
+   .note p:first-child, .warning p:first-child { margin-top: 0; }
+   .note p:last-child, .warning p:last-child { margin-bottom: 0; }
+   .warning:before { font-style: normal; }
+   p.note:before { content: 'Note: '; }
+   p.warning:before { content: '\26A0 Warning! '; }
+
+   .bookkeeping:before { display: block; content: 'Bookkeeping details'; font-weight: bolder; font-style: italic; }
+   .bookkeeping { font-size: 0.8em; margin: 2em 0; }
+   .bookkeeping p { margin: 0.5em 2em; display: list-item; list-style: square; }
+   .bookkeeping dt { margin: 0.5em 2em 0; }
+   .bookkeeping dd { margin: 0 3em 0.5em; }
+
+   h4 { position: relative; z-index: 3; }
+   h4 + .element, h4 + div + .element { margin-top: -2.5em; padding-top: 2em; }
+   .element {
+     background: #EEEEFF;
+     color: black;
+     margin: 0 0 1em 0.15em;
+     padding: 0 1em 0.25em 0.75em;
+     border-left: solid #9999FF 0.25em;
+     position: relative;
+     z-index: 1;
+   }
+   .element:before {
+     position: absolute;
+     z-index: 2;
+     top: 0;
+     left: -1.15em;
+     height: 2em;
+     width: 0.9em;
+     background: #EEEEFF;
+     content: ' ';
+     border-style: none none solid solid;
+     border-color: #9999FF;
+     border-width: 0.25em;
+   }
+
+   .example { display: block; color: #222222; background: #FCFCFC; border-left: double; margin-left: 2em; padding-left: 1em; }
+   td > .example:only-child { margin: 0 0 0 0.1em; }
+
+   ul.domTree, ul.domTree ul { padding: 0 0 0 1em; margin: 0; }
+   ul.domTree li { padding: 0; margin: 0; list-style: none; position: relative; }
+   ul.domTree li li { list-style: none; }
+   ul.domTree li:first-child::before { position: absolute; top: 0; height: 0.6em; left: -0.75em; width: 0.5em; border-style: none none solid solid; content: ''; border-width: 0.1em; }
+   ul.domTree li:not(:last-child)::after { position: absolute; top: 0; bottom: -0.6em; left: -0.75em; width: 0.5em; border-style: none none solid solid; content: ''; border-width: 0.1em; }
+   ul.domTree span { font-style: italic; font-family: serif; }
+   ul.domTree .t1 code { color: purple; font-weight: bold; }
+   ul.domTree .t2 { font-style: normal; font-family: monospace; }
+   ul.domTree .t2 .name { color: black; font-weight: bold; }
+   ul.domTree .t2 .value { color: blue; font-weight: normal; }
+   ul.domTree .t3 code, .domTree .t4 code, .domTree .t5 code { color: gray; }
+   ul.domTree .t7 code, .domTree .t8 code { color: green; }
+   ul.domTree .t10 code { color: teal; }
+
+   body.dfnEnabled dfn { cursor: pointer; }
+   .dfnPanel {
+     display: inline;
+     position: absolute;
+     z-index: 10;
+     height: auto;
+     width: auto;
+     padding: 0.5em 0.75em;
+     font: small sans-serif, Droid Sans Fallback;
+     background: #DDDDDD;
+     color: black;
+     border: outset 0.2em;
+   }
+   .dfnPanel * { margin: 0; padding: 0; font: inherit; text-indent: 0; }
+   .dfnPanel :link, .dfnPanel :visited { color: black; }
+   .dfnPanel p { font-weight: bolder; }
+   .dfnPanel * + p { margin-top: 0.25em; }
+   .dfnPanel li { list-style-position: inside; }
+
+   #configUI { position: absolute; z-index: 20; top: 10em; right: 1em; width: 11em; font-size: small; }
+   #configUI p { margin: 0.5em 0; padding: 0.3em; background: #EEEEEE; color: black; border: inset thin; }
+   #configUI p label { display: block; }
+   #configUI #updateUI, #configUI .loginUI { text-align: center; }
+   #configUI input[type=button] { display: block; margin: auto; }
+
+   fieldset { margin: 1em; padding: 0.5em 1em; }
+   fieldset > legend + * { margin-top: 0; }
+   fieldset > :last-child { margin-bottom: 0; }
+   fieldset p { margin: 0.5em 0; }
+
+   .stability {
+     position: fixed;
+     bottom: 0;
+     left: 0; right: 0;
+     margin: 0 auto 0 auto;
+     width: 50%;
+     background: maroon; color: yellow;
+     -webkit-border-radius: 1em 1em 0 0;
+     -moz-border-radius: 1em 1em 0 0;
+     border-radius: 1em 1em 0 0;
+     -moz-box-shadow: 0 0 1em #500;
+     -webkit-box-shadow: 0 0 1em #500;
+     box-shadow: 0 0 1em red;
+     padding: 0.5em 1em;
+     text-align: center;
+   }
+   .stability strong {
+     display: block;
+   }
+   .stability input {
+     appearance: none; margin: 0; border: 0; padding: 0.25em 0.5em; background: transparent; color: black;
+     position: absolute; top: -0.5em; right: 0; font: 1.25em sans-serif; text-align: center;
+   }
+   .stability input:hover {
+     color: white;
+     text-shadow: 0 0 2px black;
+   }
+   .stability input:active {
+     padding: 0.3em 0.45em 0.2em 0.55em;
+   }
+   .stability :link, .stability :visited,
+   .stability :link:hover, .stability :visited:hover {
+     background: transparent;
+     color: white;
+   }
+
+  </style><link href="Overview_files/W3C-LC.css" rel="stylesheet" type="text/css"><link href="Overview_files/style.css" rel="stylesheet"><script src="Overview_files/link-fixup.js" type="text/javascript"></script><style type="text/css">
+
+   .applies thead th > * { display: block; }
+   .applies thead code { display: block; }
+   .applies tbody th { whitespace: nowrap; }
+   .applies td { text-align: center; }
+   .applies .yes { background: yellow; }
+
+   .matrix, .matrix td { border: hidden; text-align: right; }
+   .matrix { margin-left: 2em; }
+
+   .dice-example { border-collapse: collapse; border-style: hidden solid solid hidden; border-width: thin; margin-left: 3em; }
+   .dice-example caption { width: 30em; font-size: smaller; font-style: italic; padding: 0.75em 0; text-align: left; }
+   .dice-example td, .dice-example th { border: solid thin; width: 1.35em; height: 1.05em; text-align: center; padding: 0; }
+
+   td.eg { border-width: thin; text-align: center; }
+
+   #table-example-1 { border: solid thin; border-collapse: collapse; margin-left: 3em; }
+   #table-example-1 * { font-family: "Essays1743", serif; line-height: 1.01em; }
+   #table-example-1 caption { padding-bottom: 0.5em; }
+   #table-example-1 thead, #table-example-1 tbody { border: none; }
+   #table-example-1 th, #table-example-1 td { border: solid thin; }
+   #table-example-1 th { font-weight: normal; }
+   #table-example-1 td { border-style: none solid; vertical-align: top; }
+   #table-example-1 th { padding: 0.5em; vertical-align: middle; text-align: center; }
+   #table-example-1 tbody tr:first-child td { padding-top: 0.5em; }
+   #table-example-1 tbody tr:last-child td { padding-bottom: 1.5em; }
+   #table-example-1 tbody td:first-child { padding-left: 2.5em; padding-right: 0; width: 9em; }
+   #table-example-1 tbody td:first-child::after { content: leader(". "); }
+   #table-example-1 tbody td { padding-left: 2em; padding-right: 2em; }
+   #table-example-1 tbody td:first-child + td { width: 10em; }
+   #table-example-1 tbody td:first-child + td ~ td { width: 2.5em; }
+   #table-example-1 tbody td:first-child + td + td + td ~ td { width: 1.25em; }
+
+   .apple-table-examples { border: none; border-collapse: separate; border-spacing: 1.5em 0em; width: 40em; margin-left: 3em; }
+   .apple-table-examples * { font-family: "Times", serif; }
+   .apple-table-examples td, .apple-table-examples th { border: none; white-space: nowrap; padding-top: 0; padding-bottom: 0; }
+   .apple-table-examples tbody th:first-child { border-left: none; width: 100%; }
+   .apple-table-examples thead th:first-child ~ th { font-size: smaller; font-weight: bolder; border-bottom: solid 2px; text-align: center; }
+   .apple-table-examples tbody th::after, .apple-table-examples tfoot th::after { content: leader(". ") }
+   .apple-table-examples tbody th, .apple-table-examples tfoot th { font: inherit; text-align: left; }
+   .apple-table-examples td { text-align: right; vertical-align: top; }
+   .apple-table-examples.e1 tbody tr:last-child td { border-bottom: solid 1px; }
+   .apple-table-examples.e1 tbody + tbody tr:last-child td { border-bottom: double 3px; }
+   .apple-table-examples.e2 th[scope=row] { padding-left: 1em; }
+   .apple-table-examples sup { line-height: 0; }
+
+   .details-example img { vertical-align: top; }
+
+   #base64-table {
+     white-space: nowrap;
+     font-size: 0.6em;
+     column-width: 6em;
+     column-count: 5;
+     column-gap: 1em;
+     -moz-column-width: 6em;
+     -moz-column-count: 5;
+     -moz-column-gap: 1em;
+     -webkit-column-width: 6em;
+     -webkit-column-count: 5;
+     -webkit-column-gap: 1em;
+   }
+   #base64-table thead { display: none; }
+   #base64-table * { border: none; }
+   #base64-table tbody td:first-child:after { content: ':'; }
+   #base64-table tbody td:last-child { text-align: right; }
+
+   #named-character-references-table {
+     white-space: nowrap;
+     font-size: 0.6em;
+     column-width: 30em;
+     column-gap: 1em;
+     -moz-column-width: 30em;
+     -moz-column-gap: 1em;
+     -webkit-column-width: 30em;
+     -webkit-column-gap: 1em;
+   }
+   #named-character-references-table > table > tbody > tr > td:first-child + td,
+   #named-character-references-table > table > tbody > tr > td:last-child { text-align: center; }
+   #named-character-references-table > table > tbody > tr > td:last-child:hover > span { position: absolute; top: auto; left: auto; margin-left: 0.5em; line-height: 1.2; font-size: 5em; border: outset; padding: 0.25em 0.5em; background: white; width: 1.25em; height: auto; text-align: center; }
+   #named-character-references-table > table > tbody > tr#entity-CounterClockwiseContourIntegral > td:first-child { font-size: 0.5em; }
+
+   .glyph.control { color: red; }
+
+   @font-face {
+     font-family: 'Essays1743';
+     src: url('http://www.whatwg.org/specs/web-apps/current-work/fonts/Essays1743.ttf');
+   }
+   @font-face {
+     font-family: 'Essays1743';
+     font-weight: bold;
+     src: url('http://www.whatwg.org/specs/web-apps/current-work/fonts/Essays1743-Bold.ttf');
+   }
+   @font-face {
+     font-family: 'Essays1743';
+     font-style: italic;
+     src: url('http://www.whatwg.org/specs/web-apps/current-work/fonts/Essays1743-Italic.ttf');
+   }
+   @font-face {
+     font-family: 'Essays1743';
+     font-style: italic;
+     font-weight: bold;
+     src: url('http://www.whatwg.org/specs/web-apps/current-work/fonts/Essays1743-BoldItalic.ttf');
+   }
+
+  </style><script type="text/javascript">
+ function getCookie(name) {
+   var params = location.search.substr(1).split("&");
+   for (var index = 0; index < params.length; index++) {
+     if (params[index] == name)
+       return "1";
+     var data = params[index].split("=");
+     if (data[0] == name)
+       return unescape(data[1]);
+   }
+   var cookies = document.cookie.split("; ");
+   for (var index = 0; index < cookies.length; index++) {
+     var data = cookies[index].split("=");
+     if (data[0] == name)
+       return unescape(data[1]);
+   }
+   return null;
+ }
+ function load(script) {
+   var e = document.createElement('script');
+   e.setAttribute('src', script + '?' + encodeURIComponent(location) + '&' + encodeURIComponent(document.referrer));
+   document.body.appendChild(e);
+ }
+ function init() {
+   if (location.search == '?slow-browser')
+     return;
+   var configUI = document.createElement('div');
+   configUI.id = 'configUI';
+   document.body.appendChild(configUI);
+   if (document.getElementById('head'))
+     load('toc.js');
+   load('dfn.js');
+   if (getCookie('profile') == '1')
+     document.getElementsByTagName('h2')[0].textContent += '; load: ' + (new Date() - loadTimer) + 'ms';
+   fixBrokenLink();
+ }
+</script><script src="Overview_files/dfn.js" type="text/javascript"></script><script src="Overview_files/toc.js" type="text/javascript"></script><style type="text/css" charset="utf-8">/* See license.txt for terms of usage */
+/** reset styling **/
+.firebugResetStyles {
+    z-index: 2147483646 !important;
+    top: 0 !important;
+    left: 0 !important;
+    display: block !important;
+    border: 0 none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    outline: 0 !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    position: fixed !important;
+    -moz-transform: rotate(0deg) !important;
+    -moz-transform-origin: 50% 50% !important;
+    -moz-border-radius: 0 !important;
+    -moz-box-shadow: none !important;
+    background-image: none !important;
+    pointer-events: none !important;
+}
+
+.firebugBlockBackgroundColor {
+    background-color: transparent !important;
+}
+
+.firebugResetStyles:before, .firebugResetStyles:after {
+    content: "" !important;
+}
+/**actual styling to be modified by firebug theme**/
+.firebugCanvas {
+    display: none !important;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+.firebugLayoutBox {
+    width: auto !important;
+    position: static !important;
+}
+
+.firebugLayoutBoxOffset {
+    opacity: 0.8 !important;
+    position: fixed !important;
+}
+
+.firebugLayoutLine {
+    opacity: 0.4 !important;
+    background-color: #000000 !important;
+}
+
+.firebugLayoutLineLeft, .firebugLayoutLineRight {
+    width: 1px !important;
+    height: 100% !important;
+}
+
+.firebugLayoutLineTop, .firebugLayoutLineBottom {
+    width: 100% !important;
+    height: 1px !important;
+}
+
+.firebugLayoutLineTop {
+    margin-top: -1px !important;
+    border-top: 1px solid #999999 !important;
+}
+
+.firebugLayoutLineRight {
+    border-right: 1px solid #999999 !important;
+}
+
+.firebugLayoutLineBottom {
+    border-bottom: 1px solid #999999 !important;
+}
+
+.firebugLayoutLineLeft {
+    margin-left: -1px !important;
+    border-left: 1px solid #999999 !important;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+.firebugLayoutBoxParent {
+    border-top: 0 none !important;
+    border-right: 1px dashed #E00 !important;
+    border-bottom: 1px dashed #E00 !important;
+    border-left: 0 none !important;
+    position: fixed !important;
+    width: auto !important;
+}
+
+.firebugRuler{
+    position: absolute !important;
+}
+
+.firebugRulerH {
+    top: -15px !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 14px !important;
+    background: url("data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%13%88%00%00%00%0E%08%02%00%00%00L%25a%0A%00%00%00%04gAMA%00%00%D6%D8%D4OX2%00%00%00%19tEXtSoftware%00Adobe%20ImageReadyq%C9e%3C%00%00%04%F8IDATx%DA%EC%DD%D1n%E2%3A%00E%D1%80%F8%FF%EF%E2%AF2%95%D0D4%0E%C1%14%B0%8Fa-%E9%3E%CC%9C%87n%B9%81%A6W0%1C%A6i%9A%E7y%0As8%1CT%A9R%A5J%95*U%AAT%A9R%A5J%95*U%AAT%A9R%A5J%95*U%AAT%A9R%A5J%95*U%AAT%A9R%A5J%95*U%AAT%A9R%A5J%95*U%AAT%A9R%A5J%95*U%AATE9%FE%FCw%3E%9F%AF%2B%2F%BA%97%FDT%1D~K(%5C%9D%D5%EA%1B%5C%86%B5%A9%BDU%B5y%80%ED%AB*%03%FAV9%AB%E1%CEj%E7%82%EF%FB%18%BC%AEJ8%AB%FA'%D2%BEU9%D7U%ECc0%E1%A2r%5DynwVi%CFW%7F%BB%17%7Dy%EACU%CD%0E%F0%FA%3BX%FEbV%FEM%9B%2B%AD%BE%AA%E5%95v%AB%AA%E3E5%DCu%15rV9%07%B5%7F%B5w%FCm%BA%BE%AA%FBY%3D%14%F0%EE%C7%60%0EU%AAT%A9R%A5J%95*U%AAT%A9R%A5J%95*U%AAT%A9R%A5J%95*U%AAT%A9R%A5J%95*U%AAT%A9R%A5JU%88%D3%F5%1F%AE%DF%3B%1B%F2%3E%DAUCNa%F92%D02%AC%7Dm%F9%3A%D4%F2%8B6%AE*%BF%5C%C2Ym~9g5%D0Y%95%17%7C%C8c%B0%7C%18%26%9CU%CD%13i%F7%AA%90%B3Z%7D%95%B4%C7%60%E6E%B5%BC%05%B4%FBY%95U%9E%DB%FD%1C%FC%E0%9F%83%7F%BE%17%7DkjMU%E3%03%AC%7CWj%DF%83%9An%BCG%AE%F1%95%96yQ%0Dq%5Dy%00%3Et%B5'%FC6%5DS%95pV%95%01%81%FF'%07%00%00%00%00%00%00%00%00%00%F8x%C7%F0%BE%9COp%5D%C9%7C%AD%E7%E6%EBV%FB%1E%E0(%07%E5%AC%C6%3A%ABi%9C%8F%C6%0E9%AB%C0'%D2%8E%9F%F99%D0E%B5%99%14%F5%0D%CD%7F%24%C6%DEH%B8%E9rV%DFs%DB%D0%F7%00k%FE%1D%84%84%83J%B8%E3%BA%FB%EF%20%84%1C%D7%AD%B0%8E%D7U%C8Y%05%1E%D4t%EF%AD%95Q%BF8w%BF%E9%0A%BF%EB%03%00%00%00%00%00%00%00%00%00%B8vJ%8E%BB%F5%B1u%8Cx%80%E1o%5E%CA9%AB%CB%CB%8E%03%DF%1D%B7T%25%9C%D5(%EFJM8%AB%CC'%D2%B2*%A4s%E7c6%FB%3E%FA%A2%1E%80~%0E%3E%DA%10x%5D%95Uig%15u%15%ED%7C%14%B6%87%A1%3B%FCo8%A8%D8o%D3%ADO%01%EDx%83%1A~%1B%9FpP%A3%DC%C6'%9C%95gK%00%00%00%00%00%00%00%00%00%20%D9%C9%11%D0%C0%40%AF%3F%EE%EE%92%94%D6%16X%B5%BCMH%15%2F%BF%D4%A7%C87%F1%8E%F2%81%AE%AAvzr%DA2%ABV%17%7C%E63%83%E7I%DC%C6%0Bs%1B%EF6%1E%00%00%00%00%00%00%00%00%00%80cr%9CW%FF%7F%C6%01%0E%F1%CE%A5%84%B3%CA%BC%E0%CB%AA%84%CE%F9%BF)%EC%13%08WU%AE%AB%B1%AE%2BO%EC%8E%CBYe%FE%8CN%ABr%5Dy%60~%CFA%0D%F4%AE%D4%BE%C75%CA%EDVB%EA(%B7%F1%09g%E5%D9%12%00%00%00%00%00%00%00%00%00H%F6%EB%13S%E7y%5E%5E%FB%98%F0%22%D1%B2'%A7%F0%92%B1%BC%24z3%AC%7Dm%60%D5%92%B4%7CEUO%5E%F0%AA*%3BU%B9%AE%3E%A0j%94%07%A0%C7%A0%AB%FD%B5%3F%A0%F7%03T%3Dy%D7%F7%D6%D4%C0%AAU%D2%E6%DFt%3F%A8%CC%AA%F2%86%B9%D7%F5%1F%18%E6%01%F8%CC%D5%9E%F0%F3z%88%AA%90%EF%20%00%00%00%00%00%00%00%00%00%C0%A6%D3%EA%CFi%AFb%2C%7BB%0A%2B%C3%1A%D7%06V%D5%07%A8r%5D%3D%D9%A6%CAu%F5%25%CF%A2%99%97zNX%60%95%AB%5DUZ%D5%FBR%03%AB%1C%D4k%9F%3F%BB%5C%FF%81a%AE%AB'%7F%F3%EA%FE%F3z%94%AA%D8%DF%5B%01%00%00%00%00%00%00%00%00%00%8E%FB%F3%F2%B1%1B%8DWU%AAT%A9R%A5J%95*U%AAT%A9R%A5J%95*U%AAT%A9R%A5J%95*U%AAT%A9R%A5J%95*U%AAT%A9R%A5J%95*U%AAT%A9R%A5J%95*U%AAT%A9R%A5J%95*UiU%C7%BBe%E7%F3%B9%CB%AAJ%95*U%AAT%A9R%A5J%95*U%AAT%A9R%A5J%95*U%AAT%A9R%A5J%95*U%AAT%A9R%A5J%95*U%AAT%A9R%A5J%95*U%AAT%A9R%A5J%95*U%AAT%A9R%A5*%AAj%FD%C6%D4%5Eo%90%B5Z%ADV%AB%D5j%B5Z%ADV%AB%D5j%B5Z%ADV%AB%D5j%B5Z%ADV%AB%D5j%B5Z%ADV%AB%D5j%B5Z%ADV%AB%D5j%B5Z%ADV%AB%D5j%B5%86%AF%1B%9F%98%DA%EBm%BBV%AB%D5j%B5Z%ADV%AB%D5j%B5Z%ADV%AB%D5j%B5Z%ADV%AB%D5j%B5Z%ADV%AB%D5j%B5Z%ADV%AB%D5j%B5Z%ADV%AB%D5j%B5Z%AD%D6%E4%F58%01%00%00%00%00%00%00%00%00%00%00%00%00%00%40%85%7F%02%0C%008%C2%D0H%16j%8FX%00%00%00%00IEND%AEB%60%82") repeat-x !important;
+    border-top: 1px solid #BBBBBB !important;
+    border-right: 1px dashed #BBBBBB !important;
+    border-bottom: 1px solid #000000 !important;
+}
+
+.firebugRulerV {
+    top: 0 !important;
+    left: -15px !important;
+    width: 14px !important;
+    height: 100% !important;
+    background: url("data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%0E%00%00%13%88%08%02%00%00%00%0E%F5%CB%10%00%00%00%04gAMA%00%00%D6%D8%D4OX2%00%00%00%19tEXtSoftware%00Adobe%20ImageReadyq%C9e%3C%00%00%06~IDATx%DA%EC%DD%D1v%A20%14%40Qt%F1%FF%FF%E4%97%D9%07%3BT%19%92%DC%40(%90%EEy%9A5%CB%B6%E8%F6%9Ac%A4%CC0%84%FF%DC%9E%CF%E7%E3%F1%88%DE4%F8%5D%C7%9F%2F%BA%DD%5E%7FI%7D%F18%DDn%BA%C5%FB%DF%97%BFk%F2%10%FF%FD%B4%F2M%A7%FB%FD%FD%B3%22%07p%8F%3F%AE%E3%F4S%8A%8F%40%EEq%9D%BE8D%F0%0EY%A1Uq%B7%EA%1F%81%88V%E8X%3F%B4%CEy%B7h%D1%A2E%EBohU%FC%D9%AF2fO%8BBeD%BE%F7X%0C%97%A4%D6b7%2Ck%A5%12%E3%9B%60v%B7r%C7%1AI%8C%BD%2B%23r%00c0%B2v%9B%AD%CA%26%0C%1Ek%05A%FD%93%D0%2B%A1u%8B%16-%95q%5Ce%DCSO%8E%E4M%23%8B%F7%C2%FE%40%BB%BD%8C%FC%8A%B5V%EBu%40%F9%3B%A72%FA%AE%8C%D4%01%CC%B5%DA%13%9CB%AB%E2I%18%24%B0n%A9%0CZ*Ce%9C%A22%8E%D8NJ%1E%EB%FF%8F%AE%CAP%19*%C3%BAEKe%AC%D1%AAX%8C*%DEH%8F%C5W%A1e%AD%D4%B7%5C%5B%19%C5%DB%0D%EF%9F%19%1D%7B%5E%86%BD%0C%95%A12%AC%5B*%83%96%CAP%19%F62T%86%CAP%19*%83%96%CA%B8Xe%BC%FE)T%19%A1%17xg%7F%DA%CBP%19*%C3%BA%A52T%86%CAP%19%F62T%86%CA%B0n%A9%0CZ%1DV%C6%3D%F3%FCH%DE%B4%B8~%7F%5CZc%F1%D6%1F%AF%84%F9%0F6%E6%EBVt9%0E~%BEr%AF%23%B0%97%A12T%86%CAP%19%B4T%86%CA%B8Re%D8%CBP%19*%C3%BA%A52huX%19%AE%CA%E5%BC%0C%7B%19*CeX%B7h%A9%0C%95%E1%BC%0C%7B%19*CeX%B7T%06%AD%CB%5E%95%2B%BF.%8F%C5%97%D5%E4%7B%EE%82%D6%FB%CF-%9C%FD%B9%CF%3By%7B%19%F62T%86%CA%B0n%D1R%19*%A3%D3%CA%B0%97%A12T%86uKe%D0%EA%B02*%3F1%99%5DB%2B%A4%B5%F8%3A%7C%BA%2B%8Co%7D%5C%EDe%A8%0C%95a%DDR%19%B4T%C66%82fA%B2%ED%DA%9FC%FC%17GZ%06%C9%E1%B3%E5%2C%1A%9FoiB%EB%96%CA%A0%D5qe4%7B%7D%FD%85%F7%5B%ED_%E0s%07%F0k%951%ECr%0D%B5C%D7-g%D1%A8%0C%EB%96%CA%A0%A52T%C6)*%C3%5E%86%CAP%19%D6-%95A%EB*%95q%F8%BB%E3%F9%AB%F6%E21%ACZ%B7%22%B7%9B%3F%02%85%CB%A2%5B%B7%BA%5E%B7%9C%97%E1%BC%0C%EB%16-%95%A12z%AC%0C%BFc%A22T%86uKe%D0%EA%B02V%DD%AD%8A%2B%8CWhe%5E%AF%CF%F5%3B%26%CE%CBh%5C%19%CE%CB%B0%F3%A4%095%A1%CAP%19*Ce%A8%0C%3BO*Ce%A8%0C%95%A12%3A%AD%8C%0A%82%7B%F0v%1F%2FD%A9%5B%9F%EE%EA%26%AF%03%CA%DF9%7B%19*Ce%A8%0C%95%A12T%86%CA%B8Ze%D8%CBP%19*Ce%A8%0C%95%D1ae%EC%F7%89I%E1%B4%D7M%D7P%8BjU%5C%BB%3E%F2%20%D8%CBP%19*Ce%A8%0C%95%A12T%C6%D5*%C3%5E%86%CAP%19*Ce%B4O%07%7B%F0W%7Bw%1C%7C%1A%8C%B3%3B%D1%EE%AA%5C%D6-%EBV%83%80%5E%D0%CA%10%5CU%2BD%E07YU%86%CAP%19*%E3%9A%95%91%D9%A0%C8%AD%5B%EDv%9E%82%FFKOee%E4%8FUe%A8%0C%95%A12T%C6%1F%A9%8C%C8%3D%5B%A5%15%FD%14%22r%E7B%9F%17l%F8%BF%ED%EAf%2B%7F%CF%ECe%D8%CBP%19*Ce%A8%0C%95%E1%93~%7B%19%F62T%86%CAP%19*Ce%A8%0C%E7%13%DA%CBP%19*Ce%A8%0CZf%8B%16-Z%B4h%D1R%19f%8B%16-Z%B4h%D1R%19%B4%CC%16-Z%B4h%D1R%19%B4%CC%16-Z%B4h%D1%A2%A52%CC%16-Z%B4h%D1%A2%A52h%99-Z%B4h%D1%A2%A52h%99-Z%B4h%D1%A2EKe%98-Z%B4h%D1%A2EKe%D02%5B%B4h%D1%A2EKe%D02%5B%B4h%D1%A2E%8B%96%CA0%5B%B4h%D1%A2E%8B%96%CA%A0e%B6h%D1%A2E%8B%96%CA%A0e%B6h%D1%A2E%8B%16-%95a%B6h%D1%A2E%8B%16-%95A%CBl%D1%A2E%8B%16-%95A%CBl%D1%A2E%8B%16-Z*%C3l%D1%A2E%8B%16-Z*%83%96%D9%A2E%8B%16-Z*%83%96%D9%A2E%8B%16-Z%B4T%86%D9%A2E%8B%16-Z%B4T%06-%B3E%8B%16-Z%B4T%06-%B3E%8B%16-Z%B4h%A9%0C%B3E%8B%16-Z%B4h%A9%0CZf%8B%16-Z%B4h%A9%0CZf%8B%16-Z%B4h%D1R%19f%8B%16-Z%B4h%D1R%19%B4%CC%16-Z%B4h%D1R%19%B4%CC%16-Z%B4h%D1%A2%A52%CC%16-Z%B4h%D1%A2%A52h%99-Z%B4h%D1%A2%A52h%99-Z%B4h%D1%A2EKe%98-Z%B4h%D1%A2EKe%D02%5B%B4h%D1%A2EKe%D02%5B%B4h%D1%A2E%8B%96%CA0%5B%B4h%D1%A2E%8B%96%CA%A0e%B6h%D1%A2E%8B%96%CA%A0e%B6h%D1%A2E%8B%16-%95a%B6h%D1%A2E%8B%16-%95A%CBl%D1%A2E%8B%16-%95A%CBl%D1%A2E%8B%16-Z*%C3l%D1%A2E%8B%16-Z*%83%96%D9%A2E%8B%16-Z*%83%96%D9%A2E%8B%16-Z%B4T%86%D9%A2E%8B%16-Z%B4T%06-%B3E%8B%16-Z%B4T%06-%B3E%8B%16-Z%B4h%A9%0C%B3E%8B%16-Z%B4h%A9%0CZf%8B%16-Z%B4h%A9%0CZf%8B%16-Z%B4h%D1R%19f%8B%16-Z%B4h%D1R%19%B4%CC%16-Z%B4h%D1R%19%B4%CC%16-Z%B4h%D1%A2%A52%CC%16-Z%B4h%D1%A2%A52h%99-Z%B4h%D1%A2%A52h%99-Z%B4h%D1%A2EKe%98-Z%B4h%D1%A2EKe%D02%5B%B4h%D1%A2EKe%D02%5B%B4h%D1%A2E%8B%96%CA0%5B%B4h%D1%A2E%8B%96%CA%A0e%B6h%D1%A2E%8B%96%CA%A0e%B6h%D1%A2E%8B%16-%95a%B6h%D1%A2E%8B%16-%95A%CBl%D1%A2E%8B%16-%95A%CBl%D1%A2E%8B%16-Z*%C3l%D1%A2E%8B%16-Z*%83%96%D9%A2E%8B%16-Z*%83%96%D9%A2E%8B%16-Z%B4T%86%D9%A2E%8B%16-Z%B4T%06-%B3E%8B%16-Z%B4%AE%A4%F5%25%C0%00%DE%BF%5C'%0F%DA%B8q%00%00%00%00IEND%AEB%60%82") repeat-y !important;
+    border-left: 1px solid #BBBBBB !important;
+    border-right: 1px solid #000000 !important;
+    border-bottom: 1px dashed #BBBBBB !important;
+}
+
+.overflowRulerX > .firebugRulerV {
+    left: 0 !important;
+}
+
+.overflowRulerY > .firebugRulerH {
+    top: 0 !important;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+.fbProxyElement {
+    position: absolute !important;
+    pointer-events: auto !important;
+}</style></head><body onload="initToc()" class="split index"><div class="head" id="head">
+<div aria-haspopup="true" id="jumpIndexA-button" role="button" tabindex="0">jump<div style="display: none;" id="jumpIndexA"><ul><li><a class="noindex" href="http://www.w3.org/TR/html5/author/the-a-element.html#the-a-element">a</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-abbr-element.html#the-abbr-element">abbr</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-address-element.html#the-address-element">address</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-area-element.html#the-area-element">area</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-article-element.html#the-article-element">article</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-aside-element.html#the-aside-element">aside</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-audio-element.html#the-audio-element">audio</a></li></ul><ul><li><a class="noindex" href="http://www.w3.org/TR/html5/author/the-b-element.html#the-b-element">b</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-base-element.html#the-base-element">base</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-bdi-element.html#the-bdi-element">bdi</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-bdo-element.html#the-bdo-element">bdo</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-blockquote-element.html#the-blockquote-element">blockquote</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-body-element.html#the-body-element">body</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-br-element.html#the-br-element">br</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-button-element.html#the-button-element">button</a></li></ul><ul><li><a class="noindex" href="http://www.w3.org/TR/html5/author/the-canvas-element.html#the-canvas-element">canvas</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-caption-element.html#the-caption-element">caption</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-cite-element.html#the-cite-element">cite</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-code-element.html#the-code-element">code</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-col-element.html#the-col-element">col</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-colgroup-element.html#the-colgroup-element">colgroup</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-command-element.html#the-command-element">command</a></li></ul><ul><li><a class="noindex" href="http://www.w3.org/TR/html5/author/the-datalist-element.html#the-datalist-element">datalist</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-dd-element.html#the-dd-element">dd</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-del-element.html#the-del-element">del</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-details-element.html#the-details-element">details</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-dfn-element.html#the-dfn-element">dfn</a><a class="full-spec-link" href="http://dev.w3.org/html5/spec/.html#the-dir-element" title="Read about this &quot;dir&quot; reference in the full HTML5 spec.">dir</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-div-element.html#the-div-element">div</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-dl-element.html#the-dl-element">dl</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-dt-element.html#the-dt-element">dt</a></li></ul><ul><li><a class="noindex" href="http://www.w3.org/TR/html5/author/the-em-element.html#the-em-element">em</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-embed-element.html#the-embed-element">embed</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-fieldset-element.html#the-fieldset-element">fieldset</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-figcaption-element.html#the-figcaption-element">figcaption</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-figure-element.html#the-figure-element">figure</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-footer-element.html#the-footer-element">footer</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-form-element.html#the-form-element">form</a></li></ul><ul><li><a class="noindex" href="http://www.w3.org/TR/html5/author/the-h1-h2-h3-h4-h5-and-h6-elements.html#the-h1-h2-h3-h4-h5-and-h6-elements">h1</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-h1-h2-h3-h4-h5-and-h6-elements.html#the-h1-h2-h3-h4-h5-and-h6-elements">h2</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-h1-h2-h3-h4-h5-and-h6-elements.html#the-h1-h2-h3-h4-h5-and-h6-elements">h3</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-h1-h2-h3-h4-h5-and-h6-elements.html#the-h1-h2-h3-h4-h5-and-h6-elements">h4</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-h1-h2-h3-h4-h5-and-h6-elements.html#the-h1-h2-h3-h4-h5-and-h6-elements">h5</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-h1-h2-h3-h4-h5-and-h6-elements.html#the-h1-h2-h3-h4-h5-and-h6-elements">h6</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-head-element.html#the-head-element">head</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-header-element.html#the-header-element">header</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-hgroup-element.html#the-hgroup-element">hgroup</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-hr-element.html#the-hr-element">hr</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-html-element.html#the-html-element">html</a></li></ul><ul><li><a class="noindex" href="http://www.w3.org/TR/html5/author/the-i-element.html#the-i-element">i</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-iframe-element.html#the-iframe-element">iframe</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-img-element.html#the-img-element">img</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-input-element.html#the-input-element">input</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-ins-element.html#the-ins-element">ins</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-kbd-element.html#the-kbd-element">kbd</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-keygen-element.html#the-keygen-element">keygen</a></li></ul><ul><li><a class="noindex" href="http://www.w3.org/TR/html5/author/the-label-element.html#the-label-element">label</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-legend-element.html#the-legend-element">legend</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-li-element.html#the-li-element">li</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-link-element.html#the-link-element">link</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-map-element.html#the-map-element">map</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-mark-element.html#the-mark-element">mark</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-menu-element.html#the-menu-element">menu</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-meta-element.html#the-meta-element">meta</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-meter-element.html#the-meter-element">meter</a></li></ul><ul><li><a class="noindex" href="http://www.w3.org/TR/html5/author/the-nav-element.html#the-nav-element">nav</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-noscript-element.html#the-noscript-element">noscript</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-object-element.html#the-object-element">object</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-ol-element.html#the-ol-element">ol</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-optgroup-element.html#the-optgroup-element">optgroup</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-option-element.html#the-option-element">option</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-output-element.html#the-output-element">output</a></li></ul><ul><li><a class="noindex" href="http://www.w3.org/TR/html5/author/the-p-element.html#the-p-element">p</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-param-element.html#the-param-element">param</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-pre-element.html#the-pre-element">pre</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-progress-element.html#the-progress-element">progress</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-q-element.html#the-q-element">q</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-rp-element.html#the-rp-element">rp</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-rt-element.html#the-rt-element">rt</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-ruby-element.html#the-ruby-element">ruby</a></li></ul><ul><li><a class="noindex" href="http://www.w3.org/TR/html5/author/the-s-element.html#the-s-element">s</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-samp-element.html#the-samp-element">samp</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-script-element.html#the-script-element">script</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-section-element.html#the-section-element">section</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-select-element.html#the-select-element">select</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-small-element.html#the-small-element">small</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-source-element.html#the-source-element">source</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-span-element.html#the-span-element">span</a></li></ul><ul><li><a class="noindex" href="http://www.w3.org/TR/html5/author/the-strong-element.html#the-strong-element">strong</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-style-element.html#the-style-element">style</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-sub-and-sup-elements.html#the-sub-and-sup-elements">sub</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-summary-element.html#the-summary-element">summary</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-sub-and-sup-elements.html#the-sub-and-sup-elements">sup</a></li></ul><ul><li><a class="noindex" href="http://www.w3.org/TR/html5/author/the-table-element.html#the-table-element">table</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-tbody-element.html#the-tbody-element">tbody</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-td-element.html#the-td-element">td</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-textarea-element.html#the-textarea-element">textarea</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-tfoot-element.html#the-tfoot-element">tfoot</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-th-element.html#the-th-element">th</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-thead-element.html#the-thead-element">thead</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-time-element.html#the-time-element">time</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-title-element.html#the-title-element">title</a></li></ul><ul><li><a class="noindex" href="http://www.w3.org/TR/html5/author/the-tr-element.html#the-tr-element">tr</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-track-element.html#the-track-element">track</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-u-element.html#the-u-element">u</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-ul-element.html#the-ul-element">ul</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-var-element.html#the-var-element">var</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-video-element.html#the-video-element">video</a><a class="noindex" href="http://www.w3.org/TR/html5/author/the-wbr-element.html#the-wbr-element">wbr</a></li></ul><ul class="jumpIndexA-other"><li><a class="noindex" href="http://www.w3.org/TR/html5/author/global-attributes.html#global-attributes">global attributes</a><a class="noindex" href="http://www.w3.org/TR/html5/author/index-of-terms.html#index-of-terms">terms</a></li></ul></div></div>
+<script src="Overview_files/jump-indexes.js"></script><p><a href="http://www.w3.org/"><img alt="W3C" src="Overview_files/w3c_home.png" height="48" width="72"></a></p>
+
+   <h1>HTML5 <span class="edition">Edition for Web Authors</span> <span class="rcsrevision">revision 1.4946</span></h1>
+   
+   <h2 class="no-num no-toc" id="w3c-working-draft-24-may-2011">W3C Working Draft 24 May 2011</h2>
+   <dl><dt>This Version:</dt>
+    <dd><a href="http://www.w3.org/TR/2011/WD-html5-20110524/">http://www.w3.org/TR/2011/WD-html5-20110524/</a></dd>
+    <dt>Latest Published Version:</dt>
+    <dd><a href="http://www.w3.org/TR/html5/author/">http://www.w3.org/TR/html5/author/</a></dd>
+    <dt>Latest Editor's Draft:</dt>
+    <dd><a href="http://dev.w3.org/html5/spec-author-view/">http://dev.w3.org/html5/spec-author-view/</a></dd>
+
+    <dt>Previous Versions:</dt>
+    <dd><a href="http://www.w3.org/TR/2011/WD-html5-20110405/">http://www.w3.org/TR/2011/WD-html5-20110405/</a></dd>
+    <dd><a href="http://www.w3.org/TR/2011/WD-html5-20110113/">http://www.w3.org/TR/2011/WD-html5-20110113/</a></dd>
+    <dd><a href="http://www.w3.org/TR/2010/WD-html5-20101019/">http://www.w3.org/TR/2010/WD-html5-20101019/</a></dd>
+    <dd><a href="http://www.w3.org/TR/2010/WD-html5-20100624/">http://www.w3.org/TR/2010/WD-html5-20100624/</a></dd>
+    <dd><a href="http://www.w3.org/TR/2010/WD-html5-20100304/">http://www.w3.org/TR/2010/WD-html5-20100304/</a></dd>
+    <dd><a href="http://www.w3.org/TR/2009/WD-html5-20090825/">http://www.w3.org/TR/2009/WD-html5-20090825/</a></dd>
+    <dd><a href="http://www.w3.org/TR/2009/WD-html5-20090423/">http://www.w3.org/TR/2009/WD-html5-20090423/</a></dd>
+    <dd><a href="http://www.w3.org/TR/2009/WD-html5-20090212/">http://www.w3.org/TR/2009/WD-html5-20090212/</a></dd>
+    <dd><a href="http://www.w3.org/TR/2008/WD-html5-20080610/">http://www.w3.org/TR/2008/WD-html5-20080610/</a></dd>
+    <dd><a href="http://www.w3.org/TR/2008/WD-html5-20080122/">http://www.w3.org/TR/2008/WD-html5-20080122/</a></dd>
+<!-- :ZZZ -->
+    <dt>Editor:</dt>
+    <dd><a href="mailto:ian@hixie.ch">Ian Hickson</a>, Google, Inc.</dd>
+   </dl><p>This specification is available in the following formats: <a href="http://www.w3.org/TR/html5/author/spec.html">single page HTML</a>, <a href="http://www.w3.org/TR/html5/author/Overview.html">multipage HTML</a>, <a href="http://dev.w3.org/html5/spec/">full specification</a>.
+      This is revision 1.4946.</p> 
+     <p class="copyright"><a href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a>
+   © 2011 <a href="http://www.w3.org/"><abbr title="World Wide
+   Web Consortium">W3C</abbr></a><sup>®</sup> (<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts
+   Institute of Technology">MIT</abbr></a>, <a href="http://www.ercim.org/"><abbr title="European Research
+   Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="http://www.keio.ac.jp/">Keio</a>), All Rights Reserved. W3C
+   <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
+   <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a>
+   and <a href="http://www.w3.org/Consortium/Legal/copyright-documents">document
+   use</a> rules apply.</p>
+
+
+   <!-- UNDER NO CIRCUMSTANCES IS THE FOLLOWING PARAGRAPH TO BE REMOVED OR EDITED WITHOUT TALKING TO IAN FIRST -->
+   <p class="alt">The bulk of the text of this specification is also
+   available in the WHATWG <a href="http://www.whatwg.org/specs/web-apps/current-work/complete.html">Web Applications 1.0</a> specification, under a license that permits
+   reuse of the specification text.</p>
+   <!-- UNDER NO CIRCUMSTANCES IS THE PRECEDING PARAGRAPH TO BE REMOVED OR EDITED WITHOUT TALKING TO IAN FIRST -->
+
+
+  </div><hr class="top"><h2 class="no-num no-toc" id="abstract">Abstract</h2><p class="strong-note">This is a strict subset of
+      the
+      <a href="http://dev.w3.org/html5/spec/">HTML5 specification</a>
+      that omits user-agent (UA) implementation details. It is
+      targeted toward Web authors and others who are not UA
+      implementors and who want an informational view of the HTML
+      specification that focuses more precisely on details relevant to
+      using the HTML language to create Web documents and Web applications.
+      Because this document does not provide implementation conformance
+      criteria, UA implementors should not rely on it, but should instead
+      refer to the
+      <a href="http://dev.w3.org/html5/spec/">full HTML5 specification</a>.</p><p>This specification defines the 5th major revision of the core
+  language of the World Wide Web: the Hypertext Markup Language
+  (HTML). In this version, new features are introduced to help Web
+  application authors, new elements are introduced based on research
+  into prevailing authoring practices, and special attention has been
+  given to defining clear conformance criteria for user agents in an
+  effort to improve interoperability.</p><h2 class="no-num no-toc" id="status-of-this-document">Status of This document</h2><p><em>This section describes the status of this document at the
+  time of its publication. Other documents may supersede this
+  document. A list of current W3C publications and the most recently
+  formally published revision of this technical report can be found in
+  the <a href="http://www.w3.org/TR/">W3C technical reports index</a>
+  at http://www.w3.org/TR/.</em></p><p>If you wish to make comments regarding this document in a manner
+  that is tracked by the W3C, please submit them via using <a href="http://www.w3.org/Bugs/Public/enter_bug.cgi?product=HTML%20WG">our
+  public bug database</a>. If you do not have an account then you can
+  enter feedback using this form:</p><form action="http://www.whatwg.org/specs/web-apps/current-work/file-spam.cgi" method="post">
+   <fieldset><legend>Feedback Comments</legend>
+    <input name="id" value="top" type="hidden"><input name="component" value="HTML5 spec (editor: Ian Hickson)" type="hidden"><input name="response" value="html" type="hidden"><p><label for="feedbackBox">Please enter your feedback, carefully
+    indicating the title of the section for which you are submitting
+    feedback, quoting the text that's wrong today if appropriate. If
+    you're suggesting a new feature, it's really important to say
+    <em>what</em> the problem you're trying to solve is. That's more
+    important than the solution, in fact.</label></p>
+    <p><textarea cols="79" id="feedbackBox" name="text" rows="10"></textarea></p>
+    <p class="note">Please don't use section numbers as these tend to
+    change rapidly and make your feedback harder to understand.</p>
+    
+<script type="text/javascript">
+ function getCookie(name) {
+   var params = location.search.substr(1).split("&");
+   for (var index = 0; index < params.length; index++) {
+     if (params[index] == name)
+       return "1";
+     var data = params[index].split("=");
+     if (data[0] == name)
+       return unescape(data[1]);
+   }
+   var cookies = document.cookie.split("; ");
+   for (var index = 0; index < cookies.length; index++) {
+     var data = cookies[index].split("=");
+     if (data[0] == name)
+       return unescape(data[1]);
+   }
+   return null;
+ }
+ function load(script) {
+   var e = document.createElement('script');
+   e.setAttribute('src', script + '?' + encodeURIComponent(location) + '&' + encodeURIComponent(document.referrer));
+   document.body.appendChild(e);
+ }
+ function init() {
+   if (location.search == '?slow-browser')
+     return;
+   var configUI = document.createElement('div');
+   configUI.id = 'configUI';
+   document.body.appendChild(configUI);
+   if (document.getElementById('head'))
+     load('toc.js');
+   load('dfn.js');
+   if (getCookie('profile') == '1')
+     document.getElementsByTagName('h2')[0].textContent += '; load: ' + (new Date() - loadTimer) + 'ms';
+   fixBrokenLink();
+ }
+</script><p>
+     <input onclick="return checkFeedbackForm(form)" value="Submit feedback" type="submit"><small>(Note: Your IP address and user agent will be publicly recorded for spam prevention purposes.)</small>
+    </p>
+   </fieldset></form><p>If you cannot do this then you can also e-mail feedback to <a href="mailto:public-html-comments@w3.org">public-html-comments@w3.org</a>
+  (<a href="mailto:public-html-comments-request@w3.org?subject=subscribe">subscribe</a>,
+  <a href="http://lists.w3.org/Archives/Public/public-html-comments/">archives</a>),
+  and arrangements will be made to transpose the comments to our
+  public bug database.
+
+  <!-- UNDER NO CIRCUMSTANCES IS THE FOLLOWING SENTENCE TO BE REMOVED OR EDITED WITHOUT TALKING TO IAN FIRST -->  
+  Alternatively, you can e-mail feedback to <a href="mailto:whatwg@whatwg.org">whatwg@whatwg.org</a> (<a href="http://lists.whatwg.org/listinfo.cgi/whatwg-whatwg.org">subscribe</a>,
+  <a href="http://lists.whatwg.org/pipermail/whatwg-whatwg.org/">archives</a>).
+  The editor guarantees that all substantive feedback sent to this
+  list will receive a reply. However, such feedback is not considered
+  formal feedback for the W3C process.
+  <!-- UNDER NO CIRCUMSTANCES IS THE PRECEDING SENTENCE TO BE REMOVED OR EDITED WITHOUT TALKING TO IAN FIRST -->
+
+  All feedback is welcome.</p><!-- UNDER NO CIRCUMSTANCES IS THE FOLLOWING PARAGRAPH TO BE REMOVED OR EDITED WITHOUT TALKING TO IAN FIRST --><p>The working groups maintains <a href="http://www.w3.org/Bugs/Public/buglist.cgi?query_format=advanced&amp;short_desc_type=allwordssubstr&amp;short_desc=&amp;long_desc_type=allwordssubstr&amp;long_desc=&amp;bug_file_loc_type=allwordssubstr&amp;bug_file_loc=&amp;status_whiteboard_type=allwordssubstr&amp;status_whiteboard=&amp;keywords_type=allwords&amp;keywords=&amp;bug_status=UNCONFIRMED&amp;bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;emailassigned_to1=1&amp;emailtype1=exact&amp;email1=ian%40hixie.ch&amp;emailtype2=substring&amp;email2=&amp;bugidtype=include&amp;bug_id=&amp;votes=&amp;chfieldfrom=&amp;chfieldto=Now&amp;chfieldvalue=&amp;cmdtype=doit&amp;order=Reuse+same+sort+as+last+time&amp;field0-0-0=noop&amp;type0-0-0=noop&amp;value0-0-0=">a
+  list of all bug reports that the editor has not yet tried to
+  address</a> and <a href="http://www.w3.org/html/wg/tracker/products/1">a list of issues
+  for which the chairs have not yet declared a decision</a>. The
+  editor also maintains <a href="http://www.whatwg.org/issues/">a list
+  of all e-mails that he has not yet tried to address</a>. These bugs,
+  issues, and e-mails apply to multiple HTML-related specifications,
+  not just this one.</p><!-- UNDER NO CIRCUMSTANCES IS THE PRECEDING PARAGRAPH TO BE REMOVED OR EDITED WITHOUT TALKING TO IAN FIRST --><p>Implementors should be aware that this specification is not
+  stable. <strong>Implementors who are not taking part in the
+  discussions are likely to find the specification changing out from
+  under them in incompatible ways.</strong> Vendors interested in
+  implementing this specification before it eventually reaches the
+  Candidate Recommendation stage should join the aforementioned
+  mailing lists and take part in the discussions.</p><div id="multipage-common">
+  
+  
+  
+  
+<script type="text/javascript">
+ function getCookie(name) {
+   var params = location.search.substr(1).split("&");
+   for (var index = 0; index < params.length; index++) {
+     if (params[index] == name)
+       return "1";
+     var data = params[index].split("=");
+     if (data[0] == name)
+       return unescape(data[1]);
+   }
+   var cookies = document.cookie.split("; ");
+   for (var index = 0; index < cookies.length; index++) {
+     var data = cookies[index].split("=");
+     if (data[0] == name)
+       return unescape(data[1]);
+   }
+   return null;
+ }
+ function load(script) {
+   var e = document.createElement('script');
+   e.setAttribute('src', script + '?' + encodeURIComponent(location) + '&' + encodeURIComponent(document.referrer));
+   document.body.appendChild(e);
+ }
+ function init() {
+   if (location.search == '?slow-browser')
+     return;
+   var configUI = document.createElement('div');
+   configUI.id = 'configUI';
+   document.body.appendChild(configUI);
+   if (document.getElementById('head'))
+     load('toc.js');
+   load('dfn.js');
+   if (getCookie('profile') == '1')
+     document.getElementsByTagName('h2')[0].textContent += '; load: ' + (new Date() - loadTimer) + 'ms';
+   fixBrokenLink();
+ }
+</script></div><p>The publication of this document by the W3C as a W3C Working
+  Draft does not imply that all of the participants in the W3C HTML
+  working group endorse the contents of the specification. Indeed, for
+  any section of the specification, one can usually find many members
+  of the working group or of the W3C as a whole who object strongly to
+  the current text, the existence of the section at all, or the idea
+  that the working group should even spend time discussing the concept
+  of that section.</p><!-- UNDER NO CIRCUMSTANCES IS THE FOLLOWING PARAGRAPH TO BE REMOVED OR EDITED WITHOUT TALKING TO IAN FIRST --><p>The latest stable version of the editor's draft of this
+  specification is always available on <a href="http://dev.w3.org/html5/">the W3C CVS server</a> and in the <a href="http://svn.whatwg.org/webapps/">WHATWG Subversion
+  repository</a>. The <a href="http://www.whatwg.org/specs/web-apps/current-work/complete.html">latest
+  editor's working copy</a> (which may contain unfinished text in the
+  process of being prepared) contains the latest draft text of this
+  specification (amongst others). For more details, please see the <a href="http://wiki.whatwg.org/wiki/FAQ#What_are_the_various_versions_of_the_spec.3F">WHATWG
+  FAQ</a>.</p><!-- UNDER NO CIRCUMSTANCES IS THE PRECEDING PARAGRAPH TO BE REMOVED OR EDITED WITHOUT TALKING TO IAN FIRST --><!-- UNDER NO CIRCUMSTANCES IS THE FOLLOWING LIST TO BE REMOVED OR EDITED WITHOUT TALKING TO IAN FIRST --><p>There are various ways to follow the change history for the
+  HTML specifications:</p><dl><dt>E-mail notifications of changes</dt>
+   <dd>HTML-Diffs mailing list (diff-marked HTML versions for each change): <a href="http://lists.w3.org/Archives/Public/public-html-diffs/latest">http://lists.w3.org/Archives/Public/public-html-diffs/latest</a></dd>
+   <dd>Commit-Watchers mailing list (complete source diffs): <a href="http://lists.whatwg.org/listinfo.cgi/commit-watchers-whatwg.org">http://lists.whatwg.org/listinfo.cgi/commit-watchers-whatwg.org</a></dd>
+   <dt>Real-time notifications of changes:</dt>
+   <dd>Generated diff-marked HTML versions for each change: <a href="http://twitter.com/HTML5">http://twitter.com/HTML5</a></dd>
+   <dt>Browsable version-control record of all changes:</dt>
+   <dd>CVSWeb interface with side-by-side diffs: <a href="http://dev.w3.org/cvsweb/html5/">http://dev.w3.org/cvsweb/html5/</a></dd>
+   <dd>Annotated summary with unified diffs: <a href="http://html5.org/tools/web-apps-tracker">http://html5.org/tools/web-apps-tracker</a></dd>
+   <dd>Raw Subversion interface: <code>svn checkout http://svn.whatwg.org/webapps/</code></dd>
+  </dl><!-- UNDER NO CIRCUMSTANCES IS THE PRECEDING LIST TO BE REMOVED OR EDITED WITHOUT TALKING TO IAN FIRST --><p>The W3C <a href="http://www.w3.org/html/wg/">HTML Working
+  Group</a> is the W3C working group responsible for this
+  specification's progress along the W3C Recommendation
+  track.
+  This specification is the 24 May 2011 Working Draft.
+  </p><!-- UNDER NO CIRCUMSTANCES IS THE PRECEDING PARAGRAPH TO BE REMOVED OR EDITED WITHOUT TALKING TO IAN FIRST --><p>Work on this specification is also done at the <a href="http://www.whatwg.org/">WHATWG</a>. The W3C HTML working group
+  actively pursues convergence with the WHATWG, as required by the <a href="http://www.w3.org/2007/03/HTML-WG-charter">W3C HTML working
+  group charter</a>.</p><!-- UNDER NO CIRCUMSTANCES IS THE FOLLOWING PARAGRAPH TO BE REMOVED OR EDITED WITHOUT TALKING TO IAN FIRST --><p>This document was produced by a group operating under the <a href="http://www.w3.org/Consortium/Patent-Policy-20040205/">5
+  February 2004 W3C Patent Policy</a>. W3C maintains a <a href="http://www.w3.org/2004/01/pp-impl/40318/status" rel="disclosure">public list of
+  any patent disclosures</a> made in connection with the deliverables
+  of the group; that page also includes instructions for disclosing a
+  patent. An individual who has actual knowledge of a patent which the
+  individual believes contains <a href="http://www.w3.org/Consortium/Patent-Policy-20040205/#def-essential">Essential
+  Claim(s)</a> must disclose the information in accordance with <a href="http://www.w3.org/Consortium/Patent-Policy-20040205/#sec-Disclosure">section
+  6 of the W3C Patent Policy</a>.</p><h2 class="no-num no-toc" id="contents">Table of Contents</h2><ol class="brief toc"><li class=""><a href="#auto-toc-1"><span class="secno">1 </span>Introduction</a></li><li class=""><a href="#auto-toc-2"><span class="secno">2 </span>Common infrastructure</a></li><li class=""><a href="#auto-toc-3"><span class="secno">3 </span>Semantics, structure, and APIs of HTML documents</a></li><li class=""><a href="#auto-toc-4"><span class="secno">4 </span>The elements of HTML</a></li><li class=""><a href="#auto-toc-5"><span class="secno">5 </span>Loading Web pages</a></li><li class=""><a href="#auto-toc-6"><span class="secno">6 </span>Web application APIs</a></li><li class=""><a href="#auto-toc-7" id="x7-user-interaction"><span class="secno">7 </span>User interaction</a></li><li class=""><a href="#auto-toc-8" id="x8-the-html-syntax"><span class="secno">8 </span>The HTML syntax</a></li><li class=""><a href="#auto-toc-9"><span class="secno">9 </span>The XHTML syntax</a></li><li class=""><a href="#auto-toc-10"><span class="secno">11 </span>Obsolete features</a></li><li class=""><a href="#auto-toc-11"><span class="secno">12 </span>IANA considerations</a></li><li class=""><a class="no-num" href="#auto-toc-12">Index</a></li><li class=""><a class="no-num" href="#auto-toc-13">Index of terms</a></li><li class=""><a class="no-num" href="#auto-toc-14">References</a></li><li class=""><a class="no-num" href="#auto-toc-15">Acknowledgements</a></li></ol><h3>Full table of contents</h3><ol class="toc"><li id="auto-toc-1"><a href="http://www.w3.org/TR/html5/author/introduction.html#introduction"><span class="secno">1 </span>Introduction</a>
+  <ol><li><a href="http://www.w3.org/TR/html5/author/introduction.html#background"><span class="secno">1.1 </span>Background</a></li>
+   <li><a href="http://www.w3.org/TR/html5/author/introduction.html#audience"><span class="secno">1.2 </span>Audience</a></li>
+   <li><a href="http://www.w3.org/TR/html5/author/introduction.html#scope"><span class="secno">1.3 </span>Scope</a></li>
+   <li><a href="http://www.w3.org/TR/html5/author/introduction.html#history-1"><span class="secno">1.4 </span>History</a></li>
+   <li><a href="http://www.w3.org/TR/html5/author/introduction.html#design-notes"><span class="secno">1.5 </span>Design notes</a>
+    <ol><li><a href="http://www.w3.org/TR/html5/author/introduction.html#serializability-of-script-execution"><span class="secno">1.5.1 </span>Serializability of script execution</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/introduction.html#compliance-with-other-specifications"><span class="secno">1.5.2 </span>Compliance with other specifications</a></li></ol></li>
+   <li><a href="http://www.w3.org/TR/html5/author/introduction.html#html-vs-xhtml"><span class="secno">1.6 </span>HTML vs XHTML</a></li>
+   <li><a href="http://www.w3.org/TR/html5/author/introduction.html#structure-of-this-specification"><span class="secno">1.7 </span>Structure of this specification</a>
+    <ol><li><a href="http://www.w3.org/TR/html5/author/introduction.html#how-to-read-this-specification"><span class="secno">1.7.1 </span>How to read this specification</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/introduction.html#typographic-conventions"><span class="secno">1.7.2 </span>Typographic conventions</a></li></ol></li>
+   <li><a href="http://www.w3.org/TR/html5/author/introduction.html#a-quick-introduction-to-html"><span class="secno">1.8 </span>A quick introduction to HTML</a></li>
+   <li><a href="http://www.w3.org/TR/html5/author/introduction.html#conformance-requirements-for-authors"><span class="secno">1.9 </span>Conformance requirements for authors</a>
+    <ol><li><a href="http://www.w3.org/TR/html5/author/introduction.html#presentational-markup"><span class="secno">1.9.1 </span>Presentational markup</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/introduction.html#syntax-errors"><span class="secno">1.9.2 </span>Syntax errors</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/introduction.html#restrictions-on-content-models-and-on-attribute-values"><span class="secno">1.9.3 </span>Restrictions on content models and on attribute values</a></li></ol></li>
+   <li><a href="http://www.w3.org/TR/html5/author/introduction.html#recommended-reading"><span class="secno">1.10 </span>Recommended reading</a></li></ol></li>
+ <li id="auto-toc-2"><a href="http://www.w3.org/TR/html5/author/infrastructure.html#infrastructure"><span class="secno">2 </span>Common infrastructure</a>
+  <ol><li><a href="http://www.w3.org/TR/html5/author/infrastructure.html#terminology"><span class="secno">2.1 </span>Terminology</a>
+    <ol><li><a href="http://www.w3.org/TR/html5/author/infrastructure.html#resources"><span class="secno">2.1.1 </span>Resources</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/infrastructure.html#xml"><span class="secno">2.1.2 </span>XML</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/infrastructure.html#dom-trees"><span class="secno">2.1.3 </span>DOM trees</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/infrastructure.html#scripting-0"><span class="secno">2.1.4 </span>Scripting</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/infrastructure.html#plugins"><span class="secno">2.1.5 </span>Plugins</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/infrastructure.html#character-encodings"><span class="secno">2.1.6 </span>Character encodings</a></li></ol></li>
+   <li><a href="http://www.w3.org/TR/html5/author/infrastructure.html#conformance-requirements"><span class="secno">2.2 </span>Conformance requirements</a>
+    <ol><li><a href="http://www.w3.org/TR/html5/author/infrastructure.html#extensibility"><span class="secno">2.2.3 </span>Extensibility</a></li></ol></li>
+   <li><a href="http://www.w3.org/TR/html5/author/infrastructure.html#case-sensitivity-and-string-comparison"><span class="secno">2.3 </span>Case-sensitivity and string comparison</a></li>
+   
+   <li><a href="http://www.w3.org/TR/html5/author/common-microsyntaxes.html#common-microsyntaxes"><span class="secno">2.5 </span>Common microsyntaxes</a>
+    <ol><li><a href="http://www.w3.org/TR/html5/author/common-microsyntaxes.html#boolean-attributes"><span class="secno">2.5.2 </span>Boolean attributes</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/common-microsyntaxes.html#keywords-and-enumerated-attributes"><span class="secno">2.5.3 </span>Keywords and enumerated attributes</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/common-microsyntaxes.html#numbers"><span class="secno">2.5.4 </span>Numbers</a>
+      <ol><li><a href="http://www.w3.org/TR/html5/author/common-microsyntaxes.html#non-negative-integers"><span class="secno">2.5.4.1 </span>Non-negative integers</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/common-microsyntaxes.html#signed-integers"><span class="secno">2.5.4.2 </span>Signed integers</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/common-microsyntaxes.html#real-numbers"><span class="secno">2.5.4.3 </span>Real numbers</a></li>
+       
+       <li><a href="http://www.w3.org/TR/html5/author/common-microsyntaxes.html#lists-of-integers"><span class="secno">2.5.4.5 </span>Lists of integers</a></li>
+       </ol></li>
+     <li><a href="http://www.w3.org/TR/html5/author/common-microsyntaxes.html#dates-and-times"><span class="secno">2.5.5 </span>Dates and times</a>
+      <ol><li><a href="http://www.w3.org/TR/html5/author/common-microsyntaxes.html#months"><span class="secno">2.5.5.1 </span>Months</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/common-microsyntaxes.html#dates"><span class="secno">2.5.5.2 </span>Dates</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/common-microsyntaxes.html#times"><span class="secno">2.5.5.3 </span>Times</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/common-microsyntaxes.html#local-dates-and-times"><span class="secno">2.5.5.4 </span>Local dates and times</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/common-microsyntaxes.html#global-dates-and-times"><span class="secno">2.5.5.5 </span>Global dates and times</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/common-microsyntaxes.html#weeks"><span class="secno">2.5.5.6 </span>Weeks</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/common-microsyntaxes.html#vaguer-moments-in-time"><span class="secno">2.5.5.7 </span>Vaguer moments in time</a></li></ol></li>
+     <li><a href="http://www.w3.org/TR/html5/author/common-microsyntaxes.html#colors"><span class="secno">2.5.6 </span>Colors</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/common-microsyntaxes.html#space-separated-tokens"><span class="secno">2.5.7 </span>Space-separated tokens</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/common-microsyntaxes.html#comma-separated-tokens"><span class="secno">2.5.8 </span>Comma-separated tokens</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/common-microsyntaxes.html#syntax-references"><span class="secno">2.5.9 </span>References</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/common-microsyntaxes.html#mq"><span class="secno">2.5.10 </span>Media queries</a></li></ol></li>
+   <li><a href="http://www.w3.org/TR/html5/author/urls.html#urls"><span class="secno">2.6 </span>URLs</a>
+    <ol><li><a href="http://www.w3.org/TR/html5/author/urls.html#terminology-0"><span class="secno">2.6.1 </span>Terminology</a></li>
+     
+     <li><a href="http://www.w3.org/TR/html5/author/urls.html#resolving-urls"><span class="secno">2.6.3 </span>Resolving URLs</a></li>
+     
+     
+     <li><a href="http://www.w3.org/TR/html5/author/urls.html#interfaces-for-url-manipulation"><span class="secno">2.6.6 </span>Interfaces for URL manipulation</a></li></ol></li>
+   
+   <li><a href="http://www.w3.org/TR/html5/author/common-dom-interfaces.html#common-dom-interfaces"><span class="secno">2.8 </span>Common DOM interfaces</a>
+    <ol><li><a href="http://www.w3.org/TR/html5/author/common-dom-interfaces.html#reflecting-content-attributes-in-idl-attributes"><span class="secno">2.8.1 </span>Reflecting content attributes in IDL attributes</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/common-dom-interfaces.html#collections-0"><span class="secno">2.8.2 </span>Collections</a>
+      <ol><li><a href="http://www.w3.org/TR/html5/author/common-dom-interfaces.html#htmlcollection-0"><span class="secno">2.8.2.1 </span>HTMLCollection</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/common-dom-interfaces.html#htmlallcollection-0"><span class="secno">2.8.2.2 </span>HTMLAllCollection</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/common-dom-interfaces.html#htmlformcontrolscollection-0"><span class="secno">2.8.2.3 </span>HTMLFormControlsCollection</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/common-dom-interfaces.html#htmloptionscollection-0"><span class="secno">2.8.2.4 </span>HTMLOptionsCollection</a></li></ol></li>
+     <li><a href="http://www.w3.org/TR/html5/author/common-dom-interfaces.html#domtokenlist-0"><span class="secno">2.8.3 </span>DOMTokenList</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/common-dom-interfaces.html#domsettabletokenlist-0"><span class="secno">2.8.4 </span>DOMSettableTokenList</a></li>
+     
+     <li><a href="http://www.w3.org/TR/html5/author/common-dom-interfaces.html#domstringmap-0"><span class="secno">2.8.6 </span>DOMStringMap</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/common-dom-interfaces.html#dom-feature-strings"><span class="secno">2.8.7 </span>DOM feature strings</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/common-dom-interfaces.html#exceptions"><span class="secno">2.8.8 </span>Exceptions</a></li>
+     </ol></li>
+   <li><a href="http://www.w3.org/TR/html5/author/namespaces.html#namespaces"><span class="secno">2.9 </span>Namespaces</a></li></ol></li>
+ <li id="auto-toc-3"><a href="http://www.w3.org/TR/html5/author/dom.html#dom"><span class="secno">3 </span>Semantics, structure, and APIs of HTML documents</a>
+  <ol><li><a href="http://www.w3.org/TR/html5/author/dom.html#documents"><span class="secno">3.1 </span>Documents</a>
+    <ol><li><a href="http://www.w3.org/TR/html5/author/dom.html#documents-in-the-dom"><span class="secno">3.1.1 </span>Documents in the DOM</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/dom.html#security-document"><span class="secno">3.1.2 </span>Security</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/dom.html#resource-metadata-management" id="x3.1.3-resource-metadata-management"><span class="secno">3.1.3 </span>Resource metadata management</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/dom.html#dom-tree-accessors" id="x3.1.4-dom-tree-accessors"><span class="secno">3.1.4 </span>DOM tree accessors</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/dom.html#creating-documents"><span class="secno">3.1.5 </span>Creating documents</a></li>
+     </ol></li>
+   <li><a href="http://www.w3.org/TR/html5/author/elements.html#elements"><span class="secno">3.2 </span>Elements</a>
+    <ol><li><a href="http://www.w3.org/TR/html5/author/elements.html#semantics-0"><span class="secno">3.2.1 </span>Semantics</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/elements.html#elements-in-the-dom"><span class="secno">3.2.2 </span>Elements in the DOM</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/global-attributes.html#global-attributes" id="x3.2.3-global-attributes"><span class="secno">3.2.3 </span>Global attributes</a>
+      <ol><li><a href="http://www.w3.org/TR/html5/author/global-attributes.html#the-id-attribute" id="x3.2.3.1-the-id-attribute"><span class="secno">3.2.3.1 </span>The <code>id</code> attribute</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/global-attributes.html#the-title-attribute" id="x3.2.3.2-the-title-attribute"><span class="secno">3.2.3.2 </span>The <code>title</code> attribute</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/global-attributes.html#the-lang-and-xml:lang-attributes"><span class="secno">3.2.3.3 </span>The <code title="attr-lang">lang</code> and <code title="attr-xml-lang">xml:lang</code> attributes</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/global-attributes.html#the-xml:base-attribute-xml-only" id="x3.2.3.4-the-xml:base-attribute-xml-only"><span class="secno">3.2.3.4 </span>The <code>xml:base</code>
+  attribute (XML only)</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/global-attributes.html#the-dir-attribute" id="x3.2.3.5-the-dir-attribute"><span class="secno">3.2.3.5 </span>The <code>dir</code> attribute</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/global-attributes.html#classes" id="x3.2.3.6-the-class-attribute"><span class="secno">3.2.3.6 </span>The <code>class</code> attribute</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/global-attributes.html#the-style-attribute" id="x3.2.3.7-the-style-attribute"><span class="secno">3.2.3.7 </span>The <code>style</code> attribute</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/global-attributes.html#embedding-custom-non-visible-data-with-the-data-attributes" id="x3.2.3.8-embedding-custom-non-visible-data-with-the-data-attributes"><span class="secno">3.2.3.8 </span>Embedding custom non-visible data with the <code title="attr-data-*">data-*</code> attributes</a></li></ol></li>
+     <li><a href="http://www.w3.org/TR/html5/author/element-definitions.html#element-definitions"><span class="secno">3.2.4 </span>Element definitions</a>
+      <ol><li><a href="http://www.w3.org/TR/html5/author/element-definitions.html#attributes"><span class="secno">3.2.4.1 </span>Attributes</a></li></ol></li>
+     <li><a href="http://www.w3.org/TR/html5/author/content-models.html#content-models" id="x3.2.5-content-models"><span class="secno">3.2.5 </span>Content models</a>
+      <ol><li><a href="http://www.w3.org/TR/html5/author/content-models.html#kinds-of-content"><span class="secno">3.2.5.1 </span>Kinds of content</a>
+        <ol><li><a href="http://www.w3.org/TR/html5/author/content-models.html#metadata-content-0"><span class="secno">3.2.5.1.1 </span>Metadata content</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/content-models.html#flow-content-0"><span class="secno">3.2.5.1.2 </span>Flow content</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/content-models.html#sectioning-content-0"><span class="secno">3.2.5.1.3 </span>Sectioning content</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/content-models.html#heading-content-0"><span class="secno">3.2.5.1.4 </span>Heading content</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/content-models.html#phrasing-content-0"><span class="secno">3.2.5.1.5 </span>Phrasing content</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/content-models.html#embedded-content-0"><span class="secno">3.2.5.1.6 </span>Embedded content</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/content-models.html#interactive-content-0"><span class="secno">3.2.5.1.7 </span>Interactive content</a></li></ol></li>
+       <li><a href="http://www.w3.org/TR/html5/author/content-models.html#transparent-content-models"><span class="secno">3.2.5.2 </span>Transparent content models</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/content-models.html#paragraphs"><span class="secno">3.2.5.3 </span>Paragraphs</a></li></ol></li>
+     <li><a href="http://www.w3.org/TR/html5/author/requirements-relating-to-bidirectional-algorithm-formatting-characters.html#requirements-relating-to-bidirectional-algorithm-formatting-characters"><span class="secno">3.2.6 </span>Requirements relating to bidirectional-algorithm formatting
+  characters</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/wai-aria.html#wai-aria" id="x3.2.7-wai-aria"><span class="secno">3.2.7 </span>WAI-ARIA</a></li></ol></li>
+   <li><a href="http://www.w3.org/TR/html5/author/apis-in-html-documents.html#apis-in-html-documents"><span class="secno">3.3 </span>APIs in HTML documents</a></li>
+   
+   <li><a href="http://www.w3.org/TR/html5/author/apis-in-html-documents.html#dynamic-markup-insertion" id="x3.5-dynamic-markup-insertion"><span class="secno">3.5 </span>Dynamic markup insertion</a>
+    <ol><li><a href="http://www.w3.org/TR/html5/author/apis-in-html-documents.html#opening-the-input-stream"><span class="secno">3.5.1 </span>Opening the input stream</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/apis-in-html-documents.html#closing-the-input-stream"><span class="secno">3.5.2 </span>Closing the input stream</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/apis-in-html-documents.html#document.write"><span class="secno">3.5.3 </span><code title="dom-document-write">document.write()</code></a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/apis-in-html-documents.html#document.writeln"><span class="secno">3.5.4 </span><code title="dom-document-writeln">document.writeln()</code></a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/apis-in-html-documents.html#innerhtml"><span class="secno">3.5.5 </span><code title="dom-innerHTML">innerHTML</code></a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/apis-in-html-documents.html#outerhtml"><span class="secno">3.5.6 </span><code title="dom-outerHTML">outerHTML</code></a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/apis-in-html-documents.html#insertadjacenthtml"><span class="secno">3.5.7 </span><code title="dom-insertAdjacentHTML">insertAdjacentHTML()</code></a></li></ol></li></ol></li>
+ <li id="auto-toc-4"><a href="http://www.w3.org/TR/html5/author/semantics.html#semantics"><span class="secno">4 </span>The elements of HTML</a>
+  <ol><li><a href="http://www.w3.org/TR/html5/author/semantics.html#the-root-element"><span class="secno">4.1 </span>The root element</a>
+    <ol><li><a href="http://www.w3.org/TR/html5/author/the-html-element.html#the-html-element" id="x4.1.1-the-html-element"><span class="secno">4.1.1 </span>The <code>html</code> element</a></li></ol></li>
+   <li><a href="http://www.w3.org/TR/html5/author/the-html-element.html#document-metadata"><span class="secno">4.2 </span>Document metadata</a>
+    <ol><li><a href="http://www.w3.org/TR/html5/author/the-head-element.html#the-head-element" id="x4.2.1-the-head-element"><span class="secno">4.2.1 </span>The <code>head</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-title-element.html#the-title-element" id="x4.2.2-the-title-element"><span class="secno">4.2.2 </span>The <code>title</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-base-element.html#the-base-element" id="x4.2.3-the-base-element"><span class="secno">4.2.3 </span>The <code>base</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-link-element.html#the-link-element" id="x4.2.4-the-link-element"><span class="secno">4.2.4 </span>The <code>link</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-meta-element.html#the-meta-element" id="x4.2.5-the-meta-element"><span class="secno">4.2.5 </span>The <code>meta</code> element</a>
+      <ol><li><a href="http://www.w3.org/TR/html5/author/the-meta-element.html#standard-metadata-names"><span class="secno">4.2.5.1 </span>Standard metadata names</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/the-meta-element.html#other-metadata-names"><span class="secno">4.2.5.2 </span>Other metadata names</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/the-meta-element.html#pragma-directives"><span class="secno">4.2.5.3 </span>Pragma directives</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/the-meta-element.html#other-pragma-directives"><span class="secno">4.2.5.4 </span>Other pragma directives</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/the-meta-element.html#charset"><span class="secno">4.2.5.5 </span>Specifying the document's character encoding</a></li></ol></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-style-element.html#the-style-element" id="x4.2.6-the-style-element"><span class="secno">4.2.6 </span>The <code>style</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-style-element.html#styling" id="x4.2.7-styling"><span class="secno">4.2.7 </span>Styling</a></li></ol></li>
+   <li><a href="http://www.w3.org/TR/html5/author/scripting-1.html#scripting-1"><span class="secno">4.3 </span>Scripting</a>
+    <ol><li><a href="http://www.w3.org/TR/html5/author/the-script-element.html#the-script-element" id="x4.3.1-the-script-element"><span class="secno">4.3.1 </span>The <code>script</code> element</a>
+      <ol><li><a href="http://www.w3.org/TR/html5/author/the-script-element.html#scriptingLanguages"><span class="secno">4.3.1.1 </span>Scripting languages</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/the-script-element.html#restrictions-for-contents-of-script-elements" id="x4.3.1.2-restrictions-for-contents-of-script-elements"><span class="secno">4.3.1.2 </span>Restrictions for contents of <code>script</code> elements</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/the-script-element.html#inline-documentation-for-external-scripts" id="x4.3.1.3-inline-documentation-for-external-scripts"><span class="secno">4.3.1.3 </span>Inline documentation for external scripts</a></li>
+       </ol></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-noscript-element.html#the-noscript-element" id="x4.3.2-the-noscript-element"><span class="secno">4.3.2 </span>The <code>noscript</code> element</a></li></ol></li>
+   <li><a href="http://www.w3.org/TR/html5/author/sections.html#sections"><span class="secno">4.4 </span>Sections</a>
+    <ol><li><a href="http://www.w3.org/TR/html5/author/the-body-element.html#the-body-element" id="x4.4.1-the-body-element"><span class="secno">4.4.1 </span>The <code>body</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-section-element.html#the-section-element" id="x4.4.2-the-section-element"><span class="secno">4.4.2 </span>The <code>section</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-nav-element.html#the-nav-element" id="x4.4.3-the-nav-element"><span class="secno">4.4.3 </span>The <code>nav</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-article-element.html#the-article-element" id="x4.4.4-the-article-element"><span class="secno">4.4.4 </span>The <code>article</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-aside-element.html#the-aside-element" id="x4.4.5-the-aside-element"><span class="secno">4.4.5 </span>The <code>aside</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-h1-h2-h3-h4-h5-and-h6-elements.html#the-h1-h2-h3-h4-h5-and-h6-elements" id="x4.4.6-the-h1-h2-h3-h4-h5-and-h6-elements"><span class="secno">4.4.6 </span>The <code>h1</code>, <code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>, and <code>h6</code> elements</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-hgroup-element.html#the-hgroup-element" id="x4.4.7-the-hgroup-element"><span class="secno">4.4.7 </span>The <code>hgroup</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-header-element.html#the-header-element" id="x4.4.8-the-header-element"><span class="secno">4.4.8 </span>The <code>header</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-footer-element.html#the-footer-element" id="x4.4.9-the-footer-element"><span class="secno">4.4.9 </span>The <code>footer</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-address-element.html#the-address-element" id="x4.4.10-the-address-element"><span class="secno">4.4.10 </span>The <code>address</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/headings-and-sections.html#headings-and-sections" id="x4.4.11-headings-and-sections"><span class="secno">4.4.11 </span>Headings and sections</a>
+      <ol><li><a href="http://www.w3.org/TR/html5/author/headings-and-sections.html#outlines"><span class="secno">4.4.11.1 </span>Creating an outline</a></li></ol></li></ol></li>
+   <li><a href="http://www.w3.org/TR/html5/author/grouping-content.html#grouping-content"><span class="secno">4.5 </span>Grouping content</a>
+    <ol><li><a href="http://www.w3.org/TR/html5/author/the-p-element.html#the-p-element" id="x4.5.1-the-p-element"><span class="secno">4.5.1 </span>The <code>p</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-hr-element.html#the-hr-element" id="x4.5.2-the-hr-element"><span class="secno">4.5.2 </span>The <code>hr</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-pre-element.html#the-pre-element" id="x4.5.3-the-pre-element"><span class="secno">4.5.3 </span>The <code>pre</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-blockquote-element.html#the-blockquote-element" id="x4.5.4-the-blockquote-element"><span class="secno">4.5.4 </span>The <code>blockquote</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-ol-element.html#the-ol-element" id="x4.5.5-the-ol-element"><span class="secno">4.5.5 </span>The <code>ol</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-ul-element.html#the-ul-element" id="x4.5.6-the-ul-element"><span class="secno">4.5.6 </span>The <code>ul</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-li-element.html#the-li-element" id="x4.5.7-the-li-element"><span class="secno">4.5.7 </span>The <code>li</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-dl-element.html#the-dl-element" id="x4.5.8-the-dl-element"><span class="secno">4.5.8 </span>The <code>dl</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-dt-element.html#the-dt-element" id="x4.5.9-the-dt-element"><span class="secno">4.5.9 </span>The <code>dt</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-dd-element.html#the-dd-element" id="x4.5.10-the-dd-element"><span class="secno">4.5.10 </span>The <code>dd</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-figure-element.html#the-figure-element" id="x4.5.11-the-figure-element"><span class="secno">4.5.11 </span>The <code>figure</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-figcaption-element.html#the-figcaption-element" id="x4.5.12-the-figcaption-element"><span class="secno">4.5.12 </span>The <code>figcaption</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-div-element.html#the-div-element" id="x4.5.13-the-div-element"><span class="secno">4.5.13 </span>The <code>div</code> element</a></li></ol></li>
+   <li><a href="http://www.w3.org/TR/html5/author/text-level-semantics.html#text-level-semantics"><span class="secno">4.6 </span>Text-level semantics</a>
+    <ol><li><a href="http://www.w3.org/TR/html5/author/the-a-element.html#the-a-element" id="x4.6.1-the-a-element"><span class="secno">4.6.1 </span>The <code>a</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-em-element.html#the-em-element" id="x4.6.2-the-em-element"><span class="secno">4.6.2 </span>The <code>em</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-strong-element.html#the-strong-element" id="x4.6.3-the-strong-element"><span class="secno">4.6.3 </span>The <code>strong</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-small-element.html#the-small-element" id="x4.6.4-the-small-element"><span class="secno">4.6.4 </span>The <code>small</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-s-element.html#the-s-element" id="x4.6.5-the-s-element"><span class="secno">4.6.5 </span>The <code>s</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-cite-element.html#the-cite-element" id="x4.6.6-the-cite-element"><span class="secno">4.6.6 </span>The <code>cite</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-q-element.html#the-q-element" id="x4.6.7-the-q-element"><span class="secno">4.6.7 </span>The <code>q</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-dfn-element.html#the-dfn-element" id="x4.6.8-the-dfn-element"><span class="secno">4.6.8 </span>The <code>dfn</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-abbr-element.html#the-abbr-element" id="x4.6.9-the-abbr-element"><span class="secno">4.6.9 </span>The <code>abbr</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-time-element.html#the-time-element" id="x4.6.10-the-time-element"><span class="secno">4.6.10 </span>The <code>time</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-code-element.html#the-code-element" id="x4.6.11-the-code-element"><span class="secno">4.6.11 </span>The <code>code</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-var-element.html#the-var-element" id="x4.6.12-the-var-element"><span class="secno">4.6.12 </span>The <code>var</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-samp-element.html#the-samp-element" id="x4.6.13-the-samp-element"><span class="secno">4.6.13 </span>The <code>samp</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-kbd-element.html#the-kbd-element" id="x4.6.14-the-kbd-element"><span class="secno">4.6.14 </span>The <code>kbd</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-sub-and-sup-elements.html#the-sub-and-sup-elements" id="x4.6.15-the-sub-and-sup-elements"><span class="secno">4.6.15 </span>The <code>sub</code> and <code>sup</code> elements</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-i-element.html#the-i-element" id="x4.6.16-the-i-element"><span class="secno">4.6.16 </span>The <code>i</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-b-element.html#the-b-element" id="x4.6.17-the-b-element"><span class="secno">4.6.17 </span>The <code>b</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-u-element.html#the-u-element" id="x4.6.18-the-u-element"><span class="secno">4.6.18 </span>The <code>u</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-mark-element.html#the-mark-element" id="x4.6.19-the-mark-element"><span class="secno">4.6.19 </span>The <code>mark</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-ruby-element.html#the-ruby-element" id="x4.6.20-the-ruby-element"><span class="secno">4.6.20 </span>The <code>ruby</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-rt-element.html#the-rt-element" id="x4.6.21-the-rt-element"><span class="secno">4.6.21 </span>The <code>rt</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-rp-element.html#the-rp-element" id="x4.6.22-the-rp-element"><span class="secno">4.6.22 </span>The <code>rp</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-bdi-element.html#the-bdi-element" id="x4.6.23-the-bdi-element"><span class="secno">4.6.23 </span>The <code>bdi</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-bdo-element.html#the-bdo-element" id="x4.6.24-the-bdo-element"><span class="secno">4.6.24 </span>The <code>bdo</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-span-element.html#the-span-element" id="x4.6.25-the-span-element"><span class="secno">4.6.25 </span>The <code>span</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-br-element.html#the-br-element" id="x4.6.26-the-br-element"><span class="secno">4.6.26 </span>The <code>br</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-wbr-element.html#the-wbr-element" id="x4.6.27-the-wbr-element"><span class="secno">4.6.27 </span>The <code>wbr</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-wbr-element.html#usage-summary"><span class="secno">4.6.28 </span>Usage summary</a></li></ol></li>
+   <li><a href="http://www.w3.org/TR/html5/author/edits.html#edits"><span class="secno">4.7 </span>Edits</a>
+    <ol><li><a href="http://www.w3.org/TR/html5/author/the-ins-element.html#the-ins-element" id="x4.7.1-the-ins-element"><span class="secno">4.7.1 </span>The <code>ins</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-del-element.html#the-del-element" id="x4.7.2-the-del-element"><span class="secno">4.7.2 </span>The <code>del</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-del-element.html#attributes-common-to-ins-and-del-elements"><span class="secno">4.7.3 </span>Attributes common to <code>ins</code> and <code>del</code> elements</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-del-element.html#edits-and-paragraphs"><span class="secno">4.7.4 </span>Edits and paragraphs</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-del-element.html#edits-and-lists"><span class="secno">4.7.5 </span>Edits and lists</a></li></ol></li>
+   <li><a href="http://www.w3.org/TR/html5/author/embedded-content-1.html#embedded-content-1"><span class="secno">4.8 </span>Embedded content</a>
+    <ol><li><a href="http://www.w3.org/TR/html5/author/the-img-element.html#the-img-element" id="x4.8.1-the-img-element"><span class="secno">4.8.1 </span>The <code>img</code> element</a>
+      <ol><li><a href="http://www.w3.org/TR/html5/author/the-img-element.html#alt"><span class="secno">4.8.1.1 </span>Requirements for providing text to act as an alternative for images</a>
+        <ol><li><a href="http://www.w3.org/TR/html5/author/the-img-element.html#general-guidelines"><span class="secno">4.8.1.1.1 </span>General guidelines</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/the-img-element.html#a-link-or-button-containing-nothing-but-the-image"><span class="secno">4.8.1.1.2 </span>A link or button containing nothing but the image</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/the-img-element.html#a-phrase-or-paragraph-with-an-alternative-graphical-representation:-charts-diagrams-graphs-maps-illustrations"><span class="secno">4.8.1.1.3 </span>A phrase or paragraph with an alternative graphical representation: charts, diagrams, graphs, maps, illustrations</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/the-img-element.html#a-short-phrase-or-label-with-an-alternative-graphical-representation:-icons-logos"><span class="secno">4.8.1.1.4 </span>A short phrase or label with an alternative graphical representation: icons, logos</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/the-img-element.html#text-that-has-been-rendered-to-a-graphic-for-typographical-effect"><span class="secno">4.8.1.1.5 </span>Text that has been rendered to a graphic for typographical effect</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/the-img-element.html#a-graphical-representation-of-some-of-the-surrounding-text"><span class="secno">4.8.1.1.6 </span>A graphical representation of some of the surrounding text</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/the-img-element.html#a-purely-decorative-image-that-doesn-t-add-any-information"><span class="secno">4.8.1.1.7 </span>A purely decorative image that doesn't add any information</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/the-img-element.html#a-group-of-images-that-form-a-single-larger-picture-with-no-links"><span class="secno">4.8.1.1.8 </span>A group of images that form a single larger picture with no links</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/the-img-element.html#a-group-of-images-that-form-a-single-larger-picture-with-links"><span class="secno">4.8.1.1.9 </span>A group of images that form a single larger picture with links</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/the-img-element.html#a-key-part-of-the-content"><span class="secno">4.8.1.1.10 </span>A key part of the content</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/the-img-element.html#an-image-not-intended-for-the-user"><span class="secno">4.8.1.1.11 </span>An image not intended for the user</a></li>
+         
+         </ol></li></ol></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-iframe-element.html#the-iframe-element" id="x4.8.2-the-iframe-element"><span class="secno">4.8.2 </span>The <code>iframe</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-embed-element.html#the-embed-element" id="x4.8.3-the-embed-element"><span class="secno">4.8.3 </span>The <code>embed</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-object-element.html#the-object-element" id="x4.8.4-the-object-element"><span class="secno">4.8.4 </span>The <code>object</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-param-element.html#the-param-element" id="x4.8.5-the-param-element"><span class="secno">4.8.5 </span>The <code>param</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-video-element.html#the-video-element" id="x4.8.6-the-video-element"><span class="secno">4.8.6 </span>The <code>video</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-audio-element.html#the-audio-element" id="x4.8.7-the-audio-element"><span class="secno">4.8.7 </span>The <code>audio</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-source-element.html#the-source-element" id="x4.8.8-the-source-element"><span class="secno">4.8.8 </span>The <code>source</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-track-element.html#the-track-element" id="x4.8.9-the-track-element"><span class="secno">4.8.9 </span>The <code>track</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-track-element.html#media-elements"><span class="secno">4.8.10 </span>Media elements</a>
+      <ol><li><a href="http://www.w3.org/TR/html5/author/the-track-element.html#error-codes"><span class="secno">4.8.10.1 </span>Error codes</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/the-track-element.html#location-of-the-media-resource"><span class="secno">4.8.10.2 </span>Location of the media resource</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/the-track-element.html#mime-types"><span class="secno">4.8.10.3 </span>MIME types</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/the-track-element.html#network-states"><span class="secno">4.8.10.4 </span>Network states</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/the-track-element.html#loading-the-media-resource"><span class="secno">4.8.10.5 </span>Loading the media resource</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/the-track-element.html#offsets-into-the-media-resource"><span class="secno">4.8.10.6 </span>Offsets into the media resource</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/the-track-element.html#the-ready-states"><span class="secno">4.8.10.7 </span>The ready states</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/the-track-element.html#playing-the-media-resource"><span class="secno">4.8.10.8 </span>Playing the media resource</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/the-track-element.html#seeking"><span class="secno">4.8.10.9 </span>Seeking</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/the-track-element.html#media-resources-with-multiple-media-tracks"><span class="secno">4.8.10.10 </span>Media resources with multiple media tracks</a>
+        <ol><li><a href="http://www.w3.org/TR/html5/author/the-track-element.html#tracklist-objects"><span class="secno">4.8.10.10.1 </span><code>TrackList</code> objects</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/the-track-element.html#selecting-specific-audio-and-video-tracks-declaratively"><span class="secno">4.8.10.10.2 </span>Selecting specific audio and video tracks declaratively</a></li></ol></li>
+       <li><a href="http://www.w3.org/TR/html5/author/the-track-element.html#synchronising-multiple-media-elements"><span class="secno">4.8.10.11 </span>Synchronising multiple media elements</a>
+        <ol><li><a href="http://www.w3.org/TR/html5/author/the-track-element.html#introduction-0"><span class="secno">4.8.10.11.1 </span>Introduction</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/the-track-element.html#media-controllers"><span class="secno">4.8.10.11.2 </span>Media controllers</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/the-track-element.html#assigning-a-media-controller-declaratively"><span class="secno">4.8.10.11.3 </span>Assigning a media controller declaratively</a></li></ol></li>
+       <li><a href="http://www.w3.org/TR/html5/author/the-track-element.html#timed-text-tracks"><span class="secno">4.8.10.12 </span>Timed text tracks</a>
+        <ol><li><a href="http://www.w3.org/TR/html5/author/the-track-element.html#text-track-model"><span class="secno">4.8.10.12.1 </span>Text track model</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/the-track-element.html#sourcing-in-band-text-tracks"><span class="secno">4.8.10.12.2 </span>Sourcing in-band text tracks</a></li>
+         
+         <li><a href="http://www.w3.org/TR/html5/author/the-track-element.html#text-track-api"><span class="secno">4.8.10.12.4 </span>Text track API</a></li>
+         </ol></li>
+       <li><a href="http://www.w3.org/TR/html5/author/the-track-element.html#user-interface"><span class="secno">4.8.10.13 </span>User interface</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/the-track-element.html#time-ranges"><span class="secno">4.8.10.14 </span>Time ranges</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/the-track-element.html#mediaevents"><span class="secno">4.8.10.15 </span>Event summary</a></li>
+       
+       <li><a href="http://www.w3.org/TR/html5/author/the-track-element.html#best-practices-for-authors-using-media-elements"><span class="secno">4.8.10.17 </span>Best practices for authors using media elements</a></li>
+       </ol></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-canvas-element.html#the-canvas-element" id="x4.8.11-the-canvas-element"><span class="secno">4.8.11 </span>The <code>canvas</code> element</a>
+      </li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-map-element.html#the-map-element" id="x4.8.12-the-map-element"><span class="secno">4.8.12 </span>The <code>map</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-area-element.html#the-area-element" id="x4.8.13-the-area-element"><span class="secno">4.8.13 </span>The <code>area</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-area-element.html#image-maps"><span class="secno">4.8.14 </span>Image maps</a>
+      </li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-area-element.html#mathml"><span class="secno">4.8.15 </span>MathML</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-area-element.html#svg-0"><span class="secno">4.8.16 </span>SVG</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-area-element.html#dimension-attributes" id="x4.8.17-dimension-attributes"><span class="secno">4.8.17 </span>Dimension attributes</a></li></ol></li>
+   <li><a href="http://www.w3.org/TR/html5/author/tabular-data.html#tabular-data"><span class="secno">4.9 </span>Tabular data</a>
+    <ol><li><a href="http://www.w3.org/TR/html5/author/the-table-element.html#the-table-element" id="x4.9.1-the-table-element"><span class="secno">4.9.1 </span>The <code>table</code> element</a>
+      <ol><li><a href="http://www.w3.org/TR/html5/author/the-table-element.html#table-descriptions-techniques"><span class="secno">4.9.1.1 </span>Techniques for describing tables</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/the-table-element.html#table-layout-techniques"><span class="secno">4.9.1.2 </span>Techniques for table layout</a></li></ol></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-caption-element.html#the-caption-element" id="x4.9.2-the-caption-element"><span class="secno">4.9.2 </span>The <code>caption</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-colgroup-element.html#the-colgroup-element" id="x4.9.3-the-colgroup-element"><span class="secno">4.9.3 </span>The <code>colgroup</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-col-element.html#the-col-element" id="x4.9.4-the-col-element"><span class="secno">4.9.4 </span>The <code>col</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-tbody-element.html#the-tbody-element" id="x4.9.5-the-tbody-element"><span class="secno">4.9.5 </span>The <code>tbody</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-thead-element.html#the-thead-element" id="x4.9.6-the-thead-element"><span class="secno">4.9.6 </span>The <code>thead</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-tfoot-element.html#the-tfoot-element" id="x4.9.7-the-tfoot-element"><span class="secno">4.9.7 </span>The <code>tfoot</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-tr-element.html#the-tr-element" id="x4.9.8-the-tr-element"><span class="secno">4.9.8 </span>The <code>tr</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-td-element.html#the-td-element" id="x4.9.9-the-td-element"><span class="secno">4.9.9 </span>The <code>td</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-th-element.html#the-th-element" id="x4.9.10-the-th-element"><span class="secno">4.9.10 </span>The <code>th</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-th-element.html#attributes-common-to-td-and-th-elements"><span class="secno">4.9.11 </span>Attributes common to <code>td</code> and <code>th</code> elements</a></li>
+     
+     <li><a href="http://www.w3.org/TR/html5/author/the-th-element.html#examples"><span class="secno">4.9.13 </span>Examples</a></li></ol></li>
+   <li><a href="http://www.w3.org/TR/html5/author/forms.html#forms"><span class="secno">4.10 </span>Forms</a>
+    <ol><li><a href="http://www.w3.org/TR/html5/author/forms.html#introduction-1"><span class="secno">4.10.1 </span>Introduction</a>
+      <ol><li><a href="http://www.w3.org/TR/html5/author/forms.html#writing-a-form-s-user-interface"><span class="secno">4.10.1.1 </span>Writing a form's user interface</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/forms.html#implementing-the-server-side-processing-for-a-form"><span class="secno">4.10.1.2 </span>Implementing the server-side processing for a form</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/forms.html#configuring-a-form-to-communicate-with-a-server"><span class="secno">4.10.1.3 </span>Configuring a form to communicate with a server</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/forms.html#client-side-form-validation"><span class="secno">4.10.1.4 </span>Client-side form validation</a></li></ol></li>
+     <li><a href="http://www.w3.org/TR/html5/author/forms.html#categories"><span class="secno">4.10.2 </span>Categories</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-form-element.html#the-form-element" id="x4.10.3-the-form-element"><span class="secno">4.10.3 </span>The <code>form</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-fieldset-element.html#the-fieldset-element" id="x4.10.4-the-fieldset-element"><span class="secno">4.10.4 </span>The <code>fieldset</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-legend-element.html#the-legend-element" id="x4.10.5-the-legend-element"><span class="secno">4.10.5 </span>The <code>legend</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-label-element.html#the-label-element" id="x4.10.6-the-label-element"><span class="secno">4.10.6 </span>The <code>label</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-input-element.html#the-input-element" id="x4.10.7-the-input-element"><span class="secno">4.10.7 </span>The <code>input</code> element</a>
+      <ol><li><a href="http://www.w3.org/TR/html5/author/states-of-the-type-attribute.html#states-of-the-type-attribute"><span class="secno">4.10.7.1 </span>States of the <code title="attr-input-type">type</code> attribute</a>
+        <ol><li><a href="http://www.w3.org/TR/html5/author/states-of-the-type-attribute.html#hidden-state" id="x4.10.7.1.1-hidden-state"><span class="secno">4.10.7.1.1 </span>Hidden state</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/states-of-the-type-attribute.html#text-state-and-search-state" id="x4.10.7.1.2-text-state-and-search-state"><span class="secno">4.10.7.1.2 </span>Text state and Search state</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/states-of-the-type-attribute.html#telephone-state" id="x4.10.7.1.3-telephone-state"><span class="secno">4.10.7.1.3 </span>Telephone state</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/states-of-the-type-attribute.html#url-state" id="x4.10.7.1.4-url-state"><span class="secno">4.10.7.1.4 </span>URL state</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/states-of-the-type-attribute.html#e-mail-state" id="x4.10.7.1.5-e-mail-state"><span class="secno">4.10.7.1.5 </span>E-mail state</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/states-of-the-type-attribute.html#password-state" id="x4.10.7.1.6-password-state"><span class="secno">4.10.7.1.6 </span>Password state</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/states-of-the-type-attribute.html#date-and-time-state" id="x4.10.7.1.7-date-and-time-state"><span class="secno">4.10.7.1.7 </span>Date and Time state</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/states-of-the-type-attribute.html#date-state" id="x4.10.7.1.8-date-state"><span class="secno">4.10.7.1.8 </span>Date state</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/states-of-the-type-attribute.html#month-state" id="x4.10.7.1.9-month-state"><span class="secno">4.10.7.1.9 </span>Month state</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/states-of-the-type-attribute.html#week-state" id="x4.10.7.1.10-week-state"><span class="secno">4.10.7.1.10 </span>Week state</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/states-of-the-type-attribute.html#time-state" id="x4.10.7.1.11-time-state"><span class="secno">4.10.7.1.11 </span>Time state</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/states-of-the-type-attribute.html#local-date-and-time-state" id="x4.10.7.1.12-local-date-and-time-state"><span class="secno">4.10.7.1.12 </span>Local Date and Time state</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/number-state.html#number-state" id="x4.10.7.1.13-number-state"><span class="secno">4.10.7.1.13 </span>Number state</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/number-state.html#range-state" id="x4.10.7.1.14-range-state"><span class="secno">4.10.7.1.14 </span>Range state</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/number-state.html#color-state" id="x4.10.7.1.15-color-state"><span class="secno">4.10.7.1.15 </span>Color state</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/number-state.html#checkbox-state" id="x4.10.7.1.16-checkbox-state"><span class="secno">4.10.7.1.16 </span>Checkbox state</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/number-state.html#radio-button-state" id="x4.10.7.1.17-radio-button-state"><span class="secno">4.10.7.1.17 </span>Radio Button state</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/number-state.html#file-upload-state" id="x4.10.7.1.18-file-upload-state"><span class="secno">4.10.7.1.18 </span>File Upload state</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/number-state.html#submit-button-state" id="x4.10.7.1.19-submit-button-state"><span class="secno">4.10.7.1.19 </span>Submit Button state</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/number-state.html#image-button-state" id="x4.10.7.1.20-image-button-state"><span class="secno">4.10.7.1.20 </span>Image Button state</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/number-state.html#reset-button-state" id="x4.10.7.1.21-reset-button-state"><span class="secno">4.10.7.1.21 </span>Reset Button state</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/number-state.html#button-state" id="x4.10.7.1.22-button-state"><span class="secno">4.10.7.1.22 </span>Button state</a></li></ol></li>
+       <li><a href="http://www.w3.org/TR/html5/author/common-input-element-attributes.html#common-input-element-attributes"><span class="secno">4.10.7.2 </span>Common <code>input</code> element attributes</a>
+        <ol><li><a href="http://www.w3.org/TR/html5/author/common-input-element-attributes.html#the-autocomplete-attribute"><span class="secno">4.10.7.2.1 </span>The <code title="attr-input-autocomplete">autocomplete</code> attribute</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/common-input-element-attributes.html#the-dirname-attribute"><span class="secno">4.10.7.2.2 </span>The <code title="attr-input-dirname">dirname</code> attribute</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/common-input-element-attributes.html#the-list-attribute"><span class="secno">4.10.7.2.3 </span>The <code title="attr-input-list">list</code> attribute</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/common-input-element-attributes.html#the-readonly-attribute"><span class="secno">4.10.7.2.4 </span>The <code title="attr-input-readonly">readonly</code> attribute</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/common-input-element-attributes.html#the-size-attribute"><span class="secno">4.10.7.2.5 </span>The <code title="attr-input-size">size</code> attribute</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/common-input-element-attributes.html#the-required-attribute"><span class="secno">4.10.7.2.6 </span>The <code title="attr-input-required">required</code> attribute</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/common-input-element-attributes.html#the-multiple-attribute"><span class="secno">4.10.7.2.7 </span>The <code title="attr-input-multiple">multiple</code> attribute</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/common-input-element-attributes.html#the-maxlength-attribute"><span class="secno">4.10.7.2.8 </span>The <code title="attr-input-maxlength">maxlength</code> attribute</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/common-input-element-attributes.html#the-pattern-attribute"><span class="secno">4.10.7.2.9 </span>The <code title="attr-input-pattern">pattern</code> attribute</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/common-input-element-attributes.html#the-min-and-max-attributes"><span class="secno">4.10.7.2.10 </span>The <code title="attr-input-min">min</code> and <code title="attr-input-max">max</code> attributes</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/common-input-element-attributes.html#the-step-attribute"><span class="secno">4.10.7.2.11 </span>The <code title="attr-input-step">step</code> attribute</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/common-input-element-attributes.html#the-placeholder-attribute"><span class="secno">4.10.7.2.12 </span>The <code title="attr-input-placeholder">placeholder</code> attribute</a></li></ol></li>
+       <li><a href="http://www.w3.org/TR/html5/author/common-input-element-attributes.html#common-input-element-apis"><span class="secno">4.10.7.3 </span>Common <code>input</code> element APIs</a></li>
+       </ol></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-button-element.html#the-button-element" id="x4.10.8-the-button-element"><span class="secno">4.10.8 </span>The <code>button</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-select-element.html#the-select-element" id="x4.10.9-the-select-element"><span class="secno">4.10.9 </span>The <code>select</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-datalist-element.html#the-datalist-element" id="x4.10.10-the-datalist-element"><span class="secno">4.10.10 </span>The <code>datalist</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-optgroup-element.html#the-optgroup-element" id="x4.10.11-the-optgroup-element"><span class="secno">4.10.11 </span>The <code>optgroup</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-option-element.html#the-option-element" id="x4.10.12-the-option-element"><span class="secno">4.10.12 </span>The <code>option</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-textarea-element.html#the-textarea-element" id="x4.10.13-the-textarea-element"><span class="secno">4.10.13 </span>The <code>textarea</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-keygen-element.html#the-keygen-element" id="x4.10.14-the-keygen-element"><span class="secno">4.10.14 </span>The <code>keygen</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-output-element.html#the-output-element" id="x4.10.15-the-output-element"><span class="secno">4.10.15 </span>The <code>output</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-progress-element.html#the-progress-element" id="x4.10.16-the-progress-element"><span class="secno">4.10.16 </span>The <code>progress</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-meter-element.html#the-meter-element" id="x4.10.17-the-meter-element"><span class="secno">4.10.17 </span>The <code>meter</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/association-of-controls-and-forms.html#association-of-controls-and-forms"><span class="secno">4.10.18 </span>Association of controls and forms</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/association-of-controls-and-forms.html#attributes-common-to-form-controls" id="x4.10.19-attributes-common-to-form-controls"><span class="secno">4.10.19 </span>Attributes common to form controls</a>
+      <ol><li><a href="http://www.w3.org/TR/html5/author/association-of-controls-and-forms.html#naming-form-controls"><span class="secno">4.10.19.1 </span>Naming form controls</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/association-of-controls-and-forms.html#enabling-and-disabling-form-controls"><span class="secno">4.10.19.2 </span>Enabling and disabling form controls</a></li>
+       
+       <li><a href="http://www.w3.org/TR/html5/author/association-of-controls-and-forms.html#autofocusing-a-form-control"><span class="secno">4.10.19.4 </span>Autofocusing a form control</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/association-of-controls-and-forms.html#limiting-user-input-length"><span class="secno">4.10.19.5 </span>Limiting user input length</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/association-of-controls-and-forms.html#form-submission-0"><span class="secno">4.10.19.6 </span>Form submission</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/association-of-controls-and-forms.html#submitting-element-directionality"><span class="secno">4.10.19.7 </span>Submitting element directionality</a></li></ol></li>
+     <li><a href="http://www.w3.org/TR/html5/author/association-of-controls-and-forms.html#textFieldSelection"><span class="secno">4.10.20 </span>APIs for the text field selections</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/association-of-controls-and-forms.html#constraints"><span class="secno">4.10.21 </span>Constraints</a>
+      <ol><li><a href="http://www.w3.org/TR/html5/author/association-of-controls-and-forms.html#definitions"><span class="secno">4.10.21.1 </span>Definitions</a></li>
+       
+       <li><a href="http://www.w3.org/TR/html5/author/association-of-controls-and-forms.html#the-constraint-validation-api" id="x4.10.21.3-the-constraint-validation-api"><span class="secno">4.10.21.3 </span>The constraint validation API</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/association-of-controls-and-forms.html#security-forms"><span class="secno">4.10.21.4 </span>Security</a></li></ol></li>
+     <li><a href="http://www.w3.org/TR/html5/author/association-of-controls-and-forms.html#form-submission" id="x4.10.22-form-submission"><span class="secno">4.10.22 </span>Form submission</a>
+      <ol><li><a href="http://www.w3.org/TR/html5/author/index.html#multipart-form-data"><span class="secno">4.10.22.6 </span>Multipart form data</a></li>
+       </ol></li>
+     </ol></li>
+   <li><a href="http://www.w3.org/TR/html5/author/interactive-elements.html#interactive-elements"><span class="secno">4.11 </span>Interactive elements</a>
+    <ol><li><a href="http://www.w3.org/TR/html5/author/the-details-element.html#the-details-element" id="x4.11.1-the-details-element"><span class="secno">4.11.1 </span>The <code>details</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-summary-element.html#the-summary-element" id="x4.11.2-the-summary-element"><span class="secno">4.11.2 </span>The <code>summary</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-command-element.html#the-command-element" id="x4.11.3-the-command-element"><span class="secno">4.11.3 </span>The <code>command</code> element</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/the-menu-element.html#the-menu-element" id="x4.11.4-the-menu-element"><span class="secno">4.11.4 </span>The <code>menu</code> element</a>
+      <ol><li><a href="http://www.w3.org/TR/html5/author/the-menu-element.html#menus-intro"><span class="secno">4.11.4.1 </span>Introduction</a></li>
+       
+       <li><a href="http://www.w3.org/TR/html5/author/the-menu-element.html#context-menus" id="x4.11.4.3-context-menus"><span class="secno">4.11.4.3 </span>Context menus</a></li>
+       </ol></li>
+     <li><a href="http://www.w3.org/TR/html5/author/commands.html#commands"><span class="secno">4.11.5 </span>Commands</a>
+      </li></ol></li>
+   <li><a href="http://www.w3.org/TR/html5/author/links.html#links"><span class="secno">4.12 </span>Links</a>
+    <ol><li><a href="http://www.w3.org/TR/html5/author/links.html#introduction-3"><span class="secno">4.12.1 </span>Introduction</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/links.html#links-created-by-a-and-area-elements"><span class="secno">4.12.2 </span>Links created by <code>a</code> and <code>area</code> elements</a></li>
+     
+     <li><a href="http://www.w3.org/TR/html5/author/links.html#linkTypes"><span class="secno">4.12.4 </span>Link types</a>
+      <ol><li><a href="http://www.w3.org/TR/html5/author/links.html#rel-alternate" id="x4.12.4.1-link-type-alternate"><span class="secno">4.12.4.1 </span>Link type "<code>alternate</code>"</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/links.html#link-type-author" id="x4.12.4.2-link-type-author"><span class="secno">4.12.4.2 </span>Link type "<code>author</code>"</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/links.html#link-type-bookmark" id="x4.12.4.3-link-type-bookmark"><span class="secno">4.12.4.3 </span>Link type "<code>bookmark</code>"</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/links.html#link-type-external" id="x4.12.4.4-link-type-external"><span class="secno">4.12.4.4 </span>Link type "<code>external</code>"</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/links.html#link-type-help" id="x4.12.4.5-link-type-help"><span class="secno">4.12.4.5 </span>Link type "<code>help</code>"</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/links.html#rel-icon" id="x4.12.4.6-link-type-icon"><span class="secno">4.12.4.6 </span>Link type "<code>icon</code>"</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/links.html#link-type-license" id="x4.12.4.7-link-type-license"><span class="secno">4.12.4.7 </span>Link type "<code>license</code>"</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/links.html#link-type-nofollow" id="x4.12.4.8-link-type-nofollow"><span class="secno">4.12.4.8 </span>Link type "<code>nofollow</code>"</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/links.html#link-type-noreferrer" id="x4.12.4.9-link-type-noreferrer"><span class="secno">4.12.4.9 </span>Link type "<code>noreferrer</code>"</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/links.html#link-type-pingback" id="x4.12.4.10-link-type-pingback"><span class="secno">4.12.4.10 </span>Link type "<code>pingback</code>"</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/links.html#link-type-prefetch" id="x4.12.4.11-link-type-prefetch"><span class="secno">4.12.4.11 </span>Link type "<code>prefetch</code>"</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/links.html#link-type-search" id="x4.12.4.12-link-type-search"><span class="secno">4.12.4.12 </span>Link type "<code>search</code>"</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/links.html#link-type-sidebar" id="x4.12.4.13-link-type-sidebar"><span class="secno">4.12.4.13 </span>Link type "<code>sidebar</code>"</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/links.html#link-type-stylesheet" id="x4.12.4.14-link-type-stylesheet"><span class="secno">4.12.4.14 </span>Link type "<code>stylesheet</code>"</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/links.html#link-type-tag" id="x4.12.4.15-link-type-tag"><span class="secno">4.12.4.15 </span>Link type "<code>tag</code>"</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/links.html#sequential-link-types"><span class="secno">4.12.4.16 </span>Sequential link types</a>
+        <ol><li><a href="http://www.w3.org/TR/html5/author/links.html#link-type-next" id="x4.12.4.16.1-link-type-next"><span class="secno">4.12.4.16.1 </span>Link type "<code>next</code>"</a></li>
+         <li><a href="http://www.w3.org/TR/html5/author/links.html#link-type-prev" id="x4.12.4.16.2-link-type-prev"><span class="secno">4.12.4.16.2 </span>Link type "<code>prev</code>"</a></li></ol></li>
+       <li><a href="http://www.w3.org/TR/html5/author/links.html#other-link-types"><span class="secno">4.12.4.17 </span>Other link types</a></li></ol></li></ol></li>
+   <li><a href="http://www.w3.org/TR/html5/author/links.html#common-idioms-without-dedicated-elements"><span class="secno">4.13 </span>Common idioms without dedicated elements</a>
+    <ol><li><a href="http://www.w3.org/TR/html5/author/links.html#the-main-part-of-the-content"><span class="secno">4.13.1 </span>The main part of the content</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/links.html#rel-up"><span class="secno">4.13.2 </span>Bread crumb navigation</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/links.html#tag-clouds"><span class="secno">4.13.3 </span>Tag clouds</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/links.html#conversations"><span class="secno">4.13.4 </span>Conversations</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/links.html#footnotes"><span class="secno">4.13.5 </span>Footnotes</a></li></ol></li>
+   </ol></li>
+ <li id="auto-toc-5"><a href="http://www.w3.org/TR/html5/author/browsers.html#browsers"><span class="secno">5 </span>Loading Web pages</a>
+  <ol><li><a href="http://www.w3.org/TR/html5/author/browsers.html#windows"><span class="secno">5.1 </span>Browsing contexts</a>
+    <ol><li><a href="http://www.w3.org/TR/html5/author/browsers.html#nested-browsing-contexts"><span class="secno">5.1.1 </span>Nested browsing contexts</a>
+      <ol><li><a href="http://www.w3.org/TR/html5/author/browsers.html#navigating-nested-browsing-contexts-in-the-dom"><span class="secno">5.1.1.1 </span>Navigating nested browsing contexts in the DOM</a></li></ol></li>
+     <li><a href="http://www.w3.org/TR/html5/author/browsers.html#auxiliary-browsing-contexts"><span class="secno">5.1.2 </span>Auxiliary browsing contexts</a>
+      <ol><li><a href="http://www.w3.org/TR/html5/author/browsers.html#navigating-auxiliary-browsing-contexts-in-the-dom"><span class="secno">5.1.2.1 </span>Navigating auxiliary browsing contexts in the DOM</a></li></ol></li>
+     <li><a href="http://www.w3.org/TR/html5/author/browsers.html#secondary-browsing-contexts"><span class="secno">5.1.3 </span>Secondary browsing contexts</a></li>
+     
+     
+     <li><a href="http://www.w3.org/TR/html5/author/browsers.html#browsing-context-names"><span class="secno">5.1.6 </span>Browsing context names</a></li></ol></li>
+   <li><a href="http://www.w3.org/TR/html5/author/browsers.html#the-window-object"><span class="secno">5.2 </span>The <code>Window</code> object</a>
+    <ol><li><a href="http://www.w3.org/TR/html5/author/browsers.html#apis-for-creating-and-navigating-browsing-contexts-by-name"><span class="secno">5.2.2 </span>APIs for creating and navigating browsing contexts by name</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/browsers.html#accessing-other-browsing-contexts"><span class="secno">5.2.3 </span>Accessing other browsing contexts</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/browsers.html#named-access-on-the-window-object"><span class="secno">5.2.4 </span>Named access on the <code>Window</code> object</a></li>
+     
+     <li><a href="http://www.w3.org/TR/html5/author/browsers.html#browser-interface-elements"><span class="secno">5.2.6 </span>Browser interface elements</a></li>
+     </ol></li>
+   <li><a href="http://www.w3.org/TR/html5/author/origin-0.html#origin-0"><span class="secno">5.3 </span>Origin</a>
+    <ol><li><a href="http://www.w3.org/TR/html5/author/origin-0.html#relaxing-the-same-origin-restriction"><span class="secno">5.3.1 </span>Relaxing the same-origin restriction</a></li></ol></li>
+   <li><a href="http://www.w3.org/TR/html5/author/history.html#history"><span class="secno">5.4 </span>Session history and navigation</a>
+    <ol><li><a href="http://www.w3.org/TR/html5/author/history.html#the-session-history-of-browsing-contexts"><span class="secno">5.4.1 </span>The session history of browsing contexts</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/history.html#the-history-interface"><span class="secno">5.4.2 </span>The <code>History</code> interface</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/history.html#the-location-interface"><span class="secno">5.4.3 </span>The <code>Location</code> interface</a>
+      </li>
+     </ol></li>
+   <li><a href="http://www.w3.org/TR/html5/author/history.html#browsing-the-web"><span class="secno">5.5 </span>Browsing the Web</a>
+    <ol><li><a href="http://www.w3.org/TR/html5/author/history.html#history-traversal"><span class="secno">5.5.9 </span>History traversal</a>
+      </li>
+     <li><a href="http://www.w3.org/TR/html5/author/history.html#unloading-documents"><span class="secno">5.5.10 </span>Unloading documents</a>
+      </li>
+     </ol></li>
+   <li><a href="http://www.w3.org/TR/html5/author/offline.html#offline"><span class="secno">5.6 </span>Offline Web applications</a>
+    <ol><li><a href="http://www.w3.org/TR/html5/author/offline.html#introduction-4"><span class="secno">5.6.1 </span>Introduction</a>
+      <ol><li><a href="http://www.w3.org/TR/html5/author/offline.html#appcacheevents"><span class="secno">5.6.1.1 </span>Event summary</a></li></ol></li>
+     
+     <li><a href="http://www.w3.org/TR/html5/author/offline.html#manifests"><span class="secno">5.6.3 </span>The cache manifest syntax</a>
+      <ol><li><a href="http://www.w3.org/TR/html5/author/offline.html#some-sample-manifests"><span class="secno">5.6.3.1 </span>Some sample manifests</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/offline.html#writing-cache-manifests"><span class="secno">5.6.3.2 </span>Writing cache manifests</a></li>
+       </ol></li>
+     
+     
+     
+     
+     
+     <li><a href="http://www.w3.org/TR/html5/author/offline.html#application-cache-api"><span class="secno">5.6.9 </span>Application cache API</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/offline.html#browser-state"><span class="secno">5.6.10 </span>Browser state</a></li></ol></li></ol></li>
+ <li id="auto-toc-6"><a href="http://www.w3.org/TR/html5/author/webappapis.html#webappapis"><span class="secno">6 </span>Web application APIs</a>
+  <ol><li><a href="http://www.w3.org/TR/html5/author/webappapis.html#scripting"><span class="secno">6.1 </span>Scripting</a>
+    <ol><li><a href="http://www.w3.org/TR/html5/author/webappapis.html#introduction-5"><span class="secno">6.1.1 </span>Introduction</a></li>
+     
+     
+     
+     
+     <li><a href="http://www.w3.org/TR/html5/author/webappapis.html#events"><span class="secno">6.1.6 </span>Events</a>
+      </li></ol></li>
+   <li><a href="http://www.w3.org/TR/html5/author/webappapis.html#atob"><span class="secno">6.2 </span>Base64 utility methods</a></li>
+   <li><a href="http://www.w3.org/TR/html5/author/timers.html#timers"><span class="secno">6.3 </span>Timers</a></li>
+   <li><a href="http://www.w3.org/TR/html5/author/timers.html#user-prompts"><span class="secno">6.4 </span>User prompts</a>
+    <ol><li><a href="http://www.w3.org/TR/html5/author/timers.html#simple-dialogs"><span class="secno">6.4.1 </span>Simple dialogs</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/timers.html#printing"><span class="secno">6.4.2 </span>Printing</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/timers.html#dialogs-implemented-using-separate-documents"><span class="secno">6.4.3 </span>Dialogs implemented using separate documents</a></li></ol></li>
+   <li><a href="http://www.w3.org/TR/html5/author/timers.html#system-state-and-capabilities"><span class="secno">6.5 </span>System state and capabilities</a>
+    <ol><li><a href="http://www.w3.org/TR/html5/author/timers.html#the-navigator-object"><span class="secno">6.5.1 </span>The <code>Navigator</code> object</a>
+      <ol><li><a href="http://www.w3.org/TR/html5/author/timers.html#client-identification"><span class="secno">6.5.1.1 </span>Client identification</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/timers.html#custom-handlers"><span class="secno">6.5.1.2 </span>Custom scheme and content handlers</a></li>
+       
+       
+       <li><a href="http://www.w3.org/TR/html5/author/timers.html#manually-releasing-the-storage-mutex"><span class="secno">6.5.1.5 </span>Manually releasing the storage mutex</a></li></ol></li>
+     <li><a href="http://www.w3.org/TR/html5/author/timers.html#the-external-interface"><span class="secno">6.5.2 </span>The <code>External</code> interface</a></li></ol></li></ol></li>
+ <li id="auto-toc-7"><a href="http://www.w3.org/TR/html5/author/editing.html#editing" id="x7-user-interaction"><span class="secno">7 </span>User interaction</a>
+  <ol><li><a href="http://www.w3.org/TR/html5/author/editing.html#the-hidden-attribute" id="x7.1-the-hidden-attribute"><span class="secno">7.1 </span>The <code>hidden</code> attribute</a></li>
+   <li><a href="http://www.w3.org/TR/html5/author/editing.html#activation"><span class="secno">7.2 </span>Activation</a></li>
+   <li><a href="http://www.w3.org/TR/html5/author/editing.html#focus"><span class="secno">7.3 </span>Focus</a>
+    <ol><li><a href="http://www.w3.org/TR/html5/author/editing.html#sequential-focus-navigation-and-the-tabindex-attribute"><span class="secno">7.3.1 </span>Sequential focus navigation and the <code title="attr-tabindex">tabindex</code> attribute</a></li>
+     
+     <li><a href="http://www.w3.org/TR/html5/author/editing.html#document-level-focus-apis"><span class="secno">7.3.3 </span>Document-level focus APIs</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/editing.html#element-level-focus-apis"><span class="secno">7.3.4 </span>Element-level focus APIs</a></li></ol></li>
+   <li><a href="http://www.w3.org/TR/html5/author/editing.html#assigning-keyboard-shortcuts"><span class="secno">7.4 </span>Assigning keyboard shortcuts</a>
+    <ol><li><a href="http://www.w3.org/TR/html5/author/editing.html#introduction-6"><span class="secno">7.4.1 </span>Introduction</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/editing.html#the-accesskey-attribute" id="x7.4.2-the-accesskey-attribute"><span class="secno">7.4.2 </span>The <code>accesskey</code> attribute</a></li>
+     </ol></li>
+   <li><a href="http://www.w3.org/TR/html5/author/editing.html#contenteditable"><span class="secno">7.5 </span>The <code title="attr-contenteditable">contenteditable</code> attribute</a>
+    <ol><li><a href="http://www.w3.org/TR/html5/author/editing.html#making-entire-documents-editable"><span class="secno">7.5.2 </span>Making entire documents editable</a></li></ol></li>
+   <li><a href="http://www.w3.org/TR/html5/author/editing.html#spelling-and-grammar-checking"><span class="secno">7.6 </span>Spelling and grammar checking</a></li>
+   <li><a href="http://www.w3.org/TR/html5/author/dnd.html#dnd" id="x7.7-drag-and-drop"><span class="secno">7.7 </span>Drag and drop</a>
+    <ol><li><a href="http://www.w3.org/TR/html5/author/dnd.html#introduction-7"><span class="secno">7.7.1 </span>Introduction</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/dnd.html#the-drag-data-store"><span class="secno">7.7.2 </span>The drag data store</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/dnd.html#the-datatransfer-interface"><span class="secno">7.7.3 </span>The <code>DataTransfer</code> interface</a>
+      <ol><li><a href="http://www.w3.org/TR/html5/author/dnd.html#the-datatransferitems-interface"><span class="secno">7.7.3.1 </span>The <code>DataTransferItems</code> interface</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/dnd.html#the-datatransferitem-interface"><span class="secno">7.7.3.2 </span>The <code>DataTransferItem</code> interface</a></li></ol></li>
+     <li><a href="http://www.w3.org/TR/html5/author/dnd.html#the-dragevent-interface"><span class="secno">7.7.4 </span>The <code>DragEvent</code> interface</a></li>
+     
+     <li><a href="http://www.w3.org/TR/html5/author/dnd.html#dndevents"><span class="secno">7.7.6 </span>Events summary</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/dnd.html#the-draggable-attribute" id="x7.7.7-the-draggable-attribute"><span class="secno">7.7.7 </span>The <code>draggable</code> attribute</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/dnd.html#the-dropzone-attribute" id="x7.7.8-the-dropzone-attribute"><span class="secno">7.7.8 </span>The <code>dropzone</code> attribute</a></li>
+     </ol></li>
+   <li><a href="http://www.w3.org/TR/html5/author/dnd.html#editing-apis"><span class="secno">7.8 </span>Editing APIs</a></li></ol></li>
+ <li id="auto-toc-8"><a href="http://www.w3.org/TR/html5/author/syntax.html#syntax" id="x8-the-html-syntax"><span class="secno">8 </span>The HTML syntax</a>
+  <ol><li><a href="http://www.w3.org/TR/html5/author/syntax.html#writing"><span class="secno">8.1 </span>Writing HTML documents</a>
+    <ol><li><a href="http://www.w3.org/TR/html5/author/syntax.html#the-doctype"><span class="secno">8.1.1 </span>The DOCTYPE</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/syntax.html#elements-0"><span class="secno">8.1.2 </span>Elements</a>
+      <ol><li><a href="http://www.w3.org/TR/html5/author/syntax.html#start-tags"><span class="secno">8.1.2.1 </span>Start tags</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/syntax.html#end-tags"><span class="secno">8.1.2.2 </span>End tags</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/syntax.html#attributes-0"><span class="secno">8.1.2.3 </span>Attributes</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/syntax.html#optional-tags"><span class="secno">8.1.2.4 </span>Optional tags</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/syntax.html#element-restrictions"><span class="secno">8.1.2.5 </span>Restrictions on content models</a></li>
+       <li><a href="http://www.w3.org/TR/html5/author/syntax.html#cdata-rcdata-restrictions"><span class="secno">8.1.2.6 </span>Restrictions on the contents of raw text and RCDATA elements</a></li></ol></li>
+     <li><a href="http://www.w3.org/TR/html5/author/syntax.html#text-0"><span class="secno">8.1.3 </span>Text</a>
+      <ol><li><a href="http://www.w3.org/TR/html5/author/syntax.html#newlines"><span class="secno">8.1.3.1 </span>Newlines</a></li></ol></li>
+     <li><a href="http://www.w3.org/TR/html5/author/syntax.html#character-references"><span class="secno">8.1.4 </span>Character references</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/syntax.html#cdata-sections"><span class="secno">8.1.5 </span>CDATA sections</a></li>
+     <li><a href="http://www.w3.org/TR/html5/author/syntax.html#comments"><span class="secno">8.1.6 </span>Comments</a></li></ol></li>
+   
+   
+   
+   <li><a href="http://www.w3.org/TR/html5/author/named-character-references.html#named-character-references" id="x8.5-named-character-references"><span class="secno">8.5 </span>Named character references</a></li></ol></li>
+ <li id="auto-toc-9"><a href="http://www.w3.org/TR/html5/author/the-xhtml-syntax.html#the-xhtml-syntax"><span class="secno">9 </span>The XHTML syntax</a>
+  </li>
+ 
+ <li id="auto-toc-10"><a href="http://www.w3.org/TR/html5/author/obsolete.html#obsolete"><span class="secno">11 </span>Obsolete features</a>
+  <ol><li><a href="http://www.w3.org/TR/html5/author/obsolete.html#obsolete-but-conforming-features"><span class="secno">11.1 </span>Obsolete but conforming features</a>
+    </li>
+   <li><a href="http://www.w3.org/TR/html5/author/obsolete.html#non-conforming-features"><span class="secno">11.2 </span>Non-conforming features</a></li>
+   </ol></li>
+ <li id="auto-toc-11"><a href="http://www.w3.org/TR/html5/author/iana.html#iana"><span class="secno">12 </span>IANA considerations</a>
+  <ol><li><a href="http://www.w3.org/TR/html5/author/iana.html#text-html" id="x12.1-text-html"><span class="secno">12.1 </span><code>text/html</code></a></li>
+   <li><a href="http://www.w3.org/TR/html5/author/iana.html#text-html-sandboxed" id="x12.2-text-html-sandboxed"><span class="secno">12.2 </span><code>text/html-sandboxed</code></a></li>
+   <li><a href="http://www.w3.org/TR/html5/author/iana.html#application-xhtml-xml" id="x12.3-application-xhtml-xml"><span class="secno">12.3 </span><code>application/xhtml+xml</code></a></li>
+   <li><a href="http://www.w3.org/TR/html5/author/iana.html#text-cache-manifest" id="x12.4-text-cache-manifest"><span class="secno">12.4 </span><code>text/cache-manifest</code></a></li></ol></li>
+ <li id="auto-toc-12"><a class="no-num" href="http://www.w3.org/TR/html5/author/index.html#index">Index</a>
+  <ol><li><a class="no-num" href="http://www.w3.org/TR/html5/author/index.html#elements-1">Elements</a></li>
+   <li><a class="no-num" href="http://www.w3.org/TR/html5/author/index.html#element-content-categories">Element content categories</a></li>
+   <li><a class="no-num" href="http://www.w3.org/TR/html5/author/index.html#attributes-1">Attributes</a></li>
+   <li><a class="no-num" href="http://www.w3.org/TR/html5/author/index.html#interfaces">Interfaces</a></li>
+   <li><a class="no-num" href="http://www.w3.org/TR/html5/author/index.html#events-0">Events</a></li></ol></li>
+ 
+<li id="auto-toc-13"><a class="no-num" href="http://www.w3.org/TR/html5/author/index-of-terms.html#index-of-terms">Index of terms</a></li>
+<li id="auto-toc-14"><a class="no-num" href="http://www.w3.org/TR/html5/author/references.html#references">References</a></li>
+
+ <li id="auto-toc-15"><a class="no-num" href="http://www.w3.org/TR/html5/author/acknowledgements.html#acknowledgements">Acknowledgements</a></li></ol>
+<div style="left: 0.683334px ! important; top: 0.683334px ! important;" class="firebugResetStyles firebugBlockBackgroundColor firebugLayoutBox firebugLayoutBoxOffset"><div style="padding: 43px ! important; background-color: rgb(237, 255, 100) ! important;" class="firebugResetStyles firebugLayoutBox"><div style="padding: 0px ! important; background-color: rgb(68, 68, 68) ! important;" class="firebugResetStyles firebugLayoutBox"><div style="padding: 33px 16px 33px 70px ! important; background-color: SlateBlue ! important;" class="firebugResetStyles firebugLayoutBox"><div style="width: 588.8px ! important; height: 13615.6px ! important; background-color: SkyBlue ! important;" class="firebugResetStyles firebugLayoutBox"></div></div></div></div></div></body></html>

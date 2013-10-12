@@ -1,0 +1,17 @@
+label {
+	display:block;
+}
+#PublishableKey {
+	display:none;
+}
+#SCRIPT_NAME {
+	display:none;
+}
+#msgErr {
+	color:#FFF;
+	background-color:#F00;
+}
+input.err, .err {
+	background-color:#F00;
+}
+	

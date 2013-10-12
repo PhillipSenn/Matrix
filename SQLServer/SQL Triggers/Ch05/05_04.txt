@@ -1,0 +1,6 @@
+CREATE TRIGGER safety 
+ON DATABASE 
+FOR DROP_TABLE, ALTER_TABLE 
+AS 
+   PRINT 'You do not have permission to drop or alter tables!' 
+   ROLLBACK;

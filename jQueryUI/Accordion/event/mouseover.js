@@ -1,0 +1,3 @@
+$('#myAccordion').accordion({
+	event: "mouseover"
+});

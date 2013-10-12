@@ -1,0 +1,21 @@
+#box {
+	margin-top:10px;
+	margin-right:20px;
+	margin-bottom:30px;
+	margin-left:40px;
+	border-top:10px;
+	border-right:20px;
+	border-bottom:30px;
+	border-left:40px;
+	border-top-color:#F00;
+	border-right-color:#0F0;
+	border-bottom-color:#00F;
+	border-left-color:#FF0;
+	border-style:solid;
+	padding-top:10px;
+	padding-right:20px;
+	padding-bottom:30px;
+	padding-left:40px;
+}
+
+	

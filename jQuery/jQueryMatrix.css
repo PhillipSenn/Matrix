@@ -1,0 +1,44 @@
+@import url("css/footer.css");
+th {
+	text-align:left;
+}
+td {
+	vertical-align:top;
+}
+#matrix {
+	clear:left;
+}
+.slider {
+	clear:left;
+}
+a {
+	text-decoration:none;
+	font-weight:bold;
+}
+a:hover {
+	background-color:cornflowerblue;
+	color:#FFF;
+}
+a img:hover {
+}
+.hfilter {
+	list-style:none;
+	padding-left:0;
+	float:left;
+}
+.hfilter li {
+	display:inline;
+}
+.vfilter {
+	float:left;
+	margin-right:2em;
+	width:17em;
+}
+#ToggleSlider {
+	float:right;
+	margin-right:1em;
+}
+#PlusOne {
+	position:absolute;
+	right:0;
+}

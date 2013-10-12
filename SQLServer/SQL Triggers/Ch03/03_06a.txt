@@ -1,0 +1,8 @@
+INSERT INTO Authors (FirstName, LastName) VALUES ('John', 'Doe')
+
+
+USE [master]
+GO
+
+CREATE LOGIN [John] WITH PASSWORD='password', DEFAULT_DATABASE=[master], DEFAULT_LANGUAGE=[us_english], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF
+GO

@@ -1,0 +1,39 @@
+#jsSource {
+	line-height:20px;
+	display: block;
+	font-family: -moz-fixed;
+	/* white-space: pre;  We manually add a <br> tag to facilitate copy/paste */
+	background-image: url(pre.gif);
+	padding-left:3em;
+	margin-bottom:1em;
+}
+#HTMLSource {
+	line-height:20px;
+	display: block;
+	font-family: -moz-fixed;
+	background-image:url(/Matrix/Images/WhitePaperGreyLine.gif);
+	padding-left:70px;
+}
+#HTMLSource div {
+	display:none;
+}
+#HTMLSource .relevant {
+	display:block;
+}
+.myClass {
+	border:1px solid #F00;
+}
+.myClass2 {
+	border:1px solid #0F0;
+	text-transform: uppercase;
+}
+.myClass3 {
+	background-color:cornflowerblue;
+	color:#FFF;
+}
+#PRINT {
+	display:none;
+}
+#PRINT table {
+	margin-bottom:2em;
+}

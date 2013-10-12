@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- 
+    start.html by Bill Weinman 
+    <http://bw.org/contact/>
+    created 2011-11-27
+
+    Copyright (c) 2011 The BearHeart Group, LLC
+    This file may be used for personal educational purposes as needed. 
+    Use for other purposes is granted provided that this notice is
+    retained and any changes made are clearly indicated as such. 
+-->
+
+<head>
+    <title>
+        HTML5: Web Workers
+    </title>
+    <link rel="stylesheet" type="text/css" href="../CSS/main.css">
+    <script language="javascript">
+        var version = '1.0.5';
+        var worker = null;
+
+        // Check if this browser supports window.Worker
+        function getWorkerObject() {
+            try {
+                if( !! window.Worker ) return window.Worker;
+                else return undefined;
+            } catch(e) {
+                return undefined;
+            }
+        }
+
+        function workerCallback(event) {
+            value = event.data.value;
+            dispMessage('The first prime after 500 is ' + value);
+        }
+
+        // ##### Init #####
+
+        function init() {
+            var oWorker = null;
+            if(!(oWorker = getWorkerObject())) {
+                dispError('Web Workers is not supported in this browser.');
+                return;
+            }
+
+            worker = new oWorker('workerFindPrime.js');
+            worker.addEventListener('message', workerCallback, false);
+            worker.postMessage({ value : 500 });
+        }
+
+        // ##### Utilities #####
+
+        // shortcut for getElementById
+        function element(id) { return document.getElementById(id); }
+
+        function dispMessage(message) {
+            m = element('message');
+            m.className = 'message';
+            if(m.textContent.length > 0) {
+                m.innerHTML += '<br />' + message;
+            } else m.innerHTML = message;
+        }
+
+        function dispError(errorMessage) {
+            element('pageResults').innerHTML = 
+                '<p class="error">' + errorMessage + '</p>\n';
+        }
+
+        window.onload = init;
+
+    </script>
+</head>
+
+<body>
+
+<div id="content">
+
+    <h1> 
+        HTML5: Web Workers
+    </h1>
+    
+    <p id="message"></p>
+    <div id="pageResults"></div>
+
+</div>
+</body>
+</html>

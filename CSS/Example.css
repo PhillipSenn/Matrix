@@ -1,0 +1,59 @@
+@import url("/Library/CSS/html.css");
+#jsSource {
+	line-height:20px;
+	display: block;
+	font-family: -moz-fixed;
+	/* white-space: pre;  We manually add a <br> tag to facilitate copy/paste */
+	background-image: url(pre.gif);
+	padding-left:3em;
+}
+#HTMLSource {
+	line-height:20px;
+	display: block;
+	font-family: -moz-fixed;
+	background-image:url(/Matrix/Images/WhitePaperGreyLine.gif);
+	padding-left:70px;
+}
+.myClass {
+	border:1px solid #F00;
+}
+.myClass2 {
+	border:1px solid #0F0;
+	text-transform: uppercase;
+}
+.myClass3 {
+	background-color:cornflowerblue;
+	color:#FFF;
+}
+label {
+	display:block;
+}
+label.inline {
+	display:inline;
+}
+#Print {
+	display:none;
+}
+.pointer {
+	cursor:pointer;
+}
+.DOMElement, .jQueryObject {
+	display:none;
+}
+a {
+	text-decoration:none;
+}
+a:hover {
+	text-decoration:underline;
+}
+#Example, #Print, #SourceCode, #PlusOne, footer {
+	clear:left;
+}
+#Example {
+	width:960px;
+	float:left;
+}
+aside {
+	float:right;
+}
+

@@ -1,0 +1,19 @@
+@import url("/Matrix/css/Example.css");
+
+#myAccordion {
+	font-size: 14px;
+}
+
+.tile { 
+	width: 150px; 
+	height: 150px;
+	padding-left:10px;
+	padding-right:10px;
+	float:left;
+	margin-right:20px;
+}
+#PlayArea {
+	height:250px;
+	width:600px;
+	border:thick ridge #000;
+}

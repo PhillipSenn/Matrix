@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Animating with Keyframes</title>
+	<style>	
+		@-webkit-keyframes pulse {
+			0% {
+				-webkit-transform: scale(1.0);
+			}
+			30% {
+				-webkit-transform: scale(1.1);
+			}
+			100% {
+				-webkit-transform: scale(1.0);
+			}
+		}
+		.pulse {
+			-webkit-animation: pulse 1000ms infinite ease-in;
+		}
+		
+		@-webkit-keyframes slide {
+			0% {
+				-webkit-transform: translateY(100px) rotate(-360deg);
+				opacity: 0;
+			}
+			60% {
+				-webkit-transform: translateY(-10px) rotate(0deg);
+			}
+			100% {
+			}
+		}
+		
+		.loadicon {
+			-webkit-animation: slide 1000ms ease-in;
+		}
+		img {
+			-webkit-border-radius: 10px;
+			width: 77px;
+		}
+	</style>
+</head>
+<body>
+	<img onload="this.className='loadicon'" onclick="if(this.className!='pulse') {this.className='pulse'} else {this.className=''}" src="images/tampa.jpg" />
+</body>
+</html>

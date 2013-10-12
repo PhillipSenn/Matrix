@@ -1,0 +1,11 @@
+.someClass {
+	width: 100px;
+	height: 100px;
+	background-color: #2067f5;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#2067f5), to(#154096));
+	background-image: -webkit-linear-gradient(top, #2067f5, #154096);
+	background-image: -moz-linear-gradient(top, #2067f5, #154096);
+	background-image: -ms-linear-gradient(top, #2067f5, #154096);
+	background-image: -o-linear-gradient(top, #2067f5, #154096);
+	background-image: linear-gradient(to bottom, #2067f5, #154096);
+}

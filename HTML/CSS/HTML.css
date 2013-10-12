@@ -1,0 +1,29 @@
+#Source {
+	font-family: "Courier New", monospace;
+	white-space: pre;
+}
+#css {
+	font-family: "Courier New", monospace;
+	white-space: pre;
+}
+fieldset {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+/*
+legend {
+	background: #FF9;
+	border: solid 1px black;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	padding: 6px;
+}
+*/
+legend.btn-info {
+	color:#000000;
+}
+legend.btn-warning {
+	color:#000000;
+}

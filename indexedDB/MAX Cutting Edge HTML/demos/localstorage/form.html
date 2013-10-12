@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head></head>
+<body>
+
+<form id="blogForm">
+<p>
+Title:<br/>
+	<input type="text" name="title">
+</p>
+
+<p>
+Coolness:<br/>
+	<input type="text" name="coolness">
+</p>
+	
+<p>
+Body:<br/>
+	<textarea name="body"></textarea>
+</p>
+	
+<input type="submit">
+</form>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+	var title = document.querySelector("input[name=title]");
+	var coolness = document.querySelector("input[name=coolness]");
+	var body = document.querySelector("textarea[name=body]");
+	
+	/*
+	Handle initial restoration - could be more bulletproof.
+	*/
+	if(window.localStorage.getItem("formdata")) {
+		var data = window.localStorage.getItem("formdata");
+		data = JSON.parse(data);
+		title.value = data.title;
+		coolness.value = data.coolness;
+		body.value = data.body;
+	}
+	
+	document.querySelector("#blogForm").addEventListener("input", function(e) {
+		//grab the fields
+		var data = {};
+		data.title = title.value;
+		data.coolness = coolness.value
+		data.body = body.value;
+		window.localStorage.setItem("formdata", JSON.stringify(data));
+	}, false);
+
+}, false);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,2 @@
+indexedDB.deleteDatabase('Matrix')
+debugger;

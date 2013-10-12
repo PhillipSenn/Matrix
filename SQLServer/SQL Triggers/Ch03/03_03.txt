@@ -1,0 +1,9 @@
+ALTER PROCEDURE [dbo].[myTest]
+AS
+BEGIN
+SELECT 'Hello World this is fun'
+END
+
+GO
+
+EXEC myTest

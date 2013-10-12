@@ -1,0 +1,5 @@
+C:\Users\Martin Guidry\AppData\Local\Temporary Projects\CLRfunctions\bin\Release\CLRfunctions.dll
+C:\Users\Martin Guidry\AppData\Local\Temporary Projects\CLRfunctions\bin\Release\CLRfunctions.pdb
+C:\Users\Martin Guidry\AppData\Local\Temporary Projects\CLRfunctions\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Martin Guidry\AppData\Local\Temporary Projects\CLRfunctions\obj\Release\CLRfunctions.dll
+C:\Users\Martin Guidry\AppData\Local\Temporary Projects\CLRfunctions\obj\Release\CLRfunctions.pdb

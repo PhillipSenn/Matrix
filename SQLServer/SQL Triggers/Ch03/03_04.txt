@@ -1,0 +1,24 @@
+CREATE PROC procedureCursor(@authors CURSOR VARYING OUTPUT)
+AS 
+BEGIN
+	SET @authors = CURSOR FOR
+	
+	SELECT firstname
+	FROM authors
+	ORDER BY firstname
+
+	OPEN @authors
+END
+
+GO
+
+DECLARE @myCursor CURSOR
+DECLARE @firstName varchar(50)
+
+EXEC dbo.procedureCursor @authors = @myCursor OUTPUT
+
+FETCH NEXT FROM @myCursor INTO @firstName
+SELECT @firstName
+
+CLOSE @myCursor
+DEALLOCATE @myCursor

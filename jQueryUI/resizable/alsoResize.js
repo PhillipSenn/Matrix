@@ -1,0 +1,3 @@
+$('#myResizer').resizable({
+	alsoResize:'#myID'
+});

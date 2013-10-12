@@ -1,0 +1,10 @@
+@import url("/Library/css/html.css");
+label {
+	display:block;
+}
+input {
+	margin-bottom:1em;
+}
+#koamtac-id {
+	display:none;
+}

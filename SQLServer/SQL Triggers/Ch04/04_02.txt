@@ -1,0 +1,61 @@
+INSERT INTO Authors (FirstName, LastName) VALUES ('John', 'Doe')
+
+INSERT INTO Authors (FirstName, LastName) VALUES ('Sally', 'Smith')
+
+UPDATE AUTHORS 
+SET [Address] = '100 Main Street',
+	[City] = 'New Orleans',
+	[State] = 'LA',
+	[Zip] = '70931'
+WHERE LastName = 'Smith'
+
+UPDATE AUTHORS 
+SET [Address] = '700 Willow Street',
+	[City] = 'Buffalo',
+	[State] = 'NY',
+	[Zip] = '30951'
+WHERE LastName = 'Doe'
+
+-------------------------------------------------------
+
+CREATE FUNCTION formatAddress
+(@street as varchar(50),
+ @city as varchar(50),
+ @state as varchar(50),
+ @zip as varchar(50)
+ )
+ RETURNS varchar(255)
+ AS
+
+ BEGIN
+
+	IF (@street IS NULL OR  
+		@city IS NULL OR  
+		@state IS NULL OR  
+		@zip IS NULL)
+		
+		RETURN 'Incomplete Address'
+
+	SET @state = 
+	CASE @state
+		WHEN 'LA' THEN 'Louisiana'
+		WHEN 'NY' THEN 'New York'
+		WHEN 'CA' THEN 'California'  
+	END 
+		 
+	RETURN @street + ' ' + @city + ', ' + @state + ' ' + @zip
+ END
+
+---------------------------
+
+SELECT  dbo.formatAddress ('100 Main', 'Buffalo', 'NY', '39117')
+
+-----------------------------------------------------
+
+SELECT FirstName, LastName, dbo.formatAddress([address], city, [state], zip)
+FROM AUTHORS
+
+
+--------------
+
+

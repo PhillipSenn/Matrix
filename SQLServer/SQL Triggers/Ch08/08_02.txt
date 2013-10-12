@@ -1,0 +1,7 @@
+CREATE PROC [dbo].[getActiveAuthors]
+AS
+BEGIN
+	SELECT *
+	FROM Authors
+	WHERE Active = 1
+END

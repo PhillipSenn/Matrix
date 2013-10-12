@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Toggle Button</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font: 14px/16px Helvetica;
+			background-image: url(images/background-iphonelines.png);
+		}
+		
+		h1 {
+			font-size: 20px;
+			margin: 0;
+			padding: 0;
+			border-bottom: 1px solid #666;
+			text-align: center;
+			background-image: -webkit-gradient(linear,
+			left top, left bottom, from(#CCC), to(#999)
+			);
+			text-shadow: 0 1px 0 #FFF;
+		}
+		h1 a {
+			color: #444;
+			text-decoration: none;
+			display: block;
+			padding: 10px 0;
+		}
+		
+		h2 {
+			font-size: 13pt;
+			padding: 25px 0 10px 20px;
+			text-shadow: 0 1px 0 #FFF;
+			color: #444;
+		}
+		
+		
+		nav ul {
+			padding: 0;
+			list-style: none;
+			margin: 0 15px;
+			background-color: rgba(255,255,255,.7);
+			border: 1px solid white;
+			-webkit-border-radius: 10px;
+			-webkit-box-shadow: inset 0px 0px 4px #000;
+		}
+		
+		nav ul li a {
+			display: block;
+			padding: 14px 0 14px 10px;
+			font: bold 11pt Helvetica;
+			color: #444;
+			text-decoration: none;
+			border-bottom: 1px solid #999;
+			border-top: 1px solid #FFF;
+		}
+		
+		
+		nav ul li:first-child a {
+			border-top: none;
+		}
+		
+		nav ul li:last-child a {
+			border-bottom: none;
+		}
+
+		h1 #togglemenubutton a {
+			display: none;
+		}
+
+
+		@media screen and (device-width:768px) and (orientation:portrait) {	
+			h1 #togglemenubutton a {
+				position: absolute;
+				font-size: 14pt;
+				top: 0;
+				display: block;
+				height: 24px;
+				float: left;
+				margin: 3px 0 0 5px;
+				padding: 4px 4px 0 4px;
+				color: #fff;
+				text-decoration: none;
+				text-shadow: none;
+				background: -webkit-gradient(linear,
+							left top,
+							left bottom,
+							from(#CCC),
+							color-stop(0.5, #999),
+							color-stop(0.5, #777),
+							to(#555)
+				);
+				-webkit-border-radius: 8px;
+				border: 1px solid #555;
+			}
+	
+			nav {
+				display: block;
+			 	width: 250px;
+			 	border-right: 1px solid #000;
+				background-color: rgba(180,180,180,.8);
+			 }
+	
+			nav h2:first-child{
+				margin-top: 0;
+			}
+			nav {
+				display: none;
+			}
+		}
+		
+		@media screen and (device-width:768px) and (orientation:landscape) {
+
+			h1 #togglemenubutton a {
+				display: none;
+			}
+
+			nav {
+				display: block;
+			 	width: 250px;
+			 	border-right: 1px solid #000;
+				background-color: rgba(180,180,180,.8);
+			 }
+
+			nav h2:first-child{
+				margin-top: 0;
+			}
+			h1 #togglemenubutton a {
+				display:none;
+			}
+		}
+	</style>
+	
+	<script type="text/javascript">
+		// Toggle layers on and off
+		function flipMenu () {
+		//turn the layer you want to show on
+			if (document.getElementById('navmenu').style.display=='block') {
+				document.getElementById('navmenu').style.display = 'none';
+			} else {
+				document.getElementById('navmenu').style.display = 'block';
+			}
+		}
+		function updateOrientation(){  
+		    var contentType = "show_";  
+		    switch(window.orientation){
+		        case -90:  
+				document.getElementById('navmenu').style.display = 'block';
+		        break;  
+		  
+		        case 90:  
+		        document.getElementById('navmenu').style.display = 'block';
+		        break;  
+		    }  
+		}  
+	</script>
+	
+</head>
+<body onorientationchange="updateOrientation();">
+<header>
+	<h1><span id="togglemenubutton"><a href="#" onClick="flipMenu()">menu</a></span><a href="#">Portfolio</a></h1>
+	<nav id="navmenu">
+		<h2>Print</h2>
+		<ul>
+			<li><a href="#">Identity</a></li>
+			<li><a href="#">Flyers</a></li>
+			<li><a href="#">Posters</a></li>
+			<li><a href="#">Logos</a></li>
+		</ul>
+	
+		<h2>Photography</h2>
+		<ul>
+			<li><a href="#">Corporate</a></li>
+			<li><a href="#">Concerts</a></li>
+			<li><a href="#">Portraits</a></li>
+			<li><a href="#">Models</a></li>
+		</ul>
+		
+		<h2>Video</h2>
+		<ul>
+			<li><a class="video" href="#">Commercials</a></li>
+			<li><a class="video" href="#">Motion Graphics</a></li>
+		</ul>
+		
+		<h2>Audio</h2>
+		<ul>
+			<li><a href="#">Compositions</a></li>
+			<li><a href="#">Commercials</a></li>
+		</ul>
+		
+		<h2>More</h2>
+		<ul>
+			<li><a href="#">About Me</a></li>
+			<li><a href="#">Contact</a></li>
+		</ul>
+	</nav>
+</header>
+<section id="content">
+
+</section>
+</body>
+</html>

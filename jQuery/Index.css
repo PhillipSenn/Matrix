@@ -1,0 +1,12 @@
+@import url("/Library/Dreamweaver/HTML5_thrColFixHdr.css");
+@import url("/Matrix/CSS/footer.css");
+address {
+	float:right;
+	margin-right:1em;
+}
+#container {
+	width: 960px;
+	background: #FFFFFF;
+	margin: 0 auto;
+}
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Masks</title>
+</head>
+<style>
+.box {
+	width: 150px;
+	height: 150px;
+	background: #f00;
+}
+.imagemask {
+	-webkit-mask-image:url(images/rip.png);
+}
+.svgmask {
+	-webkit-mask-image:url(images/star.svg);
+}
+.gradientmask {
+	-webkit-mask-image:-webkit-gradient(radial, 50% 50%, 50, 50% 50%, 75, from(rgba(0,0,0,1)),to(rgba(0,0,0,0)));
+}
+.textmask {
+	font-size: 130px;
+	font-family: Myriad Pro;
+	font-weight: bold;
+	background: url(images/tampa.png);
+	-webkit-background-clip:text;
+	color: transparent;
+}
+</style>
+<body>
+<h2>Image Masks</h2>
+<img class="imagemask" src="images/tampa.png" />
+
+<h2>SVG Masks</h2>
+<img class="svgmask" src="images/tampa.png" />
+
+<h2>Gradient Masks</h2>
+<img class="gradientmask" src="images/tampa.png" />
+
+<div class="textmask">Mask</div>
+</body>
+</html>

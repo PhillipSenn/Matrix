@@ -1,0 +1,5 @@
+C:\Users\Martin Guidry\Desktop\Exercise Files\Ch06\06_03\CLRtest\CLRtest\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Martin Guidry\Desktop\Exercise Files\Ch06\06_03\CLRtest\CLRtest\bin\Debug\CLRtest.dll
+C:\Users\Martin Guidry\Desktop\Exercise Files\Ch06\06_03\CLRtest\CLRtest\bin\Debug\CLRtest.pdb
+C:\Users\Martin Guidry\Desktop\Exercise Files\Ch06\06_03\CLRtest\CLRtest\obj\Debug\CLRtest.dll
+C:\Users\Martin Guidry\Desktop\Exercise Files\Ch06\06_03\CLRtest\CLRtest\obj\Debug\CLRtest.pdb

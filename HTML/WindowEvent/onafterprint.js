@@ -1,0 +1,3 @@
+function myAfterPrint() {
+	alert('onafterprint!');
+}

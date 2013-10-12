@@ -1,0 +1,34 @@
+<--- --------------------------------------------------------------------------------------- ----
+	
+	Blog Entry:
+	Posting XML SOAP Requests With jQuery
+	
+	Code Snippet:
+	3
+	
+	Author:
+	Ben Nadel / Kinky Solutions
+	
+	Link:
+	http://www.bennadel.com/index.cfm?event=blog.view&id=1853
+	
+	Date Posted:
+	Feb 16, 2010 at 10:10 AM
+	
+---- --------------------------------------------------------------------------------------- --->
+
+
+<soap:envelope
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+ 
+	<soap:body>
+ 
+		<getinfobyzip xmlns="http://www.webserviceX.NET">
+			<uszip>10016</uszip>
+		</getinfobyzip>
+ 
+	</soap:body>
+ 
+</soap:envelope>

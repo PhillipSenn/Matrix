@@ -1,0 +1,1 @@
+$('label + input').addClass('myClass');

@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>Geo Location</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /><script type="text/javascript">mapWidth=screen.width;mapHeight=screen.height;if (navigator.geolocation) {	//If the feature exists, try to get the current location. If it’s available, then 	navigator.geolocation.watchPosition(showLocation,maperror,{enableHighAccuracy:true,timeout:5000});}function showLocation (position) {	var mymap=document.getElementById("mymap"); //find the location to place the mapmymap.innerHTML = "<img src='http://maps.google.com/maps/api/staticmap?center="+position.coords.latitude+","+position.coords.longitude+"&zoom=20&size="+mapWidth+"x"+mapHeight+"&markers=color:blue|label:S|"+position.coords.latitude+","+position.coords.longitude+"&sensor=true' />";}function maperror(whicherror) {	var mymap=document.getElementById("mymap");	if (whicherror.code==1) { mymap.innerHTML="Permission Denied";}	if (whicherror.code==2) { mymap.innerHTML="Network or Satellites Down"; }	if (whicherror.code==3) { mymap.innerHTML="GeoLocation timed out"; }	if (whicherror.code==0) { mymap.innerHTML="Other Error"; }}</script>
+</head>
+<body>
+<div id="mymap"></div>
+</body>
+</html>

@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Cutting-Edge HTML</title>
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section>
+					<h1>Cutting-Edge HTML</h1>
+					<h3>Insert Lame Knife Joke</h3>
+					<p>
+						<small>Presented by <a href="http://www.raymondcamden.com">Raymond Camden</a> / <a href="http://twitter.com/cfjedimaster">@cfjedimaster</a></small>
+					</p>
+				</section>
+
+				<section>					
+					<h1>Who am I?</h1>
+					<ul style="float:left;width:60%">
+						<li>Developer Evangelist for Adobe</li>
+						<li>Creative Cloud, Web Standards, HTML5, JavaScript, ColdFusion</li>
+						<li>Blogging at raymondcamden.com</li>
+						<li>Tweeting at cfjedimaster</li>
+					</ul>
+					<img src="img/ray.png" class="transparent">
+				</section>
+
+				<section>
+					<h1>A Confession...</h1>
+					<img src="img/nerd.jpg" class="transparent fragment">
+				</section>
+
+				<section>
+					<h1>OMFG CANVAS!</h1>
+					<img src="img/ph1.jpg" class="fragment" style="height: 400px">
+				</section>
+
+				<section>
+					<h1>Practical HTML</h1>
+					<img src="img/sb.jpg" class="fragment">
+				</section>
+
+				<section>
+					<h2>Forms</h2>
+					<ul>
+						<li class="fragment">New Types</li>
+						<li class="fragment">Cool Tricks</li>
+						<li class="fragment">Validation</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Forms - New Types</h2>
+					<ul>
+						<li>number</li>
+						<li>range</li>
+						<li>date</li>
+						<li>color</li>
+						<li>search</li>
+						<li>tel/email/url</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Demo</h1>
+				</section>
+
+				<section>
+					<h2>Cool Tricks</h2>
+					<ul>
+						<li>Autofocus</li>
+						<li>Placeholder</li>
+						<li>Form Action</li>
+						<li>Output (wtf?!?)</li>
+						<li>Datalists</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Demo</h1>
+				</section>
+
+				<section>
+					<h2>Validation</h2>
+					<ul>
+						<li>Validation - with no JavaScript! (*)</li>
+						<li>Handles everything from type checking to range checking.</li>
+						<li>JavaScript API as well</li>
+						<li>Some CSS support</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>MUST USE JavaScript!!</h1>
+					<img src="img/js.jpg">
+				</section>
+
+				<section>
+					<h1>Demo</h1>
+				</section>
+
+				<section>
+					<h1>Support</h1>
+					<iframe src="http://caniuse.com/forms/embed/" style="width:100%;height:300px"></iframe>
+				</section>
+
+				<section>
+					<h1>Support</h1>
+					<iframe src="http://caniuse.com/form-validation/embed/" style="width:100%;height:300px"></iframe>
+				</section>
+
+				<section>
+					<h1>Support</h1>
+					<iframe src="http://caniuse.com/input-placeholder/embed/" style="width:100%;height:300px"></iframe>
+				</section>
+
+				<section>
+					<h1>Storage</h1>
+					<img src="img/warehouse.jpg" style="width:450px">
+				</section>
+
+				<section>
+					<h2>Why?</h2>
+					<ul>
+						<li class="fragment">Network traffic can add up</li>
+						<li class="fragment">Your network may go away</li>
+						<li class="fragment">Rapid screen updates</li>
+						<li class="fragment">Why not?</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Options</h2>
+					<ul>
+						<li class="fragment">Cookies</li>
+						<li class="fragment">LocalStorage</li>
+						<li class="fragment">IndexedDB</li>
+						<li class="fragment">WebSQL</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Options</h2>
+					<ul>
+						<li style="opacity:0.3">Cookies</li>
+						<li><strong>LocalStorage</strong></li>
+						<li><strong>IndexedDB</strong></li>
+						<li style="opacity:0.3">WebSQL</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>LocalStorage</h2>
+					<ul>
+						<li>Very simple API: getItem, setItem, removeItem, clear</li>
+						<li>Simple values only, but you can encode</li>
+						<li>Session version</li>
+						<li>Up to 2.49 megs (not 2.5, oh no, 2.49!)</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Example</h2>
+					<pre><code>
+//API way
+localStorage.setItem("name", "value");
+var x = localStorage.getItem("name");
+localStorage.removeItem("name");
+localStorage.clear();
+
+//Non API way
+localStorage["name"] = "value";
+var x = localStorage["name"];
+delete localStorage["name"];
+for(var x in localStorage) delete localStorage[x];
+					</code></pre>
+				</section>
+
+				<section>
+					<h1>Demo</h1>
+				</section>
+
+				<section>
+					<h1>Support</h1>
+					<iframe src="http://caniuse.com/namevalue-storage/embed/" style="width:100%;height:300px"></iframe>
+				</section>
+				
+				<section>
+					<h2>IndexedDB</h2>
+					<blockquote>
+					IndexedDB is an API for client-side storage of significant amounts of structured data and for high performance searches on this data using indexes.
+					</blockquote>
+					<p>Credit: Mozilla Developer Network</p>
+				</section>
+
+				<section>
+					<h2>Size Limits</h2>
+					<ul>
+						<li>Firefox - no limit, but prompted for 'large' data</li>
+						<li>Chrome - User is prompted once</li>
+						<li class="fragment">Take away - you can store a butt load, but the user will know</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Know SQL?</h2>
+					<img src="img/utensil_holder_large.jpg" class="fragment">
+				</section>
+
+				<section>
+					<h2>Less Precise/Rigid</h2>
+					<img src="img/buckets.jpg" class="fragment">
+				</section>
+				
+				<section>
+					<h2>High Level Overview</h2>
+					<ul>
+						<li class="fragment">Asynchronous API</li>
+						<li class="fragment">Object stores contain data (think tables)</li>
+						<li class="fragment">Fetch API based on keys (think PKs), with full create, read, update, delete support</li>
+						<li class="fragment">Fetch by property (index), and by range</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Demo</h1>
+				</section>
+
+				<section>
+					<h1>Support</h1>
+					<iframe src="http://caniuse.com/indexeddb/embed/" style="width:100%;height:300px"></iframe>
+				</section>
+				
+				<section>
+					<h2>5 More Things Cooler Than Canvas</h2>
+					<ul>
+						<li class="fragment">a|download</li>
+					</ul>
+				</section>
+				
+				<section>
+				<pre><code>
+<a href="foo.pdf" download="mypdf.pdf">Download the PDF</a>
+				</code></pre>
+				<p>
+					<a href="../demos/install.pdf" download="mypdf.pdf">Download the PDF</a>
+				</p>
+				</section>
+				
+				<section>
+					<h1>Support</h1>
+					<iframe src="http://caniuse.com/download/embed/" style="width:100%;height:300px"></iframe>
+				</section>
+
+				<section>
+					<h2>5 More Things Cooler Than Canvas</h2>
+					<ul>
+						<li>a|download</li>
+						<li class="fragment">data-* attributes</li>
+					</ul>
+				</section>	
+
+				<section>
+				<pre><code>
+<div>
+<input type="hidden" name="productid" value="9">
+<input type="hidden" name="ratings" value="2">
+<img src="someproduct.gif"><p>Some crap about the product.</p>
+</div>
+				</code></pre>
+				</section>
+				
+				<section>
+				<pre><code>
+<div data-productid="9" data-ratings="2">
+<img src="someproduct.gif"><p>Some crap about the product.</p>
+</div>
+				</code></pre>
+				
+				</section>
+				
+				<section>
+				<style>
+				p[data-cool] {
+						background-color: blue;
+				}
+				</style>
+				<p>
+				A boring paragraph.
+				</p>
+				<p data-cool>
+					A cool paragraph!	
+				</p>
+
+				<pre><code>
+<style>
+p[data-cool] {
+	background-color: blue;
+}
+</style>
+<p>
+A boring paragraph.
+</p>
+&lt;p data-cool&gt;
+	A cool paragraph!	
+&lt;/p&gt;
+
+				</code></pre>
+<!-- why the escaped html? my fix turned an attribute with no value into one that does have a value -->
+				</section>
+
+				<section>
+					<h1>Support</h1>
+					<iframe src="http://caniuse.com/dataset/embed/" style="width:100%;height:300px"></iframe>
+				</section>
+
+				<section>
+					<h2>5 More Things Cooler Than Canvas</h2>
+					<ul>
+						<li>a|download</li>
+						<li>data-* attributes</li>
+						<li class="fragment">Speech Recognition</li>
+					</ul>
+				</section>	
+
+				<section>
+				<pre><code>
+<input type="search" name="search">
+				</code></pre>
+				<input type="search" name="search">
+				</section>
+
+				<section>
+				<pre><code>
+&lt;input type="search" name="search" x-webkit-speech&gt;
+				</code></pre>
+				<input type="search" name="search" x-webkit-speech>				
+				</section>
+
+				<section>
+					<h2>5 More Things Cooler Than Canvas</h2>
+					<ul>
+						<li>a|download</li>
+						<li>data-* attributes</li>
+						<li>Speech Recognition</li>
+						<li class="fragment">document.querySelector/querySelectorAll</li>
+					</ul>
+				</section>	
+
+				<section>
+				<pre><code>
+var d = document.querySelector("#someid");
+var c = document.querySelectorAll(".someclass");
+				</code></pre>
+				</section>
+
+				<section>
+				<pre><code>
+$ = document.querySelector;
+var d = $("#someid");
+var c = $(".someclass");
+				</code></pre>
+				<img class="fragment" src="img/ohno.gif">
+				</section>
+				
+				<section>
+					<h2>5 More Things Cooler Than Canvas</h2>
+					<ul>
+						<li>a|download</li>
+						<li>data-* attributes</li>
+						<li>Speech Recognition</li>
+						<li>document.querySelector/querySelectorAll</li>
+						<li class="fragment">Page Visibility API</li>
+					</ul>
+				</section>
+				
+				<section>
+				<pre><code>
+document.addEventListener('visibilitychange', function(e) {
+  console.log('hidden:' + document.hidden,
+              'state:' + document.visibilityState)
+}, false);
+				</code></pre>
+				</section>
+
+				<section>
+					<h1>Demo</h1>
+				</section>
+				
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			document.addEventListener("DOMContentLoaded", init, false);
+
+			function init() {
+
+				var cblocks = document.querySelectorAll("pre code");
+				
+				if(cblocks.length) {
+					for(var i=0, len=cblocks.length; i<len; i++) {
+						var dom = cblocks[i];
+						var html = dom.innerHTML;
+						html = html.replace(/</g,"&lt;").replace(/>/g,"&gt;");
+						dom.innerHTML = html;
+					}
+				}
+
+				// Full list of configuration options available here:
+				// https://github.com/hakimel/reveal.js#configuration
+				Reveal.initialize({
+					controls: true,
+					progress: true,
+					history: true,
+					center: true,
+
+					theme: "beige", // available themes are in /css/theme
+					transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+					// Optional libraries used to extend on reveal.js
+					dependencies: [
+						{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+						{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+						{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+						{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+						{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+						{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+						// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+						// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+					]
+				});
+
+		}
+
+		</script>
+
+	</body>
+</html>

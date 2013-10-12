@@ -1,0 +1,3 @@
+(function() {
+	PRINT('Hello World!');
+})();

@@ -1,0 +1,1 @@
+$('li').filter(':nth-child(odd)').addClass('myClass');

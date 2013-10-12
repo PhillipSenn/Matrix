@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Border Radius</title>
+	<style>
+	.box {
+		width: 200px;
+		height: 100px;
+		background: #F50;
+		margin: 10px;
+		position: relative;
+		-webkit-border-top-left-radius:10px;
+		-webkit-border-top-right-radius: 20px;
+		-webkit-border-bottom-right-radius: 0px;
+		-webkit-border-bottom-left-radius:20px;
+	}
+	
+	blockquote {
+		display: block;
+		margin: 0px;
+		padding: 15px;
+		color: #FFF;
+		font: bold 20px/20px Arial;
+	}
+	
+	.arrow {
+		width:0px; 
+		height:0px; 
+		margin:0 auto;
+		font-size:0px;
+		line-height:0px;
+		border-right:10px solid #F50;
+		border-bottom:10px solid transparent;
+		border-top:10px solid transparent;
+		position: absolute;
+		top: 10px;
+		left: -10px;
+	}
+	</style>
+</head>
+<body>
+	<div class="box"><blockquote>This is some text that goes inside the box</blockquote><div class="arrow"></div></div>
+</body>
+</html>

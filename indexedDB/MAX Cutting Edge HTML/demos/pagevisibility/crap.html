@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+    <div id="newswell"></div>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+    <script>
+    var newsDiv;
+    var active = true;
+        
+    function isVisible() {
+        if("webkitHidden" in document) return !document.webkitHidden;
+        if("mozHidden" in document) return !document.mozHidden;
+        if("hidden" in document) return !document.hidden;  
+        //worse case, just return true
+        return true;
+    }
+        
+    function getData() {
+
+        $.ajax({url:"news.json"}).done(function(data) {
+            newsDiv.innerHTML += "<p><b>Posted at " + new Date() + "<br/>" + data.message;
+            //call it again in 2 seconds
+            if(isVisible()) window.setTimeout(getData, 2000);
+            else active = false;
+        }).fail(function(xhr,status,e) {
+            console.dir(e);
+        });
+    }
+        
+    $(document).ready(function() {
+        newsDiv = document.querySelector("#newswell");
+    
+        $(document).bind("visibilitychange webkitvisibilitychange mozvisibilitychange",function(e) {
+            console.log("VS CHANGE");
+            console.log(isVisible());
+            if(isVisible() && !active) {
+                active = true;
+                getData();
+            }
+        });
+        
+        getData();
+        
+    });
+        
+    </script>
+    </body>
+</html>

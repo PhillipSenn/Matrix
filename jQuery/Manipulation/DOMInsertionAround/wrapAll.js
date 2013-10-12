@@ -1,0 +1,1 @@
+$('p').wrapAll('<div class="myClass" />');

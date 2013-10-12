@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />	<meta charset="utf-8" />
+	<title>Lightbox</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font: 14px/16px Helvetica;
+			background-image: url(images/background-iphonelines.png);
+		}
+		.content {
+			width: 100%;
+		}
+		
+		#lightbox ul.thumbnails {
+			list-style: none;
+			margin: 0;
+			padding: 10px;
+			position: absolute;
+			top: 0;
+			z-index: 10;
+		}
+		#lightbox ul.thumbnails p.caption {
+			margin: 0;
+			font: bold 10pt/9pt Helvetica;
+			color: #333;
+			text-shadow: 0 1px 0 #FFF;
+		}
+		#lightbox ul.thumbnails img {
+			-webkit-border-radius: 10px;
+		}
+		#lightbox ul.thumbnails li {
+			float: left;
+			display: block;
+			width: 100px;
+			height: 130px;
+			padding: 0;
+		}
+		#overlay {
+			background-color: black;
+				/* cover whole page */
+				height: 100%;
+			width: 100%;
+			/* move to top */
+			position: absolute; 
+			top: 0;
+			left: 0;	
+			/* set a transition effect */
+			-webkit-transition: all 500ms ease-out;
+			/* put it on top */
+			z-index: 5;
+			opacity:0;
+			-webkit-perspective:200;
+		}
+		#overlay.fadein {
+			opacity: 1;
+			z-index: 30;
+		}		
+		#overlay.fadeout {
+			opacity: 0;
+			z-index: 5;
+		}
+
+
+	#overlay img {	  -webkit-transform: translateZ(-1000px) rotateY(180deg) translateZ(1000px);		-webkit-transition: all 1000ms ease-out;		opacity: 0;	}	#overlay img.showit{	  	-webkit-transform: translateZ(0) rotateY(0deg) translateZ(0);		opacity: 1;	}	#overlay img.hideit{	-webkit-transform-origin:center left;	-webkit-transform: scale(.1) rotateY(-90deg) translateZ(1000px);	opacity: 0;	}	
+
+
+	</style>
+	<script type="text/javascript">
+		function showImage(originalImage) {		
+var highResImageURL=originalImage.getAttribute('srchighres'); //get value of high res image		
+
+
+var itemsinlist=originalImage.parentNode.parentNode.getElementsByTagName("img"); //get all of the image elements on the same list as the item that was clicked
+var itemslength=itemsinlist.length; //figure out how many there are from the array of getElementsByTagName
+		var listid=0; //initialize the listid variable		for ( i=0; i<itemslength; i++) {			//everytime we go through this loop, test to see if the highres version of an element on the list is the same as the element that was clicked on			if(itemsinlist[i].getAttribute('srchighres')==highResImageURL) {				listid=i; //if it is the same, set this variable				break;			}		}
+
+var insertLocation=document.getElementById('overlay'); //create a variable to store the insertion point	
+var newimage=document.createElement('IMG');	newimage.src=highResImageURL; //create an image object
+insertLocation.appendChild(newimage); //place the image in the document at the insert location
+
+		window.setTimeout(function() {			newimage.className="showit";		}, 100);
+	
+			//Find the overlay
+			document.getElementById('overlay').className='fadein';
+			
+			//Add a handler that checks for clicks on overlay
+			newimage.onclick=function(){								newimage.className="hideit";				window.setTimeout(function() {					insertLocation.removeChild(newimage);					if (listid<(itemslength-1)) {						showImage(itemsinlist[listid+1]);					} else {						showImage(itemsinlist[0]);					}				}, 500);			}	   }
+	</script>
+</head>
+<body>
+<section class="content" id="lightbox">
+	<ul class="thumbnails">
+		<li>			<img src="images/slideshow/cake_tn.jpg" srchighres="images/slideshow/cake.jpg" onclick="showImage(this);" >			<p class="caption">Wedding Cake</p>		</li>		<li>			<img src="images/slideshow/spoon_tn.jpg"  srchighres="images/slideshow/spoon.jpg" onclick="showImage(this);" >			<p class="caption">Spoon</p>		</li>		<li>			<img src="images/slideshow/fireworks_tn.jpg" srchighres="images/slideshow/fireworks.jpg" onclick="showImage(this);" >			<p class="caption">Fireworks</p>		</li>	</ul>
+	<div id="overlay"></div>
+</section>
+</body>
+</html>

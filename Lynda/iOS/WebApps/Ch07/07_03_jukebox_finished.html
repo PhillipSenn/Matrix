@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Audio Content</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font: 14px/16px Helvetica;
+			background-image: url(images/background-iphonelines.png);
+		}
+
+		h2 {
+			font-size: 13pt;
+			margin: 0px;
+			padding: 25px 0 10px 20px;
+			text-shadow: 0 1px 0 #FFF;
+		}
+	
+		.content {
+			width: 100%;
+			z-index: -50;
+		}
+
+
+		.content ul {
+			position: relative;
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		
+		.content ul li {
+			border-bottom: 1px solid #999;
+			border-top: 1px solid #FFF;
+			display: block;
+			font-size: 16px;
+			font-weight: bold;
+			color: #444;
+			text-decoration: none;
+			padding: 16px 5px 14px 45px;
+		}
+		
+		
+		.content ul li:first-child {
+			border-top: none;
+		}
+		
+		.content ul li:last-child {
+			border-bottom: none;
+		}
+
+		.navitems {
+			margin: 0 15px 0 15px;
+			-webkit-border-radius: 10px;
+			background-color: rgba(255,255,255,.7);
+			border: 1px solid black;
+			-webkit-box-shadow: inset 0px 0px 4px #000;
+		}
+		.content ul li {			background: url(images/icons/media_btn.png) no-repeat 8px 7px;		}				.content ul li#playing {			background: url(images/icons/media_play_btn.png) no-repeat 8px 7px;		}				.content ul li#paused {			background: url(images/icons/media_pause_btn.png) no-repeat 8px 7px;		}
+	</style>
+
+<script type="text/javascript">var currentaudiosrc='';function doAudio(audioitem) {if (currentaudiosrc=="") {		var audio=document.createElement('audio'); //Create an audio element		document.body.appendChild(audio); //append it to the DOM tree		audio.src=audioitem.getAttribute('src'); //set the src of the audio object currentaudiosrc=audioitem.getAttribute('src'); //set the current playing audio		audio.play(); //play the audio		audioitem.id="playing"; //set the ID of the LI to playing
+		
+		//when the song ends, clear everything		audio.addEventListener('ended',function(e) {			document.getElementById("playing").removeAttribute('id');			currentaudiosrc=""; //reset the audiosrc			document.body.removeChild(document.getElementsByTagName("audio")[0]);		}, false);
+
+
+} else {
+
+
+	// If the clicked item is the same as the item that is playing	if (currentaudiosrc==audioitem.getAttribute('src')) {		//If the current item is playing		if (audioitem.id=='playing') { //if the item is playing			document.getElementsByTagName("audio")[0].pause(); //pause the audio			audioitem.id="paused"; //set the id of the current item to paused		} else { //if the current item is not playing			document.getElementsByTagName("audio")[0].play();			audioitem.id="playing";		}	} else {		if (document.getElementById("paused")) { 			document.getElementById("paused").removeAttribute('id');		}		if (document.getElementById("playing")) { 			document.getElementById("playing").removeAttribute('id');		}				//RESET THE AUDIO		currentaudiosrc=""; //reset the audiosrc		document.body.removeChild(document.getElementsByTagName("audio")[0]);		doAudio(audioitem);	}
+
+
+
+}// if this is current song} //function</script>
+
+	</head>
+<body>
+<section class="content" id="audio">
+	<h2>Audio</h2>
+	<div class="navitems">
+		<ul>
+			<li onclick="doAudio(this)" src="audio/booksong.mp3">Book Song</li>			<li onclick="doAudio(this)" src="audio/game.mp3">Game Music</li>			<li onclick="doAudio(this)" src="audio/podcast.mp3">Podcast Intro</li>			<li onclick="doAudio(this)" src="audio/shortsample.mp3">Short Sample</li>		</ul>
+	</div>
+</section>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Simple Storage</title>
+	<script type="text/javascript">
+		function handleChange(formelement) {
+			localStorage.myname=formelement.value;
+			alert(localStorage.getItem('myname'));
+		}
+	</script>
+</head>
+<body onload="document.storestuff.myname.value=localStorage.myname">
+<form name="storestuff">
+	<input onchange="handleChange(this);" type="text" name="myname" value="" />
+	<input type="button" name="clear" value="clear" onclick="localStorage.clear(); document.storestuff.myname.value=''"/>
+</form>
+</body>
+</html>

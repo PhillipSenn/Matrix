@@ -1,0 +1,21 @@
+footer {
+	margin-top:1em;
+	margin-bottom:1em;
+}
+footer ul {
+	padding-left:0;
+	font-weight:bold;
+	display:inline;
+}
+footer li {
+	display:inline;
+}
+footer li:after {
+	content:" |";
+}
+footer li:last-child:after { 
+	content: ""; 
+}
+footer li.last {
+	content: ""; 
+}

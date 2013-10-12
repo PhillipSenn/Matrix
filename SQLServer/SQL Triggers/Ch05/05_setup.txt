@@ -1,0 +1,56 @@
+CREATE TABLE [dbo].[Categories](
+	[CategoryID] [int] NOT NULL,
+	[CategoryName] [varchar](50) NULL,
+	[Active] [int] NULL,
+ CONSTRAINT [PK_Categories] PRIMARY KEY CLUSTERED 
+(
+	[CategoryID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
+---------------
+
+INSERT INTO Categories VALUES (1, 'Shirts', 1);
+INSERT INTO Categories VALUES (2, 'Pants', 1);
+INSERT INTO Categories VALUES (3, 'Jackets', 1);
+INSERT INTO Categories VALUES (4, 'Shoes', 1);
+
+---------------------------------------------
+
+CREATE TABLE [dbo].[Products](
+	[ProductID] [int] NOT NULL,
+	[ProductName] [varchar](50) NULL,
+	[CategoryID] [int] NULL,
+	[Active] [bit] NULL,
+	[Qty] [int] NULL,
+ CONSTRAINT [PK_Product] PRIMARY KEY CLUSTERED 
+(
+	[ProductID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+--------------------------------------
+
+
+
+
+
+INSERT INTO Products VALUES (1, 'Red Shirt', 1, 1, 1)
+INSERT INTO Products VALUES (2, 'Black Shirt', 1, 1, 1)
+INSERT INTO Products VALUES (3, 'Blue Shirt', 1, 1, 1)
+INSERT INTO Products VALUES (4, 'Red Shoes', 4, 1, 1)
+INSERT INTO Products VALUES (5, 'Black Shoes', 4, 1, 1)
+INSERT INTO Products VALUES (6, 'Blue Shoes', 4, 1, 1)
+INSERT INTO Products VALUES (7, 'Black Pants', 2, 1, 1)
+
+
+
+
+
+
+

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" manifest="offline/lightbox.manifest">
+<head>
+	<title>Lightbox</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />		<meta name="apple-mobile-web-app-capable" content="yes" />	<link rel="apple-touch-icon" href="images/lightbox_icon.png" /><link rel="apple-touch-startup-image" href="images/lightbox_startup.png" /> 	<meta name="apple-mobile-web-app-status-bar-style" content="black">	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font: 14px/16px Helvetica;
+			background-image: url(images/background-iphonelines.png);
+		}
+		.content {
+			width: 100%;
+		}
+		#lightbox ul.thumbnails {					list-style: none;					margin: 0;					padding: 10px;
+					z-index: 10;
+					position: absolute;				}
+		#lightbox ul.thumbnails p.caption {			margin: 0;			font: bold 10pt/9pt Helvetica;			color: #333;			text-shadow: 0 1px 0 #FFF;		}
+
+		#lightbox ul.thumbnails img {			-webkit-border-radius: 10px;		}
+		#lightbox ul.thumbnails li {			width: 100px;			height: 130px;			padding: 0;			float: left;		}
+		#overlay {			background-color: black;			/* cover whole page */			height: 100%;			width: 100%;			/* move to top */			position: absolute; 			top: 0;			left: 0;				/* put it on top */			z-index: 5;
+			opacity: 0;
+			-webkit-transition: all 500ms ease-out;		}
+		#overlay.fadein {			opacity: 1;			z-index: 30;		}			#overlay.fadeout {			opacity: 0;			z-index: 5;
+		}
+
+		#overlay img {			-webkit-transition: all 500ms ease-out;			-webkit-transform: scale(0);			opacity: 0.5;		}			#overlay img.showit{			-webkit-transform: scale(1);			opacity: 1;		}			#overlay img.hideit{			-webkit-transform: scale(0);			opacity: 0.5;		}	
+		.rating {			background-color: #000;			width: 85px;			-webkit-border-radius:10px;			text-align: center;		}		.star {			color: #FFF;			padding: 0 3px 0 3px;		}		.starclicked {			color: #F30;			padding: 0 3px;		}
+
+	</style>
+	<script type="text/javascript">		function showImage(originalImage) {
+
+		var highResImageURL=originalImage.getAttribute('srchighres'); //get value of high res image
+
+		var insertLocation=document.getElementById('overlay'); //create a variable to store the insertion point
+
+		var newimage=document.createElement('IMG');			newimage.src=highResImageURL; //create an image object
+
+		insertLocation.appendChild(newimage); //place the image in the document at the insert location
+
+		window.setTimeout(function() {			newimage.className="showit";		}, 100);
+
+			//Find the overlay			document.getElementById('overlay').className='fadein';						//Add a handler to the overlay that checks for clicks on it			newimage.onclick=function(){				document.getElementById('overlay').className='fadeout';				newimage.className="hideit";				window.setTimeout(function() {						insertLocation.removeChild(newimage);				}, 500);			}	   }function populateRatings() {	var itemsinlist=document.getElementById('lightbox').getElementsByTagName('li');	var itemslength=itemsinlist.length;	loadscore=0;			for ( i=0; i<itemsinlist.length; i++) {		var rating=document.createElement('div');		itemsinlist[i].appendChild(rating);		rating.className="rating";		rating.id="thumbnails"+i;		if (localStorage['thumbnails'+i]) {			loadscore=localStorage['thumbnails'+i];		}for (x=0; x<4; x++) {	star=document.createElement('span');	star.innerHTML="&#9733;";		if ((loadscore)&&(x<=loadscore)) {			star.className="starclicked";		} else {			star.className="star";		}	star.setAttribute("onclick","ratingsSet("+i+","+x+");");	rating.appendChild(star);} //createratingstars	} //createratinggroup							} //function populateratingsfunction ratingsSet(whichpix,whichstar) {	var pixgroup=document.getElementById('thumbnails'+whichpix).getElementsByTagName('span');	localStorage['thumbnails'+whichpix]=whichstar;	for (i=0;i<4;i++) {		if (i<=whichstar) {			pixgroup[i].className="starclicked";		} else {			pixgroup[i].className="star";		}	}} // function ratingsset	</script>
+
+</head>
+<body onload="populateRatings();">
+<section class="content" id="lightbox">
+	<ul class="thumbnails">
+		<li>			<img src="images/slideshow/cake_tn.jpg" srchighres="images/slideshow/cake.jpg" onclick="showImage(this);" >			<p class="caption">Wedding Cake</p>		</li>		<li>			<img src="images/slideshow/spoon_tn.jpg"  srchighres="images/slideshow/spoon.jpg" onclick="showImage(this);" >			<p class="caption">Spoon</p>		</li>		<li>			<img src="images/slideshow/fireworks_tn.jpg" srchighres="images/slideshow/fireworks.jpg" onclick="showImage(this);" >			<p class="caption">Fireworks</p>		</li>	</ul>
+	<div id="overlay"></div>	
+</section>
+</body>
+</html>

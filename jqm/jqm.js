@@ -1,0 +1,1 @@
+$('a').removeAttr('data-role');

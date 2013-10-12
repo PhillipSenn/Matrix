@@ -1,0 +1,4 @@
+CREATE FUNCTION isActive(@activeBit AS int)
+RETURNS NVARCHAR(50)
+AS
+EXTERNAL NAME CLRfunctions.myFunctions.isActive

@@ -1,0 +1,29 @@
+@import url("/Matrix/CSS/footer.css");
+#matrix {
+	clear:left;
+}
+.slider {
+	clear:left;
+}
+a {
+	text-decoration:none;
+	font-weight:bold;
+}
+a:hover {
+	background-color:cornflowerblue;
+	color:#FFF;
+}
+.hfilter {
+	list-style:none;
+	padding-left:0;
+}
+.hfilter li {
+	display:inline;
+}
+.vfilter {
+	margin-right:2em;
+	width:17em;
+}
+#ToggleSlider {
+	margin-right:1em;
+}

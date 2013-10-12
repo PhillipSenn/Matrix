@@ -1,0 +1,3 @@
+$('#myAccordion').accordion({
+	navigation:true
+});

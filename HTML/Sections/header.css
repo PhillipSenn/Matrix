@@ -1,0 +1,17 @@
+aside {
+	clear:left;
+	float: right;
+	width: 180px;
+	background: #EADCAE;
+	padding-bottom: 100px;
+	border:1px solid #960;
+}
+article {
+	clear:left;
+}
+footer {
+	padding: 10px 0;
+	background: #CCC49F;
+	position: relative;/* IE6 */
+	clear: both;
+}

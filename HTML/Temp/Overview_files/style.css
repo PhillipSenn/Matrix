@@ -1,0 +1,393 @@
+#jumpIndexA-button {
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 13px;
+  position: fixed;
+  bottom: 0;
+  right: 8px;
+  padding: 0.0em 0.45em .2em 0.45em;
+  z-index: 30;
+  background: rgba(65,118,157,0.7);
+  color: white;
+  border-radius: .7em .7em 0 0;
+  border-top: 4px solid white;
+  border-left: 4px solid white;
+  border-right: 4px solid white;
+}
+
+#jumpIndexA-button:focus {
+  border-color: yellow;
+}
+
+#jumpIndexA {
+  display: none;
+  font-size: 16px;
+  text-align: right;
+  height: auto;
+  width: 27em;
+  line-height: 1.3em;
+  padding: .65em;
+  font-family: sans-serif;
+  color: white;
+}
+#jumpIndexA * {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  text-indent: 0;
+}
+#jumpIndexA a {
+  color: white;
+  padding: 2px;
+  text-decoration: none !important;
+}
+#jumpIndexA a:hover {
+  color: #D93B00;
+}
+#jumpIndexA a:focus {
+  color: #D93B00;
+  background-color: yellow;
+}
+.jumpIndexA-other {
+  border-top: 1px dashed white;
+  padding-top: 6px !important;
+  margin-top: 6px !important;
+}
+.jumpIndexA-other a:before {
+  content: "\00ab";
+}
+.jumpIndexA-other a:after {
+  content: "\00bb";
+}
+#jumpIndexA p::first-letter,
+#jumpIndexA-other p::first-letter
+{
+  text-transform: none !important;
+}
+table td.removed, table th.removed { display: none !important }
+.prev_next { width: 800px; }
+
+/* the @class=full-spec links are "external" links to the full
+ * HTML5 spec (not internal ones to others parts in the author
+ * view); so we want some kind of visual warning indication to
+ * users that if they follow them, they will be leaving the author
+ * view and finding themselves in the full spec */
+a.full-spec-link:link:hover,
+a.full-spec-:visited:hover
+{
+  background: #ffa;
+  color: #556b2f;
+  outline-offset: 4px;
+  outline:1px solid green;
+}
+/* this is for the first paragraph that we add to the Abstract;
+ * that paragraph is specific to the author view (it's not in the
+ * full spec); its purpose is to alert readers to the fact that
+ * this is a subset of the full spec */
+.strong-note {
+	color: #fff;
+  background-color:#002E00;
+	padding: 1em;
+	line-height: 1.5em;
+}
+.strong-note a { 
+	
+	padding-bottom: 0.1em;
+	
+	color: white;
+}
+
+.toc + h3:after {
+  content: "";
+}
+.dfn-ref {
+  font-weight: bold;
+}
+.index-norefs,
+.index-id {
+  color: #666;
+}
+.index-nav {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 120%;
+}
+
+.index-of-terms dt {
+  margin-top: 14px;
+  margin-bottom: 0px;
+  font-size: 120%;
+  height: 1.3em;
+}
+/* these index styles make it very difficult to acutally read and use the
+ * index; please keep them commented out until they can be further refined 
+.index-of-terms dl {
+  line-height: 1.3em;
+}
+.index-of-terms dt {
+  margin-top: 14px;
+  margin-bottom: 0px;
+  height: 1.3em;
+}
+.index-term {
+  font-size: 18px;
+  margin-bottom: 4px;
+  margin-top: 18px;
+  margin-right: 50%;
+}
+.index-entry li {
+  list-style-type: none;
+}
+.index-entry ul {
+  margin-bottom: 0px;
+}
+*/
+
+dfn {
+  cursor: pointer;
+}
+dfn[title=""] {
+  cursor: inherit;
+}
+
+.dfnPanel p {
+  margin-bottom: 3px;
+}
+.dfnPanel .norefs {
+  font-weight: bold;
+}
+.dfnPanel dd {
+  /* style this just like an li */
+  display: list-item;
+  list-style-type: disc;
+  list-style-position: inside;
+  margin-left: 0;
+}
+pre .dfnPanel {
+  white-space: normal;
+}
+.dfn-excerpt {
+  font-style: italic;
+  margin-left: 0;
+  font-size: 95%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow:hidden;
+  display:block;
+}
+.dfnPanel .dfn-excerpt {
+  white-space: normal;
+}
+
+/* 
+	Start W3C spec styles 
+	ported from: 
+	http://www.germanforblack.com/articles/moving-towards-readable-w3c-specs
+*/
+
+@font-face {
+	font-family: 'ChunkFiveRegular';
+	src: url('fonts/Chunkfive.eot');
+	src: local('☺'), url('fonts/Chunkfive.woff') format('woff'), url('fonts/Chunkfive.ttf') format('truetype'), url('fonts/Chunkfive.svg#ChunkFive') format('svg');
+}
+
+
+/* Resets */
+h1, h2, h3, h4, h5, h6, p, a, ul, ol { font-weight: normal !important; margin: 0; padding: 0; color: inherit; font-weight: normal !important; margin: 0; padding: 0; color: inherit; font-family:verdana, 'Lucida Sans Unicode','Lucida Grande','Lucida Sans','DejaVu Sans Condensed',sans-serif;}
+table, caption, th, td { font-weight: normal !important; margin: 0; padding: 0; color: inherit; font-family:verdana, 'Lucida Sans Unicode','Lucida Grande','Lucida Sans','DejaVu Sans Condensed',sans-serif;}
+td a:link , th  a:link {font-family:verdana, 'Lucida Sans Unicode','Lucida Grande','Lucida Sans','DejaVu Sans Condensed',sans-serif; text-decoration:underline;}
+
+ul li, ol li { list-style-type: none; }
+
+a:link, a:visited { color: #366; text-decoration: none; }
+
+.element:before {
+     display:none !important;
+   }
+
+textarea {width: 35em;}
+
+   
+   dl.element dt {font-weight:bold !important;}
+/* added link change on focus same as hover (couldn't find where hover was specified)  */
+a:focus, a:active{background-color:#FFFFAA; color:#366;  }
+
+/* change color from #366 to #1C3838 */
+/* NO, don't make the visited color different from normal link
+a:visited { color: #dc143c; }
+*/
+
+/* added link color and added link change on focus same as hover (couldn't find where hover was specified)  */
+p.strong-note a {color: #ffffff;}
+p.strong-note  a:focus, p.strong-note  a:active, p.strong-note a:hover  {background-color:#FFFFAA; color:#366;  }
+
+html { background-color: transparent; } /* Override whatwg.css */
+
+body { margin: 2.6em; width: 35em; font-size: 1.05em; line-height: 1.45; background-image: none; background-color: #fff; text-align:left;}
+
+div.head { position: relative; }
+
+/* change color from #9cc to #003333 */
+/* div.head:before { content: 'W3C'; background-color: #003333; color: #fff; border-radius: 0.25em; -webkit-border-radius: 0.25em; -moz-border-radius: 0.25em; position: absolute; top: 2em; left: -5em; font-weight: bold; font-size: 0.6em; padding: 2em 0.7em 0.25em; font-family: Helvetica, sans-serif; text-align: right; letter-spacing: 0.1em; }*/
+div.head h1:before
+ {
+	content: url(HTML5-Badge-64.png);
+	float:left;
+	padding-top:18px;
+	padding-right:14px;
+  padding-bottom: 24px;
+}
+
+div.head hr, div.head > a, img[src*="http://www.w3.org/Icons/"], div.head dd, div.head dt { display: none; } /* Hide hr, the logo, logo alternate and the dl list in the head section */
+div.head dl { margin: 0 0 14px 0; }
+div.head dl dd:last-of-type { display: block !important; margin-left: 0; font-size: 0.9em; }
+div.head dl dd:last-of-type:before { content: "Editor: "; }
+div.head dl dd:last-of-type, div.head dl dd:last-of-type:before { font-weight: bold; font-family: verdana, sans-serif; }
+div.head h1 { font-family: "ChunkFiveRegular", Helvetica; line-height: 1.4em; margin: -0.2em 0 0.5em 0; -webkit-font-smoothing: antialiased; font-size: 4em; }
+div.head h1 span.edition { display: block; font-size: 0.5em; line-height: 0.25em; }
+div.head h1 span.rcsrevision { display: none; }
+div.head h2 { margin: 0 0 0.5em 0; font-size: 0.9em; font-family:verdana, sans-serif;}
+div.head h2.maturity { color: #666; font-size: 1em; border: 0px; }
+
+#abstract { display: none }
+#abstract + p + p { display: none }
+
+/* change color from #999 to #5E5E5E */
+div.head p.copyright { color: #5E5E5E; font-size: 0.8em; font-style: italic; width: 80%; line-height: 1.4em; }
+
+
+div.head p.copyright a { color: inherit; }
+
+h2, h2.maturity, h2.principal { display: inline-block; font-size: 1.6em; margin: 1em 0 0.5em 0; border-bottom: 1px solid #ccc; padding: 0em 0em 0.1em; }
+h3 { font-size: 1.2em; margin-bottom: 0.3em; }
+h3.guideline { border: none; margin: 1em 0; }
+h4, h5 { font-size: 1.0em; margin-bottom: 0.3em; color: #066; padding: 0.4em 0em 0em; }
+p { margin-bottom: 1em; }
+
+div.example { margin-bottom: 1em; }
+ul { margin: 0em 0em 1em; list-style: none;}
+ul li { list-style: none; position: relative; margin: 0em 0em 0.25em; }
+/*ul li:before { content: '\22c5'; font-size: 2em; color: #9cc; position: absolute; top: -0.35em; left: -0.65em; font-family: lucida; font-weight: bold; }*/
+ul li ul { margin: 0em; }
+li li { margin: 0em 0em 0em 1.2em; }
+/* code, pre { font-family: "Bitstream Vera Sans Mono", "DejaVu Sans Mono", "Andale Mono", Inconsolata, "Lucida Console", Consolas, Monaco, "courier new", courier; font-size: 0.9em; display: inline-block; } */
+code, pre { font-family: monospace; }
+code a, pre a { font-family: monospace !important; }
+pre { margin: 0em 0em 1em -0.6em; background: #F6FBEC; display: inline-block; padding: 0.25em 0.6em; }
+
+/* change color from #66CCCC to #376F6F */
+dt { color: #376F6F; }
+/* please don't do this
+dd { margin: 0em 0em 0.5em; }
+*/
+
+table { border: 0px; margin-bottom: 14px; }
+table th, table td { border: 0px; border: 1px solid #8A9C9C; padding: 4px; vertical-align: top; }
+table th li, table td li { margin: 0px 0px 0px 1.5em; }
+table caption, table th { text-align: left; color: #627B7B;font-weight:bold !important; }
+
+/* change color from #099 to #006F6F */ 
+table th { color: #006F6F; }
+table td { vertical-align: top; padding: 0.25em 1.25em 0.25em 0em; }
+table tr, table tbody { border: 0px; }
+hr { border: 0px; height: 2px; background: #acc; margin: 0em 0em !important; }
+strong {  }
+
+/* change color from #99CCCC to #336666 */
+ol li { color: #336666; }
+
+ol.toc, ul.toc { list-style: none; }
+/*ol.toc, ul.toc li:before { content: ''; }*/
+div.subtoc { background: transparent; border: 0em; }
+body .toc, body .subtoc { background: transparent; border: 0em; margin-top: 1em; }
+
+h2, h3, h4, h5, h6 { position: relative;font-family:Constantina,Georgia,'Nimbus Roman No9 L',serif;}
+div.section span.tocnum, .secno  { background-color: #405840; color: #fff; border-radius: 0.25em; -webkit-border-radius: 0.25em; -moz-border-radius: 0.25em; position: absolute; top: 0.7em; left: -7em; font-weight: bold; font-size: 0.8em; padding: 0.25em 0.25em; font-family: Helvetica, sans-serif; text-align: right; letter-spacing: 0.1em; }
+
+/* change color from #99CCCC to #546666 */
+a .secno { background-color: transparent; color: #546666; border-radius: 0; -webkit-border-radius: 0; -moz-border-radius: 0; position: static; font-weight: bold; font-size: 1em; padding: 0; font-family: inherit; text-align: left; letter-spacing: 0; }
+
+h3 { margin: 2em 0em 0em; }
+h3 span.tocnum { top: 0.2em; }
+
+strong.rfc2119 { font-size: 0.8em; letter-spacing: 0.1; text-transform: uppercase; }
+
+/* Specific Overrides */
+
+dl.domintro {background:#f7f7f7; border:1px solid #D0D0D0;}
+dl.domintro dd {color:#003000}
+.element {background: #f9f9f9 !important;}
+.warning {color:#dc143c !important;}
+table {font-size:.9em;}
+h2, h3, h4, h5, h6 {font-weight:bold !important;}
+a.internalDFN { color: #366; border: 0px; }
+p a:link, p a:visited, dl a:link, dl a:visited {text-decoration:underline !important;}
+pre strong {background: #fffacd}
+/*pre.idl {display:none !important;}*/
+p > span:not([title=""]):not([class="XXX"]):not([class="impl"]), li > span:not([title=""]):not([class="XXX"]):not([class="impl"]) {
+border-bottom:none;
+}
+
+.bad {color:#595959 }
+
+h4 + .element, h4 + div + .element {margin-top:0;}
+/*h1 {font-size:300% !important;font-family:Constantina,Georgia,'Nimbus Roman No9 L',serif !important;}*/
+dl.element {border:none !important;}
+.example {border-left: 1px dashed #3cb371 !important;}
+.note {border:1px dashed #5f9ea0;color:#405023;margin-bottom:1em;}
+li {list-style:none !important}
+p.alt {display:none}
+#status-of-this-document, #status-of-this-document + p, #status-of-this-document + p + p, #status-of-this-document + p + p +form, #status-of-this-document + p + p + form + p, #status-of-this-document + p + p + form + p + p, #status-of-this-document + p + p + form + p + p + p, #status-of-this-document + p + p + form +p + p + p + div + p, #status-of-this-document + p + p + form + p + p + p + div + p + p, #status-of-this-document + p + p + form + p + p + p + div + p + p + p, #status-of-this-document + p + p + form + p + p + p + div + p + p + p + dl, #status-of-this-document + p + p + form + p + p + p + div + p + p + p + dl + p,
+#status-of-this-document + p + p + form + p + p + p + div + p + p + p + dl + p + p, 
+#status-of-this-document + p + p + form + p + p + p + div + p + p + p + dl + p + p + p
+  {display:none}
+#named-character-references-table {font-size:1em !important;}
+
+
+
+/* Small (iPhone) */
+@media only screen and (max-device-width: 480px) {
+  body { margin: 0 3em; }
+	div.head h1 { font-family: Helvetica; font-weight: bold; } /* No @font-face */
+}
+	 	
+/* Medium (iPad) */
+@media only screen and (max-device-width: 1024px) {
+	body { margin: 0 0.7em;
+	div.head h1 { font-family: Helvetica; font-weight: bold; } /* No @font-face */
+}
+
+/* Large (iPhone 4) */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+
+}
+
+
+
+/* Pretty printing styles. Used with prettify.js. */
+
+.str { color: #080; }
+.kwd { color: #008; }
+.com { color: #800; }
+.typ { color: #606; }
+.lit { color: #066; }
+.pun { color: #660; }
+.pln { color: #000; }
+.tag { color: #008; }
+.atn { color: #606; }
+.atv { color: #080; }
+.dec { color: #606; }
+pre.prettyprint { padding: 0.25em; }
+
+@media print {
+  .str { color: #060; }
+  .kwd { color: #006; font-weight: bold; }
+  .com { color: #600; font-style: italic; }
+  .typ { color: #404; font-weight: bold; }
+  .lit { color: #044; }
+  .pun { color: #440; }
+  .pln { color: #000; }
+  .tag { color: #006; font-weight: bold; }
+  .atn { color: #404; }
+  .atv { color: #060; }
+}

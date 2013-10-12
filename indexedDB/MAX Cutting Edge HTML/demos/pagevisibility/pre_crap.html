@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+    <div id="newswell"></div>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+    <script>
+    var newsDiv;
+                
+    function getData() {
+
+        $.ajax({url:"news.json"}).done(function(data) {
+            newsDiv.innerHTML += "<p><b>Posted at " + new Date() + "<br/>" + data.message;
+            //call it again in 2 seconds
+            window.setTimeout(getData, 2000);
+        }).fail(function(xhr,status,e) {
+            console.dir(e);
+        });
+    }
+        
+    $(document).ready(function() {
+        newsDiv = document.querySelector("#newswell");
+            
+        getData();
+        
+    });
+        
+    </script>
+    </body>
+</html>

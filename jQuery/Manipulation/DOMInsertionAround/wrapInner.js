@@ -1,0 +1,1 @@
+$('p').wrapInner('<span class="myClass" />');

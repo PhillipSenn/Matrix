@@ -1,0 +1,9 @@
+CREATE TRIGGER [dbo].[CategoryDelete]
+ON [dbo].[Categories]
+INSTEAD OF DELETE
+AS
+BEGIN 
+		UPDATE Categories
+		SET Active = 0
+		WHERE CategoryID IN (SELECT CategoryID FROM Deleted)
+END

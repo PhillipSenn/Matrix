@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- 
+    workerSharedMain.html by Bill Weinman 
+    <http://bw.org/contact/>
+    created 2011-11-17
+
+    Copyright (c) 2011 The BearHeart Group, LLC
+    This file may be used for personal educational purposes as needed. 
+    Use for other purposes is granted provided that this notice is
+    retained and any changes made are clearly indicated as such. 
+-->
+
+<head>
+    <title>
+        HTML5: Web Workers &middot; Shared Workers
+    </title>
+    <link rel="stylesheet" type="text/css" href="../CSS/main.css">
+    <script language="javascript">
+        var version = '1.0.3';
+        var frameName = 'Main'
+        var thisWorker = null;
+        var timerGetWorkers = null;
+        var intervalGetWorkers = 1000;
+        var workers = [];
+
+        // Check if this browser supports Shared Workers
+        function getSharedWorkerObject() {
+            try {
+                if( !! window.SharedWorker ) return window.SharedWorker;
+                else return undefined;
+            } catch(e) {
+                return undefined;
+            }
+        }
+
+        function receiveMessages(event) {
+            data = event.data;
+
+            if(data.log) log(data.log); // for logging from the worker
+
+            if(data.workerStatus) {     // update the status line
+                var status = data.workerStatus;
+                var id = status.id;
+                var running = status.running;
+                updateWorkerStatus(id, running);
+            }
+        }
+
+        function updateWorkerStatus(id, running) {
+            if( ( id in workers ) && ( workers[id] == running ) ) return;
+            workers[id] = running;
+            clearDisp();
+            
+            var dispString = '';
+            var keys = Array();
+            for( var i in workers ) keys.push(i); // sorting hash keys is ugly in javascript
+            for( var i in keys.sort() ) {
+                k = keys[i];
+                dispString += (k + ':' + ( workers[k] ? 'Running' : 'Stopped' ) + '\n' );
+            }
+            dispMessage(dispString);
+        }
+
+        function getWorkers() {
+            if(!thisWorker) return;
+            thisWorker.port.postMessage({ cmd : 'getWorkers' });
+        }
+
+        function errorCallback(error) {
+            error.preventDefault(); // prevent default error actions
+            dispError(error.message + ' (' + error.filename + ':' + error.lineno + ')' );
+        };
+
+        /* ##### Init ##### */
+
+        function init() {
+            // set up the worker
+            if(!(oWorker = getSharedWorkerObject())) {
+                dispError('Shared Workers not supported.');
+                return;
+            }
+
+            thisWorker = new oWorker('workerSharedPrimeSeries.js', 'prime');
+            thisWorker.port.addEventListener('message', receiveMessages, false);
+            thisWorker.port.addEventListener('error', errorCallback, false);
+            thisWorker.port.start();    // this is needed when using addEventListener
+            thisWorker.port.postMessage({ cmd : 'id', id : frameName });
+            timerGetWorkers = setInterval( getWorkers, intervalGetWorkers);
+        }
+
+        // ##### Utilities #####
+
+        // shortcut for getElementById
+        function element(id) { return document.getElementById(id); }
+
+        function clearDisp() {
+            element('pageResults').innerHTML = '';
+            element('message').innerHTML = '';
+            element('message').className = '';
+        }
+
+        function log(m) {
+            if(m.length < 1) return;
+            logElement = element('log');
+            if(logElement.textContent.length > 0) logElement.innerHTML += '<br />';
+            logElement.innerHTML += nowTimeString() + ' ' + m;
+        }
+
+        function nowTimeString() {
+            var d = new Date();
+            return d.toUTCString().substring(17,25);
+        }
+
+        function dispMessage(message) {
+            m = element('message');
+            m.className = 'message';
+            if(m.textContent.length > 0) {
+                m.innerHTML += '<br />' + message;
+            } else m.innerHTML = message;
+        }
+
+        function dispError(errorMessage) {
+            element('pageResults').innerHTML = 
+                '<p class="error">' + errorMessage + '</p>\n';
+        }
+
+        window.onload = init;
+    </script>
+</head>
+
+<body>
+
+<div id="content">
+
+    <h1> 
+        HTML5: Web Workers &middot; Shared Workers
+    </h1>
+
+    <p id="message"></p>
+    <div id="pageResults"></div>
+
+    <iframe src="workerSharedFrame.html?A" class="workerFrame">
+        <p>Your browser doesn't support the iFrame feature</p>
+    </iframe>
+
+    <iframe src="workerSharedFrame.html?B" class="workerFrame">
+        <p>Your browser doesn't support the iFrame feature</p>
+    </iframe>
+
+    <iframe src="workerSharedFrame.html?C" class="workerFrame">
+        <p>Your browser doesn't support the iFrame feature</p>
+    </iframe>
+
+    <p id="log" style="font-family: monospace"></p>
+
+</div>
+</body>
+</html>

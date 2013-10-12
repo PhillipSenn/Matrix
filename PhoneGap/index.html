@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Hello PhoneGap</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+        <meta charset="utf-8">
+
+
+        <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+        <script type="text/javascript">
+
+        function onBodyLoad()
+        {       
+            document.addEventListener("deviceready", onDeviceReady, false);
+        }
+
+        function onDeviceReady()
+        {
+            // do your thing!
+            navigator.notification.alert("PhoneGap is working")
+        }
+
+        </script>
+    </head>
+    <body onload="onBodyLoad()">
+    <h1>Hey, it's PhoneGap!</h1>
+    </body>
+</html>
+

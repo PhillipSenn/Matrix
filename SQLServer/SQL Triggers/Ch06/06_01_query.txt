@@ -1,0 +1,1 @@
+EXEC Students_INSERT  '123456', 'Guidry', 'Martin', 'Louisiana', '(337) 555-1234', 'martin.guidry@alumni.rouxacademy.com', '2011', 7.1, 'Computer Science', '1' 

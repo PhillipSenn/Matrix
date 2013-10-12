@@ -1,0 +1,5 @@
+C:\Users\Martin Guidry\AppData\Local\Temporary Projects\CLRtest\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Martin Guidry\AppData\Local\Temporary Projects\CLRtest\bin\Release\CLRtest.dll
+C:\Users\Martin Guidry\AppData\Local\Temporary Projects\CLRtest\bin\Release\CLRtest.pdb
+C:\Users\Martin Guidry\AppData\Local\Temporary Projects\CLRtest\obj\Release\CLRtest.dll
+C:\Users\Martin Guidry\AppData\Local\Temporary Projects\CLRtest\obj\Release\CLRtest.pdb

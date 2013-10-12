@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Transitions</title>
+</head>
+<style>
+	.photo img:hover {
+		opacity: 1;
+		-webkit-transform: rotate(30deg) scale(1.5);
+	}
+	.photo img {
+		opacity:.5;
+		-webkit-transition: all 500ms ease-in-out;
+	}
+</style>
+<body>
+	<div class="photo"><img src="images/cake.jpg" /></div>
+</body>
+</html>

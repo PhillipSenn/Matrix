@@ -1,0 +1,70 @@
+@import url("/Matrix/css/Example.css");
+@import url("http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css");
+th {
+	text-align:left;
+}
+td {
+	vertical-align:top;
+}
+#matrix {
+	clear:left;
+}
+.slider {
+	clear:left;
+}
+a {
+	text-decoration:none;
+	font-weight:bold;
+}
+a:hover {
+	background-color:cornflowerblue;
+	color:#FFF;
+}
+a img:hover {
+}
+.hfilter {
+	list-style:none;
+	padding-left:0;
+	float:left;
+}
+.hfilter li {
+	display:inline;
+}
+.vfilter {
+	float:left;
+	margin-right:2em;
+	width:17em;
+}
+#ToggleSlider {
+	float:right;
+	margin-right:1em;
+}
+footer {
+	margin-top:1em;
+	margin-bottom:1em;
+}
+footer li {
+	display:inline;
+}
+footer ul {
+	display:inline;
+	padding-left:0;
+}
+footer ul li:after {
+	content:" |";
+}
+footer ul li:last-child:after { 
+	content: ""; 
+}
+nav {
+	float:right;
+	margin-right:4em;
+}
+
+nav ul li {
+	display:inline;
+}
+#GooglePlus1 {
+position:absolute;
+right:0;
+}

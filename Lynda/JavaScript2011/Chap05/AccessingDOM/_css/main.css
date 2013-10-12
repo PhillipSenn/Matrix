@@ -1,0 +1,913 @@
+@charset "UTF-8";
+
+/*style sheet for Explore California
+
+©2010 lynda.com
+This style sheet may be reused for personal education only
+any reuse, educational or otherwise, without the expressed 
+consent of lynda.com is prohibited.*/
+
+/* -------- color guide ----------
+#3c6b92 : main blue
+#6acce2 : light blue
+#2c566a : teal accent
+#193742 : dark blue
+#e1d8b9 : sand accent
+#cb7d20 : orange accent
+#51341a : brown
+#995522 : dark orange (used for links or high contrast accents)
+#cb202a : red accent (this color does not encode well, use only for small accents)
+#896287 : purple
+*/
+
+/* to jump to a specific section search for the unique character pair at the front of each TOC section 
+	<<<tip, highlight the special character and use the shortcut for Find Selection Cntr/Cmd + Shift + G >> */
+
+/* ----- Style sheet TOC ----------------
+      ^1 Global constants
+	  ^2 CSS reset
+	  ^3 Global classes
+	  ^4 Home page layout
+	  ^5 Top-level layout
+	  ^6 Region detail styles
+		  ^6a Header
+		  ^6b Navigation
+		  ^6c Main Content
+		  	^6d data tables
+			^6e spotlight region
+			^6f forms
+		^6g Sidebar
+		^6h Footer
+*/
+
+/* ^1 --------------------------- global constants -------------------------*/
+html, body {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	text-align:center;
+	font: 100% Georgia, "Times New Roman", Times, serif;
+	background: #e1d8b9 url(../_images/page_background.jpg) repeat-x;
+	margin-top: 25px;
+}
+/* ^2 --------------- limited-scale reset ---------------- */
+h1, h2, h3, h4, h5, h6, p, address, blockquote, div, ul, li {
+	margin: 0;
+	padding: 0;
+}
+p {
+	color:#333;
+}
+a {
+	color: #995522;
+	text-decoration: none;
+}
+a:hover {
+	color: #cb7d20;
+	border-bottom: 1px dashed #cb7d20;
+}
+a.accent {
+	display: block;
+	text-align: right;
+}
+a.accent:hover {
+ 	border: none;
+	color: #cb202a;
+}
+/* ^3 ------ global classes -------- */
+.floatRight {
+	float: right;
+}
+.floatLeft {
+	float: left;
+}
+.clearRight {
+	clear: right;
+}
+.clearLeft {
+	clear: left;
+}
+.clearBoth {
+	clear: both;
+}
+.callOut {
+	background: #e1d8b9;
+	padding: 15px;
+	margin-bottom: 25px;
+}
+.callOut h1 {
+	font-size: 1.4em;
+	color: #193742;
+	border-bottom: 2px solid #193742;
+	margin-bottom: .5em;
+	padding-bottom: .25em;
+}
+#wrapper {
+ 	position: relative;
+	padding: 0;
+	width: 930px;
+	margin: 0 auto;
+	background: #fff;
+	text-align: left;
+}
+
+/* ^4 ------------- home page specfic layout styles ----------- */
+body#home #wrapper {
+	background: #193742 url(../_images/main_back.jpg) no-repeat;
+}
+
+body#home #mainContent {
+	padding-top: 234px;
+}
+/* ^5 --------------------- top-level region layout styles ------------------- */
+/* top-level regions are header, mainNav, mainContent, sidebar, & footer */
+
+/* header */
+#header {
+	width: 192px;
+	height: 237px;
+	position: absolute;
+	top: -25px;
+	left: 35px;
+}
+/* mainNav */
+#mainNav {
+	float: left;
+	width: 272px;
+	margin-top: 233px;
+}
+/* mainContent */
+#mainContent {
+	padding-right: 25px;
+	float: right;
+	width: 608px;
+	margin-bottom: 45px;
+}
+/* sidebar */
+#sidebar {
+	float: left;
+	clear:left;
+	width: 272px;
+}
+/* footer */
+#footer {
+	width: 870px;
+	height: 525px;
+	clear: both;
+	background: url(../_images/footer_back.gif) no-repeat;
+	padding: 45px 30px 30px;
+	margin-top: 45px;
+}
+
+/* ^6----------------------- region-detail styles ------------------------ */
+/*  header  ^6a*/
+#header {
+	background: url(../_images/logo.gif) no-repeat;
+}
+#header a:hover {
+	border: none;
+}
+#header a{
+	width: 192px;
+	height: 237px;
+	display: block;
+}
+#header h1{
+	text-indent: -1000em;
+}
+
+/* navigation ^6b*/
+
+/* home page navigation */
+ul#homeNav {
+	float: left;
+	list-style: none;
+	margin:0;
+	padding:0;
+	margin-bottom: 50px;
+	clear: left;
+}
+ul#homeNav li {
+	margin: 0;
+	padding: 0;
+}
+ul#homeNav li a{
+	display: block;
+	width: 272px;
+	height: 82px;
+	text-indent: -1000em;
+}
+ul#homeNav li a.tours {
+	background: url(../_images/tours_nav.gif) no-repeat left top;
+}
+ul#homeNav li a.mission{
+	background: url(../_images/mission_nav.gif) no-repeat left top;
+}
+ul#homeNav li a.contact {
+	background: url(../_images/contact_nav.gif) no-repeat left top;
+}
+ul#homeNav li a.resources {
+	background: url(../_images/resources_nav.gif) no-repeat left top;
+}
+ul#homeNav li a.explorers {
+	background: url(../_images/explorers_nav.gif) no-repeat left top;
+}
+ul#homeNav li a:hover {
+	background-position: -272px 0;
+	border: none;
+}
+/* base navigation */
+ul#baseNav {
+	float: left;
+	list-style: none;
+	margin:0;
+	padding:0;
+	margin-bottom: 50px;
+	clear: left;
+}
+ul#baseNav li {
+	margin: 0;
+	padding: 0;
+}
+ul#baseNav li a{
+	display: block;
+	width: 272px;
+	height: 60px;
+	text-indent: -1000em;
+}
+ul#baseNav li a.tours {
+	background: url(../_images/tours_main.gif) no-repeat left top;
+}
+ul#baseNav li a.mission{
+	background: url(../_images/mission_main.gif) no-repeat left top;
+}
+ul#baseNav li a.contact {
+	background: url(../_images/contact_main.gif) no-repeat left top;
+}
+ul#baseNav li a.resources {
+	background: url(../_images/resource_main.gif) no-repeat left top;
+}
+ul#baseNav li a.explorers {
+	background: url(../_images/explorers_main.gif) no-repeat left top;
+}
+ul#baseNav li a.current, ul#baseNav li a.current:hover {
+	background-position: right top;
+	border: none;
+	cursor: default;
+}
+
+ul#baseNav li a:hover {
+	background-position: -272px 0;
+	border: none;
+}
+/* sub navigation */
+ul#baseNav ul.subNav {
+	list-style: none;
+	margin:0;
+	padding:0;
+	margin-bottom: 10px;
+}
+ul#baseNav ul.subNav li {
+	margin: 0 0 5px 50px;
+}
+ul#baseNav ul.subNav li a:link, ul#baseNav ul.subNav li a:visited{
+	display: block;
+	width: auto;
+	height: auto;
+	text-indent: 0;
+	padding: 5px 0;
+	color: #cb7d20;
+	border-bottom: 1px solid #cb7d20;
+}
+ul#baseNav ul.subNav li a:hover{
+	color: #2c566a;
+	border-bottom: 1px solid #2c566a;
+}
+ul#baseNav ul.subNav li a.current{
+	color: #666;
+	border-bottom: 1px solid #666;
+}
+/* main content region ^6c */
+#mainContent h1{
+	font: normal 2.5em Georgia, "Times New Roman", Times, serif;
+	margin: .5em 0 .25em;
+	letter-spacing: -1px;
+}
+#mainContent p{
+	font-size: 1em;
+	line-height: 1.8;
+}
+#mainContent a.breadcrumb {
+	color: #cb202a;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 1em;
+}
+#mainContent a.breadcrumb:hover {
+	color: #3c6b92;
+	border: none;
+}
+#mainContent img.articleImage {
+	display: block;
+	float: right;
+	padding: 1em 0 1em 1em;
+}
+#mainContent img.headlineImage {
+	display: block;
+	float: right;
+	padding: 0 0 .25em .5em;
+}
+#mainContent h1#pageID {
+	color: #193742;
+	font-size: 1.4em;
+	font-weight: bold;
+	margin-top: 20px;
+	padding-bottom: .25em;
+	border-bottom: 2px solid #193742;
+}
+#mainContent #mainArticle {
+	margin: 75px 0 35px;
+	position: relative;
+}
+body.hasCrumbs #mainContent #mainArticle {
+	margin-top: 45px;
+}
+#mainContent .tourBadge {
+	position: absolute;
+	top: 15px;
+	right: -50px;
+}
+#mainContent .tourBadge img {
+	border: none;
+}
+#mainContent .tourBadge a,#mainContent .tourBadge a:hover {
+	border: none;
+	color: transparent;
+}
+#mainContent #mainArticle h1 {
+	font-size: 2em;
+	color: #193742;
+	font-weight: bold;
+	margin-bottom: .4em;
+}
+#mainContent #mainArticle h2 {
+	font-size: 1.6em;
+	color: #51341a;
+	font-weight: normal;
+	margin-top: 1.2em;
+	margin-bottom: 1em;
+	clear: both;
+}
+#mainContent #mainArticle h2 span.tourCost {
+	font-size: .8em;
+	color: #666;
+	font-style: italic;
+	margin-top: .25em;
+	display: block;
+	border-bottom: 1px solid #666;
+	padding-bottom: .25em;
+	margin-bottom: 1em;
+}
+#mainContent #mainArticle h3 {
+	font-size: 1.3em;
+	color: #51341a;
+	font-weight: normal;
+	margin: 1.25em 0 .5em;
+	clear: both;
+}
+#mainContent #mainArticle p{
+	margin-bottom: 1em;
+}
+#mainContent #mainArticle p.option{
+	font-style: italic;
+	color: #999;
+	font-weight: bold;
+	text-align: right;
+	font-size: 1.2em;
+	margin-top: -.6em;
+}
+#mainContent #mainArticle p a.top {
+	text-align: right;
+	padding-left: 30px;
+	background: url(../_images/return_top.gif) no-repeat;
+	line-height: 20px;
+	float: right;
+}
+#mainContent #mainArticle p a.top:hover {
+	border: none;
+	color: #333;
+}
+#mainContent #mainArticle ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+#mainContent #mainArticle ul ul{
+	margin: 1.4em 0 1em 0;
+}
+#mainContent #mainArticle li {
+	margin: 0 0 1.2em 2.4em;
+	padding: 0 0 0 24px;
+	background: url(../_images/star_bullet.gif) no-repeat 0 2px;
+	font-size: 1em;
+	color: #51341a;
+}
+#mainContent #mainArticle li li{
+	font-size: 100%;
+	margin-bottom: .7em;
+}
+#mainContent #mainArticle ul.faqNav {
+	list-style: none;
+	margin: 0 0 1em 0;
+	padding: 0;
+	width: 180px;
+	float: left;
+	margin-right: 15px;
+}
+#mainContent #mainArticle ul.faqNav li {
+	background: #ccc;
+	border: 1px solid #999;
+	margin: 0 0 1em 0;
+	padding: .5em .5em .5em 1em;
+	font-size: .85em;
+}
+#mainContent #mainArticle ul.faqNav li a:link, #mainContent #mainArticle ul.faqNav li a:visited {
+	color: #193742;
+}
+#mainContent #mainArticle ul.faqNav li a:hover, #mainContent #mainArticle ul.faqNav li a:active {
+	color: #cb7d20;
+	border: none;
+}
+#mainContent #mainArticle dl.faq {
+	margin-bottom: 1em;
+	padding-bottom: 1em;
+	border-bottom: 1px solid #999;
+}
+#mainContent #mainArticle dl.faq dt {
+	font: normal bold .9em Tahoma, Geneva, sans-serif;
+	padding: 0;
+	margin: 1em 0 .5em;
+	color: #333;
+	letter-spacing: 1px;
+}
+#mainContent #mainArticle dl.faq dd {
+	font-size: .9em;
+	line-height: 1.4;
+	color: #333;
+	text-align: justify;
+	margin: 0;
+	padding: 0 0 0 2em;
+}
+#mainContent div.tourDescription {
+	border-top: 2px solid #2c566a;
+	float: left;
+	clear: left;
+	padding: 10px 0;
+	margin-bottom: 15px;
+}
+#mainContent .tourDescription h2 {
+	font-size: 1.6em;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	color: #193742;
+	font-weight: bold;
+	margin-bottom: 0;
+	clear: right;
+}
+#mainContent .tourDescription h3.price {
+	font-size: 1.2em;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	color: #666;
+	font-weight: normal;
+	font-style: italic;
+	text-align: right;
+	clear: right;
+	margin: -1.6em 0 1em;
+}
+#mainContent .tourDescription p {
+	font-size: .9em;
+	line-height: 1.5;
+}
+#mainContent .tourDescription span.option {
+	font-weight: bold;
+	text-align: right;
+	display:block;
+}
+#mainContent .tourDescription img {
+	float: left;
+	padding: 10px 10px 10px 0;
+}
+#mainContent .tourDescription a.more {
+	display:block;
+	float: right;
+	width: 95px;
+	height: 30px;
+	background: url(../_images/more_bug.gif) no-repeat left top;
+	text-indent: -1000em;
+	margin: 15px 0 0 15px;
+}
+#mainContent a.book {
+	display:block;
+	float: right;
+	width: 95px;
+	height: 30px;
+	background: url(../_images/book_bug.gif) no-repeat left top;
+	text-indent: -1000em;
+	margin: 15px 0 0 15px;
+}
+#mainContent .tourDescription a.more:hover,#mainContent a.book:hover{
+	background-position: right top;
+	border: none;
+}
+#mainContent ul {
+	margin: 0 .5em 1.5em;
+	padding: 0 25px 0;
+}
+#mainContent li {
+	font-size: 1em;
+	margin-bottom:.75em;
+	color: #333;
+}
+#mainContent .callOut {
+	width: 262px;
+	float: left;
+	margin-right: 24px;
+}
+#mainContent .callOutRight {
+	margin-right: 0;
+}
+#mainContent .callOut h1 {
+	font-size: 1.4em;
+	font-weight: bold;
+	color: #193742;
+	border-bottom: 2px solid #193742;
+	margin-bottom: .5em;
+	padding-bottom: .25em;
+}
+#mainContent #findTour {
+	position:absolute;
+	top: 40px;
+	right: -15px;
+	width: 300px;
+	height: 80px;
+	text-indent: -1000em;
+	background: url(../_images/tag.png) no-repeat;
+}
+#mainContent #findTour a{
+	display: block;
+	width: 300px;
+	height: 80px;
+}
+#mainContent #findTour a:hover{
+	border: none;
+}
+/* mainContent specific regions */
+/* data tables ^6d */
+#mainContent table.data {
+	width: 95%;
+	margin: 0 auto 30px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 0.9em;
+	border-collapse: collapse;
+	border: 1px solid #333;
+	background: #e1d8b9;
+}
+#mainContent table.data caption {
+	font-size: 1.2em;
+	font-weight: bold;
+	color: #51341a;
+	padding-bottom: 10px;
+	margin: 0;
+	text-align: left;
+}
+#mainContent table.data th{
+	font-size: 1em;
+	font-weight: normal;
+	text-align: left;
+	padding: 0 10px;
+	line-height: 2.6em;
+	color: #FFF;
+	background: #555;
+	border-bottom: 1px solid #000;
+}
+#mainContent table.data thead {
+	background: url(../_images/thead_back.gif) repeat-x left top;
+	height: 40px;
+}
+#mainContent table.data thead th {
+	background: none;
+	color: #000;
+	text-align:left;
+	border: 1px solid #333;
+}
+#mainContent table.data td {
+	padding: 0 10px;
+	border: 1px solid #333;
+	font-size: .8em;
+}
+#mainContent table.data tr.alt {
+	background: #fff;
+}
+#mainContent #trailType, #mainContent #trailPath, #mainContent #trailRating {
+	background: #fff;
+}
+
+/*spotlight region ^6e */
+#spotlight{
+	background: #fff;
+	padding: 15px 25px;
+	margin-top: 165px;
+}
+#spotlight h2{
+	color: #193742;
+	font-size: 1.8em;
+	margin-bottom: 0.25em;
+}
+#spotlight p{
+	font-size: .85em;
+	line-height:1.5;
+	margin-bottom: 1.5em;
+}
+/* form styling ^6f */
+#mainContent form {
+	font: normal .9em Arial, Helvetica, sans-serif;
+	color: #193742;
+}
+#mainContent fieldset {
+	padding: 40px 20px  0 0;
+	margin: 0 0 2em;
+	background-color: #e1d8b9;
+	border: none;
+	position: relative;
+	float: left;
+}
+#mainContent fieldset legend {
+	padding: 0;
+	margin: 0;
+	color: #51341a;
+}
+#mainContent legend strong {
+	position: absolute;
+	margin-left: 20px;
+	margin-top: 10px;
+	font-size: 1.2em;
+}
+#mainContent #mainArticle form p {
+	color: #193742;
+	margin: 0 0 20px 20px;
+}
+#mainContent #mainArticle form p.subHead {
+	margin: 0 0 0 20px;
+	clear: both;
+}
+#mainContent #mainArticle form label.subHead {
+	display: block;
+	float: none;
+	margin: 0;
+	width: auto;
+}
+#mainContent form label{
+	width: 100px;
+	float: left;
+	clear: left;
+	margin-right: .75em;
+}
+#mainContent form label.inline {
+	width: auto;
+	float: none;
+}
+#mainContent #mainArticle form ol{
+	list-style:none;
+	margin: 0;
+	padding: 0;
+}
+#mainContent #mainArticle form li {
+	background: none;
+	margin: 0;
+	padding: 0;
+}
+/* individual forms */
+/* support form */
+#mainContent fieldset#quickSupport {
+	width: 320px;
+}
+#mainContent fieldset#quickSupport textarea {
+	width: 275px;
+	height: 150px;
+}
+#mainContent #mainArticle #supportOptions {
+	width: 215px;
+	padding: 15px 15px 0;
+	border: 1px solid #193742;
+	float: right;
+	background-color: #cb7d20;
+}
+#mainContent #mainArticle #supportOptions h3{
+	font: normal 1.2em Arial, Helvetica, sans-serif;
+	color: #fff;
+	letter-spacing:1px;
+	margin: 0 0 .75em;
+}
+#mainContent #mainArticle #supportOptions p{
+	font-size: 1em;
+	color: #000;
+	line-height: 1.4;
+}
+#mainContent #mainArticle #supportOptions strong {
+	color: #fff;
+	font-size: 1.2em;
+	letter-spacing: 2px;
+	font-weight:normal;
+}
+#mainContent #mainArticle #supportOptions a:link, #mainContent #mainArticle #supportOptions a:visited {
+	color: #fff;
+	border-bottom: 1px dashed #fff;
+}
+#mainContent #mainArticle #supportOptions a:hover {
+	color: #000;
+	border-bottom: 1px dashed #000;
+}
+/* contact form */
+#mainContent form#frmContact input.text {
+	width: 250px;
+}
+
+#mainContent form#frmContact fieldset {
+	width: 580px;
+}
+
+#mainContent form#frmContact .col1 {
+	float: left;
+	padding-left: 20px;
+	margin-right: 20px;
+	width: 160px;
+}
+#mainContent form#frmContact .col2, #mainContent form#frmContact .col3 {
+	float: left;
+	margin-right: 20px;
+	width: 170px;
+}
+#mainContent form#frmContact div p {
+	margin: 0 0 .5em 0;
+}
+#mainContent form#frmContact div label {
+	font-size: .9em;
+	display: inline;
+	float: none;
+}
+#mainContent form#frmContact textarea {
+	width: 500px;
+	height: 150px;
+}
+/* join form */
+
+#mainContent form#frmJoin input.text {
+	width: 200px;
+}
+
+#mainContent form#frmJoin fieldset {
+	width: 580px;
+}
+#mainContent form#frmJoin label {
+	width: 125px;
+	position: relative;
+}
+#mainContent form#frmJoin label.inline {
+	float: none;
+}
+#mainContent form#frmJoin label span {
+	color: #51341a;
+	position: absolute;
+	left: 350px;
+}
+#mainContent form#frmJoin .col1 {
+	float: left;
+	padding-left: 20px;
+	margin-right: 20px;
+	width: 160px;
+}
+#mainContent form#frmJoin .col2, #mainContent form#frmContact .col3 {
+	float: left;
+	margin-right: 20px;
+	width: 170px;
+}
+#mainContent form#frmJoin div p {
+	margin: 0 0 .5em 0;
+}
+#mainContent form#frmJoin div  {
+	margin: 0 0 20px 0;
+}
+#mainContent form#frmJoin div label {
+	font-size: .9em;
+	display: inline;
+	float: none;
+}
+#mainContent form#frmJoin textarea {
+	width: 500px;
+	height: 150px;
+}
+/* sidebar ^6g */
+#sidebar div {
+	margin: 20px 0 20px 20px;
+}
+
+#sidebar #specials h2 {
+	font-size: .9em;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #193742;
+	margin-bottom: .1em;
+	text-align: right;
+	border-top: 1px solid #193742;
+	padding-top: 1em;
+	clear: both;
+}
+#sidebar #specials h2.top {
+	border:none;
+}
+#sidebar #specials p {
+	font-size: .9em;
+	font-style: italic;
+	text-align: right;
+	margin: .5em 0;
+	line-height: 1.6;
+}
+#sidebar #specials img {
+	float: left;
+	padding-right: 10px;
+	padding-bottom: 1em;
+}
+/* footer region */
+#footer h3 {
+	font: normal 1.3em Arial, Helvetica, sans-serif;
+	color: #fff;
+	margin-bottom: .5em;
+	letter-spacing: .1em;
+}
+#footer p{
+	font: normal 1em Georgia, "Times New Roman", Times, serif;
+	color: #fff;
+}
+#footer ul#quickNav {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+#footer ul#quickNav li {
+	margin: 0 0 .5em 0;
+	padding: 0 ;
+}
+#footer ul#quickNav li a{
+	text-decoration: none;
+	color: #fff;
+}
+#footer ul#quickNav li a:hover {
+	color: #193742;
+	border-bottom-color: #193742;
+}
+
+#footer #footerMenu {
+	float: left;
+	width: 230px;
+}
+#footer #footerBody {
+	float: right;
+	width: 640px;
+}
+#footer #footerBody a {
+	text-decoration: none;
+	color: #fff;
+}
+#footer #footerBody a:hover {
+	color: #193742;
+	border-bottom-color: #193742;
+}
+#footer #footerBody #footerMidCol {
+	float: left;
+	width: 270px;
+}
+#footer #footerBody #footerMidCol p {
+	margin-bottom: 2em;
+}
+#footer #footerBody #footerRightCol {
+	float: right;
+	width: 370px;
+}
+#footer #footerBody #footerRightCol h1{
+	font: bold 1.6em Georgia, "Times New Roman", Times, serif;
+	color: #fff;
+	letter-spacing:.1em;
+	text-align:right;
+	margin-bottom: .25em;
+}
+#footer #footerBody #footerRightCol p{
+	color: #fff;
+	letter-spacing:.1em;
+	line-height: 1.2;
+	text-align:right;
+	margin-bottom: 1em;
+}
+#footer #footerBody #footerRightCol p.phone{
+	font: bold 1.6em Georgia, "Times New Roman", Times, serif;
+	color: #fff;
+	letter-spacing:.1em;
+}

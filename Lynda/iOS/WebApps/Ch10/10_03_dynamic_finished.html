@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>Geo Location</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /><style>	html { height: 100% }	body { height: 100%; margin: 0px; padding: 0px }	#mymap { 		width: 100%;		height: 100%; 	}</style><script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script><script type="text/javascript">mapWidth=screen.width;mapHeight=screen.height;if (navigator.geolocation) {	navigator.geolocation.getCurrentPosition(showLocation,maperror,{timeout:5000});}function showLocation (position) {	var latlng=new google.maps.LatLng(position.coords.latitude,position.coords.longitude);	var myOptions={		zoom: 14,		center: latlng,		mapTypeId: google.maps.MapTypeId.ROADMAP	};	var map = new google.maps.Map(document.getElementById("mymap"),myOptions);var marker = new google.maps.Marker({	position: latlng, 	map: map, });}function maperror(whicherror) {	var mymap=document.getElementById("mymap");	if (whicherror.code==1) { mymap.innerHTML="Permission Denied";}	if (whicherror.code==2) { mymap.innerHTML="Network or Satellites Down"; }	if (whicherror.code==3) { mymap.innerHTML="GeoLocation timed out"; }	if (whicherror.code==0) { mymap.innerHTML="Other Error"; }}</script>
+</head>
+<body>
+<div id="mymap"></div>
+</body>
+</html>

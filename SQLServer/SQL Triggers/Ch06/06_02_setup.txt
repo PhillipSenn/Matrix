@@ -1,0 +1,57 @@
+CREATE PROCEDURE [dbo].[Students_Update]
+(	@ID int,
+    	@LASTNAME varchar(50),
+    	@FIRSTNAME varchar(50),
+    	@STATE varchar(50),
+    	@PHONE varchar(50),
+    	@EMAIL varchar(50),
+	@GRADYEAR int,
+   	@GPA decimal(20,10),
+	@PROGRAM varchar(50),
+	@NEWSLETTER bit
+)
+AS
+BEGIN
+
+	--Check to make sure the ID does exist
+	--If not does, return error
+	DECLARE @existing AS int = 0
+	SELECT @existing = count(ID)  
+	FROM Students
+	WHERE ID = @ID
+	
+	IF @existing <> 1
+	BEGIN
+		RAISERROR ('ID does not exist', 1, 1)
+		RETURN 0
+	END
+
+
+	--Can not subscribe to newsletter if email is null
+	IF (@email IS NULL)
+		SET @NEWSLETTER = 0
+ 
+
+
+	--Attempt Update
+UPDATE [dbo].[Students]
+   SET [LASTNAME] = @LASTNAME 
+      ,[FIRSTNAME] = @FIRSTNAME 
+      ,[STATE] = @STATE 
+      ,[PHONE] = @PHONE 
+      ,[EMAIL] = @EMAIL 
+      ,[GRADYEAR] = @GRADYEAR 
+      ,[GPA] = @GPA 
+      ,[PROGRAM] = @PROGRAM 
+      ,[NEWSLETTER] = @NEWSLETTER 
+ WHERE ID = @ID
+     
+		   --check to see if update occured 
+		   --and return status
+		   IF @@ROWCOUNT = 1
+				RETURN 1
+		   ELSE 
+				RETURN 0
+END
+
+GO

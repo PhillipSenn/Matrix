@@ -1,0 +1,9 @@
+ 	SqlParameter returnParam = new SqlParameter();
+        returnParam.ParameterName = "returnValue";
+        returnParam.Direction = ParameterDirection.ReturnValue;
+        comm.Parameters.Add(returnParam);
+
+------------
+
+        if (comm.Parameters["returnValue"].Value.ToString() == "0")
+            Label1.Text = "There was an error in the stored procedure";

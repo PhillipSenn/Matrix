@@ -1,0 +1,21 @@
+CREATE FUNCTION dbo.AuthorsByStatus(@isActive int)
+RETURNS @AuthorsTable TABLE 
+(	[FirstName] [varchar](50) NOT NULL,
+	[LastName] [varchar](50) NOT NULL,
+	[PhoneNumber] [varchar](50) NULL,
+	[Address] [varchar](50) NULL,
+	[City] [varchar](50) NULL,
+	[State] [varchar](50) NULL,
+	[Zip] [varchar](50) NULL,
+	[Active] [int] NULL
+)  
+AS 
+BEGIN
+
+	INSERT INTO @AuthorsTable
+	    SELECT * 
+	    FROM AUTHORS
+	    WHERE Active = @isActive
+
+	RETURN;
+END

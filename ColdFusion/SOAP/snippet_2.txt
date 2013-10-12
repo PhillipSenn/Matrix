@@ -1,0 +1,161 @@
+<--- --------------------------------------------------------------------------------------- ----
+	
+	Blog Entry:
+	Posting XML SOAP Requests With jQuery
+	
+	Code Snippet:
+	2
+	
+	Author:
+	Ben Nadel / Kinky Solutions
+	
+	Link:
+	http://www.bennadel.com/index.cfm?event=blog.view&id=1853
+	
+	Date Posted:
+	Feb 16, 2010 at 10:10 AM
+	
+---- --------------------------------------------------------------------------------------- --->
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Submitting SOAP Requests With jQuery</title>
+	<script type="text/javascript" src="jquery-1.4.1.js"></script>
+	<script type="text/javascript">
+ 
+		// When the DOM is ready, initialize the script.
+		jQuery(function( $ ){
+ 
+			// Get a handle on our SOAP template.
+			var soapTemplate = $( "#soap-template" );
+ 
+			// Get a handle on our form.
+			var form = $( "form:first" );
+ 
+			// Get a handle on our zip code input field.
+			var zip = $( "#zip" );
+ 
+			// Get a hand on our city and state place holders.
+			var city = $( "#city" );
+			var state = $( "#state" );
+ 
+ 
+			// Bind the form submission to re-route through our
+			// SOAP-based AJAX request.
+			form.submit(
+				function( event ){
+					// Prevent the default submit.
+					event.preventDefault();
+					event.stopPropagation();
+ 
+					// Create our SOAP body content based off of
+					// the template.
+					var soapBody = soapTemplate.html().replace(
+						new RegExp( "\\$\\{[^}]+\\}", "i" ),
+						zip.val()
+					);
+ 
+					// Trim the SOAP body so that we don't get any
+					// XML prolog errors.
+					soapBody = $.trim( soapBody );
+ 
+					// Post SOAP request.
+					$.ajax({
+						type: "post",
+						url: "./soap_proxy.cfm",
+						contentType: "text/xml",
+						data: soapBody,
+						dataType: "xml",
+						processData: false,
+						beforeSend: function( xhr ){
+							// Pass the target URL onto the proxy.
+							xhr.setRequestHeader(
+								"SOAPTarget",
+								"http://www.webservicex.net/uszip.asmx"
+							);
+ 
+							// Pass the action onto the proxy.
+							xhr.setRequestHeader(
+								"SOAPAction",
+								"http://www.webserviceX.NET/GetInfoByZIP"
+							);
+						},
+						success: function( response ){
+							// Get a jQuery-ized version of the response.
+							var xml = $( response );
+ 
+							// Populate the city. NOTE: These
+							// node names are case-sensitive and
+							// have to be uppercase.
+							city.text(
+								xml.find( "CITY" ).text()
+							);
+ 
+							// Populate the state. NOTE: These
+							// node names are case-sensitive and
+							// have to be uppercase.
+							state.text(
+								xml.find( "STATE" ).text()
+							);
+						},
+						error: function(){
+							console.log( "ERROR", arguments );
+						}
+					});
+ 
+				}
+			);
+ 
+		});
+ 
+	</script>
+</head>
+<body>
+ 
+	<h1>
+		Submitting SOAP Requests With jQuery
+	</h1>
+ 
+	<form>
+ 
+		<p>
+			Zip Code:
+			<input id="zip" type="text" size="20" />
+			<input type="submit" value="Get Info" />
+		</p>
+ 
+		<p>
+			City: <span id="city"> ... </span><br />
+			State: <span id="state"> ... </span>
+		</p>
+ 
+	</form>
+ 
+	<!--
+		This is the SOAP template that we will use when making
+		our SOAP POST to the server (ColdFusion SOAP Proxy).
+	-->
+	<script id="soap-template" type="application/soap-template">
+ 
+		<?xml version="1.0" encoding="utf-8"?>
+		<soap:Envelope
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+			xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+ 
+			<soap:Body>
+ 
+				<GetInfoByZIP xmlns="http://www.webserviceX.NET">
+					<USZip>${zip}</USZip>
+				</GetInfoByZIP>
+ 
+			</soap:Body>
+ 
+		</soap:Envelope>
+ 
+	</script>
+ 
+</body>
+</html>

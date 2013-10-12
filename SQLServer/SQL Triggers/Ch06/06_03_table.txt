@@ -1,0 +1,8 @@
+
+CREATE TABLE [dbo].[StudentDeleteLog](
+	[UserName] [varchar](50) NULL,
+	[IDdeleted] [varchar](50) NULL,
+	[DeleteDate] [date] NULL
+) ON [PRIMARY]
+
+GO

@@ -1,0 +1,367 @@
+<table cellpadding="3" cellspacing="1" align="center" style="width: 740px; background-color: #cccccc;"> 
+<tr> 
+	<td width="40" class="cellHead"><b>GridSort</b></td> 
+	<td width="50" class="cellHead"><b>GridName</b></td> 
+	<td width="95" class="cellHead"><b>GridInfo</b></td> 
+	<td width="260" class="cellHead" align="left"><b>GridDesc</b></td>
+</tr>
+<tr><td>0</td><td>NUL</td><td>&nbsp;</td><td class="cl">Null char</td></tr>
+<tr><td>1</td><td>SOH</td><td>&nbsp;</td><td class="cl">Start of Heading</td></tr>
+
+<tr><td>2</td><td>STX</td><td>&nbsp;</td><td class="cl">Start of Text</td></tr>
+<tr><td>3</td><td>ETX</td><td>&nbsp;</td><td class="cl">End of Text</td></tr>
+<tr><td>4</td><td>EOT</td><td>&nbsp;</td><td class="cl">End of Transmission</td></tr>
+
+<tr><td>5</td><td>ENQ</td><td>&nbsp;</td><td class="cl">Enquiry</td></tr>
+<tr><td>6</td><td>ACK</td><td>&nbsp;</td><td class="cl">Acknowledgment</td></tr>
+<tr><td>7</td><td>BEL</td><td>&nbsp;</td><td class="cl">Bell</td></tr>
+
+<tr><td>8</td><td> BS</td><td>&nbsp;</td><td class="cl">Back Space</td></tr>
+<tr><td>9</td><td> HT</td><td>&nbsp;</td><td class="cl">Horizontal Tab</td></tr>
+
+<tr><td>10</td><td> LF</td><td>&nbsp;</td><td class="cl">Line Feed</td></tr>
+<tr><td>11</td><td> VT</td><td>&nbsp;</td><td class="cl">Vertical Tab</td></tr>
+
+<tr><td>12</td><td> FF</td><td>&nbsp;</td><td class="cl">Form Feed</td></tr>
+<tr><td>13</td><td> CR</td><td>&nbsp;</td><td class="cl">Carriage Return</td></tr>
+
+<tr><td>14</td><td> SO</td><td>&nbsp;</td><td class="cl">Shift Out / X-On</td></tr>
+<tr><td>15</td><td> SI</td><td>&nbsp;</td><td class="cl">Shift In / X-Off</td></tr>
+
+<tr><td>16</td><td>DLE</td><td>&nbsp;</td><td class="cl">Data Line Escape</td></tr>
+<tr><td>17</td><td>DC1</td><td>&nbsp;</td><td class="cl">Device Control 1 (oft. XON)</td></tr>
+<tr><td>18</td><td>DC2</td><td>&nbsp;</td><td class="cl">Device Control 2</td></tr>
+
+<tr><td>19</td><td>DC3</td><td>&nbsp;</td><td class="cl">Device Control 3 (oft. XOFF)</td></tr>
+<tr><td>20</td><td>DC4</td><td>&nbsp;</td><td class="cl">Device Control 4</td></tr>
+<tr><td>21</td><td>NAK</td><td>&nbsp;</td><td class="cl">Negative Acknowledgement</td></tr>
+
+<tr><td>22</td><td>SYN</td><td>&nbsp;</td><td class="cl">Synchronous Idle</td></tr>
+<tr><td>23</td><td>ETB</td><td>&nbsp;</td><td class="cl">End of Transmit Block</td></tr>
+<tr><td>24</td><td>CAN</td><td>&nbsp;</td><td class="cl">Cancel</td></tr>
+
+<tr><td>25</td><td> EM</td><td>&nbsp;</td><td class="cl">End of Medium</td></tr>
+<tr><td>26</td><td>SUB</td><td>&nbsp;</td><td class="cl">Substitute</td></tr>
+
+<tr><td>27</td><td>ESC</td><td>&nbsp;</td><td class="cl">Escape</td></tr>
+<tr><td>28</td><td> FS</td><td>&nbsp;</td><td class="cl">File Separator</td></tr>
+
+<tr><td>29</td><td> GS</td><td>&nbsp;</td><td class="cl">Group Separator</td></tr>
+<tr><td>30</td><td> RS</td><td>&nbsp;</td><td class="cl">Record Separator</td></tr>
+
+<tr><td>31</td><td> US</td><td>&nbsp;</td><td class="cl">Unit Separator</td></tr>
+<tr><td>32</td><td>&nbsp;</td><td>&nbsp;</td><td class="cl">Space</td></tr>
+<tr><td>33</td><td>!</td><td>&nbsp;</td><td class="cl">Exclamation mark</td></tr>
+<tr><td>34</td><td>"</td><td>&amp;quot;</td><td class="cl">Double quotes (or speech marks)</td></tr>
+
+<tr><td>35</td><td>#</td><td>&nbsp;</td><td class="cl">Number</td></tr>
+<tr><td>36</td><td>$</td><td>&nbsp;</td><td class="cl">Dollar</td></tr>
+<tr><td>37</td><td>%</td><td>&nbsp;</td><td class="cl">Procenttecken</td></tr>
+
+<tr><td>38</td><td>&amp;</td><td>&amp;amp;</td><td class="cl">Ampersand</td></tr>
+<tr><td>39</td><td>'</td><td>&nbsp;</td><td class="cl">Single quote</td></tr>
+<tr><td>40</td><td>(</td><td>&nbsp;</td><td class="cl">Open parenthesis (or open bracket)</td></tr>
+
+<tr><td>41</td><td>)</td><td>&nbsp;</td><td class="cl">Close parenthesis (or close bracket)</td></tr>
+<tr><td>42</td><td>*</td><td>&nbsp;</td><td class="cl">Asterisk</td></tr>
+<tr><td>43</td><td>+</td><td>&nbsp;</td><td class="cl">Plus</td></tr>
+
+<tr><td>44</td><td>,</td><td>&nbsp;</td><td class="cl">Comma</td></tr>
+<tr><td>45</td><td>-</td><td>&nbsp;</td><td class="cl">Hyphen</td></tr>
+<tr><td>46</td><td>.</td><td>&nbsp;</td><td class="cl">Period, dot or full stop</td></tr>
+
+<tr><td>47</td><td>/</td><td>&nbsp;</td><td class="cl">Slash or divide</td></tr>
+<tr><td>48</td><td>0</td><td>&nbsp;</td><td class="cl">Zero</td></tr>
+<tr><td>49</td><td>1</td><td>&nbsp;</td><td class="cl">One</td></tr>
+
+<tr><td>50</td><td>2</td><td>&nbsp;</td><td class="cl">Two</td></tr>
+<tr><td>51</td><td>3</td><td>&nbsp;</td><td class="cl">Three</td></tr>
+<tr><td>52</td><td>4</td><td>&nbsp;</td><td class="cl">Four</td></tr>
+
+<tr><td>53</td><td>5</td><td>&nbsp;</td><td class="cl">Five</td></tr>
+<tr><td>54</td><td>6</td><td>&nbsp;</td><td class="cl">Six</td></tr>
+<tr><td>55</td><td>7</td><td>&nbsp;</td><td class="cl">Seven</td></tr>
+
+<tr><td>56</td><td>8</td><td>&nbsp;</td><td class="cl">Eight</td></tr>
+<tr><td>57</td><td>9</td><td>&nbsp;</td><td class="cl">Nine</td></tr>
+<tr><td>58</td><td>:</td><td>&nbsp;</td><td class="cl">Colon</td></tr>
+
+<tr><td>59</td><td>;</td><td>&nbsp;</td><td class="cl">Semicolon</td></tr>
+<tr><td>60</td><td><</td><td>&amp;lt;</td><td class="cl">Less than (or open angled bracket)</td></tr>
+
+<tr><td>61</td><td>=</td><td>&nbsp;</td><td class="cl">Equals</td></tr>
+<tr><td>62</td><td>></td><td>&amp;gt;</td><td class="cl">Greater than (or close angled bracket)</td></tr>
+
+<tr><td>63</td><td>?</td><td>&nbsp;</td><td class="cl">Question mark</td></tr>
+<tr><td>64</td><td>@</td><td>&nbsp;</td><td class="cl">At symbol</td></tr>
+<tr><td>65</td><td>A</td><td>&nbsp;</td><td class="cl">Uppercase A</td></tr>
+
+<tr><td>66</td><td>B</td><td>&nbsp;</td><td class="cl">Uppercase B</td></tr>
+<tr><td>67</td><td>C</td><td>&nbsp;</td><td class="cl">Uppercase C</td></tr>
+<tr><td>68</td><td>D</td><td>&nbsp;</td><td class="cl">Uppercase D</td></tr>
+
+<tr><td>69</td><td>E</td><td>&nbsp;</td><td class="cl">Uppercase E</td></tr>
+<tr><td>70</td><td>F</td><td>&nbsp;</td><td class="cl">Uppercase F</td></tr>
+<tr><td>71</td><td>G</td><td>&nbsp;</td><td class="cl">Uppercase G</td></tr>
+
+<tr><td>72</td><td>H</td><td>&nbsp;</td><td class="cl">Uppercase H</td></tr>
+<tr><td>73</td><td>I</td><td>&nbsp;</td><td class="cl">Uppercase I</td></tr>
+<tr><td>74</td><td>J</td><td>&nbsp;</td><td class="cl">Uppercase J</td></tr>
+
+<tr><td>75</td><td>K</td><td>&nbsp;</td><td class="cl">Uppercase K</td></tr>
+<tr><td>76</td><td>L</td><td>&nbsp;</td><td class="cl">Uppercase L</td></tr>
+<tr><td>77</td><td>M</td><td>&nbsp;</td><td class="cl">Uppercase M</td></tr>
+
+<tr><td>78</td><td>N</td><td>&nbsp;</td><td class="cl">Uppercase N</td></tr>
+<tr><td>79</td><td>O</td><td>&nbsp;</td><td class="cl">Uppercase O</td></tr>
+<tr><td>80</td><td>P</td><td>&nbsp;</td><td class="cl">Uppercase P</td></tr>
+
+<tr><td>81</td><td>Q</td><td>&nbsp;</td><td class="cl">Uppercase Q</td></tr>
+<tr><td>82</td><td>R</td><td>&nbsp;</td><td class="cl">Uppercase R</td></tr>
+<tr><td>83</td><td>S</td><td>&nbsp;</td><td class="cl">Uppercase S</td></tr>
+
+<tr><td>84</td><td>T</td><td>&nbsp;</td><td class="cl">Uppercase T</td></tr>
+<tr><td>85</td><td>U</td><td>&nbsp;</td><td class="cl">Uppercase U</td></tr>
+<tr><td>86</td><td>V</td><td>&nbsp;</td><td class="cl">Uppercase V</td></tr>
+
+<tr><td>87</td><td>W</td><td>&nbsp;</td><td class="cl">Uppercase W</td></tr>
+<tr><td>88</td><td>X</td><td>&nbsp;</td><td class="cl">Uppercase X</td></tr>
+<tr><td>89</td><td>Y</td><td>&nbsp;</td><td class="cl">Uppercase Y</td></tr>
+
+<tr><td>90</td><td>Z</td><td>&nbsp;</td><td class="cl">Uppercase Z</td></tr>
+<tr><td>91</td><td>[</td><td>&nbsp;</td><td class="cl">Opening bracket</td></tr>
+<tr><td>92</td><td>\</td><td>&nbsp;</td><td class="cl">Backslash</td></tr>
+
+<tr><td>93</td><td>]</td><td>&nbsp;</td><td class="cl">Closing bracket</td></tr>
+<tr><td>94</td><td>^</td><td>&nbsp;</td><td class="cl">Caret - circumflex</td></tr>
+<tr><td>95</td><td>_</td><td>&nbsp;</td><td class="cl">Underscore</td></tr>
+
+<tr><td>96</td><td>`</td><td>&nbsp;</td><td class="cl">Grave accent</td></tr>
+<tr><td>97</td><td>a</td><td>&nbsp;</td><td class="cl">Lowercase a</td></tr>
+<tr><td>98</td><td>b</td><td>&nbsp;</td><td class="cl">Lowercase b</td></tr>
+
+<tr><td>99</td><td>c</td><td>&nbsp;</td><td class="cl">Lowercase c</td></tr>
+<tr><td>100</td><td>d</td><td>&nbsp;</td><td class="cl">Lowercase d</td></tr>
+<tr><td>101</td><td>e</td><td>&nbsp;</td><td class="cl">Lowercase e</td></tr>
+
+<tr><td>102</td><td>f</td><td>&nbsp;</td><td class="cl">Lowercase f</td></tr>
+<tr><td>103</td><td>g</td><td>&nbsp;</td><td class="cl">Lowercase g</td></tr>
+<tr><td>104</td><td>h</td><td>&nbsp;</td><td class="cl">Lowercase h</td></tr>
+
+<tr><td>105</td><td>i</td><td>&nbsp;</td><td class="cl">Lowercase i</td></tr>
+<tr><td>106</td><td>j</td><td>&nbsp;</td><td class="cl">Lowercase j</td></tr>
+<tr><td>107</td><td>k</td><td>&nbsp;</td><td class="cl">Lowercase k</td></tr>
+
+<tr><td>108</td><td>l</td><td>&nbsp;</td><td class="cl">Lowercase l</td></tr>
+<tr><td>109</td><td>m</td><td>&nbsp;</td><td class="cl">Lowercase m</td></tr>
+<tr><td>110</td><td>n</td><td>&nbsp;</td><td class="cl">Lowercase n</td></tr>
+
+<tr><td>111</td><td>o</td><td>&nbsp;</td><td class="cl">Lowercase o</td></tr>
+<tr><td>112</td><td>p</td><td>&nbsp;</td><td class="cl">Lowercase p</td></tr>
+<tr><td>113</td><td>q</td><td>&nbsp;</td><td class="cl">Lowercase q</td></tr>
+
+<tr><td>114</td><td>r</td><td>&nbsp;</td><td class="cl">Lowercase r</td></tr>
+<tr><td>115</td><td>s</td><td>&nbsp;</td><td class="cl">Lowercase s</td></tr>
+<tr><td>116</td><td>t</td><td>&nbsp;</td><td class="cl">Lowercase t</td></tr>
+
+<tr><td>117</td><td>u</td><td>&nbsp;</td><td class="cl">Lowercase u</td></tr>
+<tr><td>118</td><td>v</td><td>&nbsp;</td><td class="cl">Lowercase v</td></tr>
+<tr><td>119</td><td>w</td><td>&nbsp;</td><td class="cl">Lowercase w</td></tr>
+
+<tr><td>120</td><td>x</td><td>&nbsp;</td><td class="cl">Lowercase x</td></tr>
+<tr><td>121</td><td>y</td><td>&nbsp;</td><td class="cl">Lowercase y</td></tr>
+<tr><td>122</td><td>z</td><td>&nbsp;</td><td class="cl">Lowercase z</td></tr>
+
+<tr><td>123</td><td>{</td><td>&nbsp;</td><td class="cl">Opening brace</td></tr>
+<tr><td>124</td><td>|</td><td>&nbsp;</td><td class="cl">Vertical bar</td></tr>
+<tr><td>125</td><td>}</td><td>&nbsp;</td><td class="cl">Closing brace</td></tr>
+
+<tr><td>126</td><td>~</td><td>&nbsp;</td><td class="cl">Equivalency sign - tilde</td></tr>
+<tr><td>127</td><td></td><td>&nbsp;</td><td class="cl">Delete</td></tr>
+<tr><td>128</td><td>&#128;</td><td>&amp;euro;</td><td class="cl">Euro sign</td></tr>
+<tr><td>129</td><td>&nbsp;</td><td>&nbsp;</td><td class="cl">&nbsp;</td></tr>
+<tr><td>130</td><td>&#130;</td><td>&amp;sbquo;</td><td class="cl">Single low-9 quotation mark</td></tr>
+
+<tr><td>131</td><td>&#131;</td><td>&amp;fnof;</td><td class="cl">Latin small letter f with hook</td></tr>
+<tr><td>132</td><td>&#132;</td><td>&amp;bdquo;</td><td class="cl">Double low-9 quotation mark</td></tr>
+<tr><td>133</td><td>&#133;</td><td>&amp;hellip;</td><td class="cl">Horizontal ellipsis</td></tr>
+
+<tr><td>134</td><td>&#134;</td><td>&amp;dagger;</td><td class="cl">Dagger</td></tr>
+<tr><td>135</td><td>&#135;</td><td>&amp;Dagger;</td><td class="cl">Double dagger</td></tr>
+<tr><td>136</td><td>&#136;</td><td>&amp;circ;</td><td class="cl">Modifier letter circumflex accent</td></tr>
+
+<tr><td>137</td><td>&#137;</td><td>&amp;permil;</td><td class="cl">Per mille sign</td></tr>
+<tr><td>138</td><td>&#138;</td><td>&amp;Scaron;</td><td class="cl">Latin capital letter S with caron</td></tr>
+<tr><td>139</td><td>&#139;</td><td>&amp;lsaquo;</td><td class="cl">Single left-pointing angle quotation</td></tr>
+
+<tr><td>140</td><td>&#140;</td><td>&amp;OElig;</td><td class="cl">Latin capital ligature OE</td></tr>
+<tr><td>141</td><td>&nbsp;</td><td>&nbsp;</td><td class="cl">&nbsp;</td></tr>
+<tr><td>142</td><td>&#142;</td><td>&nbsp;</td><td class="cl">Latin captial letter Z with caron</td></tr>
+
+<tr><td>143</td><td>&nbsp;</td><td>&nbsp;</td><td class="cl">&nbsp;</td></tr>
+<tr><td>144</td><td>&nbsp;</td><td>&nbsp;</td><td class="cl">&nbsp;</td></tr>
+<tr><td>145</td><td>&#145;</td><td>&amp;lsquo;</td><td class="cl">Left single quotation mark</td></tr>
+
+<tr><td>146</td><td>&#146;</td><td>&amp;rsquo;</td><td class="cl">Right single quotation mark</td></tr>
+<tr><td>147</td><td>&#147;</td><td>&amp;ldquo;</td><td class="cl">Left double quotation mark</td></tr>
+<tr><td>148</td><td>&#148;</td><td>&amp;rdquo;</td><td class="cl">Right double quotation mark</td></tr>
+
+<tr><td>149</td><td>&#149;</td><td>&amp;bull;</td><td class="cl">Bullet</td></tr>
+<tr><td>150</td><td>&#150;</td><td>&amp;ndash;</td><td class="cl">En dash</td></tr>
+<tr><td>151</td><td>&#151;</td><td>&amp;mdash;</td><td class="cl">Em dash</td></tr>
+
+<tr><td>152</td><td>&#152;</td><td>&amp;tilde;</td><td class="cl">Small tilde</td></tr>
+<tr><td>153</td><td>&#153;</td><td>&amp;trade;</td><td class="cl">Trade mark sign</td></tr>
+<tr><td>154</td><td>&#154;</td><td>&amp;scaron;</td><td class="cl">Latin small letter S with caron</td></tr>
+
+<tr><td>155</td><td>&#155;</td><td>&amp;rsaquo; </td><td class="cl">Single right-pointing angle quotation mark</td></tr>
+<tr><td>156</td><td>&#156;</td><td>&amp;oelig;</td><td class="cl">Latin small ligature oe</td></tr>
+<tr><td>157</td><td>&nbsp;</td><td>&nbsp;</td><td class="cl">&nbsp;</td></tr>
+
+<tr><td>158</td><td>&#158;</td><td>&nbsp;</td><td class="cl">Latin small letter z with caron</td></tr>
+<tr><td>159</td><td>&#159;</td><td>&amp;yuml;</td><td class="cl">Latin capital letter Y with diaeresis</td></tr>
+<tr><td>160</td><td>&nbsp;</td><td>&amp;nbsp;</td><td class="cl">Non-breaking space</td></tr>
+
+<tr><td>161</td><td>¡</td><td>&amp;iexcl;</td><td class="cl">Inverted exclamation mark</td></tr>
+<tr><td>162</td><td>¢</td><td>&amp;cent;</td><td class="cl">Cent sign</td></tr>
+
+<tr><td>163</td><td>£</td><td>&amp;pound;</td><td class="cl">Pound sign</td></tr>
+<tr><td>164</td><td>¤</td><td>&amp;curren;</td><td class="cl">Currency sign</td></tr>
+
+<tr><td>165</td><td>¥</td><td>&amp;yen;</td><td class="cl">Yen sign</td></tr>
+<tr><td>166</td><td>¦</td><td>&amp;brvbar;</td><td class="cl">Pipe, Broken vertical bar</td></tr>
+
+<tr><td>167</td><td>§</td><td>&amp;sect;</td><td class="cl">Section sign</td></tr>
+<tr><td>168</td><td>¨</td><td>&amp;uml;</td><td class="cl">Spacing diaeresis - umlaut</td></tr>
+
+<tr><td>169</td><td>©</td><td>&amp;copy;</td><td class="cl">Copyright sign</td></tr>
+<tr><td>170</td><td>ª</td><td>&amp;ordf;</td><td class="cl">Feminine ordinal indicator</td></tr>
+
+<tr><td>171</td><td>«</td><td>&amp;laquo;</td><td class="cl">Left double angle quotes</td></tr>
+<tr><td>172</td><td>¬</td><td>&amp;not;</td><td class="cl">Not sign</td></tr>
+
+<tr><td>173</td><td>­</td><td>&amp;shy;</td><td class="cl">Soft hyphen</td></tr>
+<tr><td>174</td><td>®</td><td>&amp;reg;</td><td class="cl">Registered trade mark sign</td></tr>
+
+<tr><td>175</td><td>¯</td><td>&amp;macr;</td><td class="cl">Spacing macron - overline</td></tr>
+<tr><td>176</td><td>°</td><td>&amp;deg;</td><td class="cl">Degree sign</td></tr>
+
+<tr><td>177</td><td>±</td><td>&amp;plusmn;</td><td class="cl">Plus-or-minus sign</td></tr>
+<tr><td>178</td><td>²</td><td>&amp;sup2;</td><td class="cl">Superscript two - squared</td></tr>
+
+<tr><td>179</td><td>³</td><td>&amp;sup3;</td><td class="cl">Superscript three - cubed</td></tr>
+<tr><td>180</td><td>´</td><td>&amp;acute;</td><td class="cl">Acute accent - spacing acute</td></tr>
+
+<tr><td>181</td><td>µ</td><td>&amp;micro;</td><td class="cl">Micro sign</td></tr>
+<tr><td>182</td><td>¶</td><td>&amp;para;</td><td class="cl">Pilcrow sign - paragraph sign</td></tr>
+
+<tr><td>183</td><td>·</td><td>&amp;middot;</td><td class="cl">Middle dot - Georgian comma</td></tr>
+<tr><td>184</td><td>¸</td><td>&amp;cedil;</td><td class="cl">Spacing cedilla</td></tr>
+
+<tr><td>185</td><td>¹</td><td>&amp;sup1;</td><td class="cl">Superscript one</td></tr>
+<tr><td>186</td><td>º</td><td>&amp;ordm;</td><td class="cl">Masculine ordinal indicator</td></tr>
+
+<tr><td>187</td><td>»</td><td>&amp;raquo;</td><td class="cl">Right double angle quotes</td></tr>
+<tr><td>188</td><td>¼</td><td>&amp;frac14;</td><td class="cl">Fraction one quarter</td></tr>
+
+<tr><td>189</td><td>½</td><td>&amp;frac12;</td><td class="cl">Fraction one half</td></tr>
+<tr><td>190</td><td>¾</td><td>&amp;frac34;</td><td class="cl">Fraction three quarters</td></tr>
+
+<tr><td>191</td><td>¿</td><td>&amp;iquest;</td><td class="cl">Inverted question mark</td></tr>
+<tr><td>192</td><td>À</td><td>&amp;Agrave;</td><td class="cl">Latin capital letter A with grave</td></tr>
+
+<tr><td>193</td><td>Á</td><td>&amp;Aacute;</td><td class="cl">Latin capital letter A with acute</td></tr>
+<tr><td>194</td><td>Â</td><td>&amp;Acirc;</td><td class="cl">Latin capital letter A with circumflex</td></tr>
+
+<tr><td>195</td><td>Ã</td><td>&amp;Atilde;</td><td class="cl">Latin capital letter A with tilde</td></tr>
+<tr><td>196</td><td>Ä</td><td>&amp;Auml;</td><td class="cl">Latin capital letter A with diaeresis</td></tr>
+
+<tr><td>197</td><td>Å</td><td>&amp;Aring;</td><td class="cl">Latin capital letter A with ring above</td></tr>
+<tr><td>198</td><td>Æ</td><td>&amp;AElig;</td><td class="cl">Latin capital letter AE</td></tr>
+
+<tr><td>199</td><td>Ç</td><td>&amp;Ccedil;</td><td class="cl">Latin capital letter C with cedilla</td></tr>
+<tr><td>200</td><td>È</td><td>&amp;Egrave;</td><td class="cl">Latin capital letter E with grave</td></tr>
+
+<tr><td>201</td><td>É</td><td>&amp;Eacute;</td><td class="cl">Latin capital letter E with acute</td></tr>
+<tr><td>202</td><td>Ê</td><td>&amp;Ecirc;</td><td class="cl">Latin capital letter E with circumflex</td></tr>
+
+<tr><td>203</td><td>Ë</td><td>&amp;Euml;</td><td class="cl">Latin capital letter E with diaeresis</td></tr>
+<tr><td>204</td><td>Ì</td><td>&amp;Igrave;</td><td class="cl">Latin capital letter I with grave</td></tr>
+
+<tr><td>205</td><td>Í</td><td>&amp;Iacute;</td><td class="cl">Latin capital letter I with acute</td></tr>
+<tr><td>206</td><td>Î</td><td>&amp;Icirc;</td><td class="cl">Latin capital letter I with circumflex</td></tr>
+
+<tr><td>207</td><td>Ï</td><td>&amp;Iuml;</td><td class="cl">Latin capital letter I with diaeresis</td></tr>
+<tr><td>208</td><td>Ð</td><td>&amp;ETH;</td><td class="cl">Latin capital letter ETH</td></tr>
+
+<tr><td>209</td><td>Ñ</td><td>&amp;Ntilde;</td><td class="cl">Latin capital letter N with tilde</td></tr>
+<tr><td>210</td><td>Ò</td><td>&amp;Ograve;</td><td class="cl">Latin capital letter O with grave</td></tr>
+
+<tr><td>211</td><td>Ó</td><td>&amp;Oacute;</td><td class="cl">Latin capital letter O with acute</td></tr>
+<tr><td>212</td><td>Ô</td><td>&amp;Ocirc;</td><td class="cl">Latin capital letter O with circumflex</td></tr>
+
+<tr><td>213</td><td>Õ</td><td>&amp;Otilde;</td><td class="cl">Latin capital letter O with tilde</td></tr>
+<tr><td>214</td><td>Ö</td><td>&amp;Ouml;</td><td class="cl">Latin capital letter O with diaeresis</td></tr>
+
+<tr><td>215</td><td>×</td><td>&amp;times;</td><td class="cl">Multiplication sign</td></tr>
+<tr><td>216</td><td>Ø</td><td>&amp;Oslash;</td><td class="cl">Latin capital letter O with slash</td></tr>
+
+<tr><td>217</td><td>Ù</td><td>&amp;Ugrave;</td><td class="cl">Latin capital letter U with grave</td></tr>
+<tr><td>218</td><td>Ú</td><td>&amp;Uacute;</td><td class="cl">Latin capital letter U with acute</td></tr>
+
+<tr><td>219</td><td>Û</td><td>&amp;Ucirc;</td><td class="cl">Latin capital letter U with circumflex</td></tr>
+<tr><td>220</td><td>Ü</td><td>&amp;Uuml;</td><td class="cl">Latin capital letter U with diaeresis</td></tr>
+
+<tr><td>221</td><td>Ý</td><td>&amp;Yacute;</td><td class="cl">Latin capital letter Y with acute</td></tr>
+<tr><td>222</td><td>Þ</td><td>&amp;THORN;</td><td class="cl">Latin capital letter THORN</td></tr>
+
+<tr><td>223</td><td>ß</td><td>&amp;szlig;</td><td class="cl">Latin small letter sharp s - ess-zed</td></tr>
+<tr><td>224</td><td>à</td><td>&amp;agrave;</td><td class="cl">Latin small letter a with grave</td></tr>
+
+<tr><td>225</td><td>á</td><td>&amp;aacute;</td><td class="cl">Latin small letter a with acute</td></tr>
+<tr><td>226</td><td>â</td><td>&amp;acirc;</td><td class="cl">Latin small letter a with circumflex</td></tr>
+
+<tr><td>227</td><td>ã</td><td>&amp;atilde;</td><td class="cl">Latin small letter a with tilde</td></tr>
+<tr><td>228</td><td>ä</td><td>&amp;auml;</td><td class="cl">Latin small letter a with diaeresis</td></tr>
+
+<tr><td>229</td><td>å</td><td>&amp;aring;</td><td class="cl">Latin small letter a with ring above</td></tr>
+<tr><td>230</td><td>æ</td><td>&amp;aelig;</td><td class="cl">Latin small letter ae</td></tr>
+
+<tr><td>231</td><td>ç</td><td>&amp;ccedil;</td><td class="cl">Latin small letter c with cedilla</td></tr>
+<tr><td>232</td><td>è</td><td>&amp;egrave;</td><td class="cl">Latin small letter e with grave</td></tr>
+
+<tr><td>233</td><td>é</td><td>&amp;eacute;</td><td class="cl">Latin small letter e with acute</td></tr>
+<tr><td>234</td><td>ê</td><td>&amp;ecirc;</td><td class="cl">Latin small letter e with circumflex</td></tr>
+
+<tr><td>235</td><td>ë</td><td>&amp;euml;</td><td class="cl">Latin small letter e with diaeresis</td></tr>
+<tr><td>236</td><td>ì</td><td>&amp;igrave;</td><td class="cl">Latin small letter i with grave</td></tr>
+
+<tr><td>237</td><td>í</td><td>&amp;iacute;</td><td class="cl">Latin small letter i with acute</td></tr>
+<tr><td>238</td><td>î</td><td>&amp;icirc;</td><td class="cl">Latin small letter i with circumflex</td></tr>
+
+<tr><td>239</td><td>ï</td><td>&amp;iuml;</td><td class="cl">Latin small letter i with diaeresis</td></tr>
+<tr><td>240</td><td>ð</td><td>&amp;eth;</td><td class="cl">Latin small letter eth</td></tr>
+
+<tr><td>241</td><td>ñ</td><td>&amp;ntilde;</td><td class="cl">Latin small letter n with tilde</td></tr>
+<tr><td>242</td><td>ò</td><td>&amp;ograve;</td><td class="cl">Latin small letter o with grave</td></tr>
+
+<tr><td>243</td><td>ó</td><td>&amp;oacute;</td><td class="cl">Latin small letter o with acute</td></tr>
+<tr><td>244</td><td>ô</td><td>&amp;ocirc;</td><td class="cl">Latin small letter o with circumflex</td></tr>
+
+<tr><td>245</td><td>õ</td><td>&amp;otilde;</td><td class="cl">Latin small letter o with tilde</td></tr>
+<tr><td>246</td><td>ö</td><td>&amp;ouml;</td><td class="cl">Latin small letter o with diaeresis</td></tr>
+
+<tr><td>247</td><td>÷</td><td>&amp;divide;</td><td class="cl">Division sign</td></tr>
+<tr><td>248</td><td>ø</td><td>&amp;oslash;</td><td class="cl">Latin small letter o with slash</td></tr>
+
+<tr><td>249</td><td>ù</td><td>&amp;ugrave;</td><td class="cl">Latin small letter u with grave</td></tr>
+<tr><td>250</td><td>ú</td><td>&amp;uacute;</td><td class="cl">Latin small letter u with acute</td></tr>
+
+<tr><td>251</td><td>û</td><td>&amp;ucirc;</td><td class="cl">Latin small letter u with circumflex</td></tr>
+<tr><td>252</td><td>ü</td><td>&amp;uuml;</td><td class="cl">Latin small letter u with diaeresis</td></tr>
+
+<tr><td>253</td><td>ý</td><td>&amp;yacute;</td><td class="cl">Latin small letter y with acute</td></tr>
+<tr><td>254</td><td>þ</td><td>&amp;thorn;</td><td class="cl">Latin small letter thorn</td></tr>
+
+<tr><td>255</td><td>ÿ</td><td>&amp;yuml;</td><td class="cl">Latin small letter y with diaeresis</td></tr>
+</table> 

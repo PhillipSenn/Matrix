@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+/*narrow style sheet for Explore California */
+
+html, body {
+	margin: 5px;
+	padding: 5px;
+}
+
+body {
+	font-family: sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, p, address, blockquote, div, ul, li {
+	font-size: 90%;
+}
+p {
+	color:#333;
+}
+
+img {
+    display: none;
+}

@@ -1,0 +1,22 @@
+CREATE PROC deleteAuthor (@first varchar(50), @last varchar(50))
+ AS
+ BEGIN
+	BEGIN TRANSACTION
+	 
+	 UPDATE AUTHORS 
+	 SET Active = 0
+	 WHERE firstName = @first AND lastName = @last
+
+	 UPDATE AUTHORS 
+	 SET PhoneNumber = NULL
+	 WHERE firstName = @first AND lastName = @last
+
+	 IF @@ERROR != 0
+		ROLLBACK TRANSACTION
+    	ELSE
+        	COMMIT TRANSACTION
+ END
+
+GO
+
+EXEC deleteAuthor  'John', 'Doe'

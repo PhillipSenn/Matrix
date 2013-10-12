@@ -1,0 +1,3 @@
+$('.tile').resizable({
+	animate:true
+});

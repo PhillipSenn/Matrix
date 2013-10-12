@@ -1,0 +1,39 @@
+CREATE PROCEDURE [dbo].[Students_Delete](@ID int)
+WITH EXECUTE AS CALLER
+AS
+BEGIN
+
+	--Check to make sure the ID does exist
+	--If not does, return error
+	DECLARE @existing AS int = 0
+	SELECT @existing = count(ID)  
+	FROM Students
+	WHERE ID = @ID
+	
+	IF @existing <> 1
+	BEGIN
+		RAISERROR ('ID does not exist', 1, 1)
+		RETURN 0
+	END
+
+
+		--Attempt Delete
+		DELETE FROM [dbo].[Students]
+		WHERE ID = @ID
+     
+		--check to see if update occured 
+		--and return status
+		IF @@ROWCOUNT = 1
+			BEGIN
+				INSERT INTO StudentDeleteLog 
+				VALUES (suser_sname(), @ID, getdate())
+
+				RETURN 1
+			END
+			
+		ELSE 
+			RETURN 0
+END
+
+
+GO

@@ -1,0 +1,10 @@
+C:\Users\Martin Guidry\AppData\Local\Temporary Projects\helloworld\bin\Release\helloworld.dll
+C:\Users\Martin Guidry\AppData\Local\Temporary Projects\helloworld\bin\Release\helloworld.pdb
+C:\Users\Martin Guidry\AppData\Local\Temporary Projects\helloworld\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Martin Guidry\AppData\Local\Temporary Projects\helloworld\obj\Release\helloworld.dll
+C:\Users\Martin Guidry\AppData\Local\Temporary Projects\helloworld\obj\Release\helloworld.pdb
+C:\CLR\helloworld\helloworld\bin\Release\helloworld.dll
+C:\CLR\helloworld\helloworld\bin\Release\helloworld.pdb
+C:\CLR\helloworld\helloworld\obj\Release\ResolveAssemblyReference.cache
+C:\CLR\helloworld\helloworld\obj\Release\helloworld.dll
+C:\CLR\helloworld\helloworld\obj\Release\helloworld.pdb

@@ -1,0 +1,25 @@
+#main { 
+	display: -moz-box;
+	display: -webkit-box;
+	display: box;
+}
+-moz-box-ordinal-group: 1;
+-webkit-box-ordinal-group: 1;
+box-ordinal-group: 1;
+
+#main > article { width: flex(1); flex-order: 2; }
+#main > nav     { width: 200px;   flex-order: 1; }
+#main > aside   { width: 200px;   flex-order: 3; }
+
+@media all and (max-width: 600px) {
+	/* Too narrow to support three columns */
+	#main { flex-flow: column; }
+	#main > article, #main > nav, #main > aside {
+		/* Return them to document order */
+		flex-order: 0; width: auto;
+	}
+}
+/*
+http://dev.w3.org/csswg/css3-flexbox/
+http://webdesignerwall.com/tutorials/responsive-design-with-css3-media-queries
+*/

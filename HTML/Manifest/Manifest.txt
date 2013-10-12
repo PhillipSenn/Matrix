@@ -1,0 +1,5 @@
+This file needs to be served with a content-type header of text/cache-manifest; it’s really simple to do this with a .htaccess file:
+AddType text/cache-manifest manifest
+
+This will serve all files with an extention of “manifest” with the appropriate content-type header.
+http://www.html5rocks.com/en/tutorials/appcache/beginner/

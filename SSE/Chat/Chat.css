@@ -1,0 +1,6 @@
+#ChatHistory {
+	height:400px;
+	margin-bottom:1em;
+	border:1px solid #000;
+	overflow:auto;
+}

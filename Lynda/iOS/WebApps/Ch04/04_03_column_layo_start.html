@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Typography&mdash;Pseudo Classes</title>
+	<style>
+	.article {
+		padding: 20px;
+		background-image: -webkit-gradient(linear, left top, left bottom,
+		from(#FFF),
+		to(#AAA)
+		);
+		border: 1px solid #CCC;
+		font: 16px/20px Georgia;
+	}
+	.article a {
+		color: #055;
+	}
+	.article a:hover {
+		color: #C00;
+		text-decoration: none;
+		background-color: #FF7;
+	}
+	.article h1 {
+		margin: 0px;
+		font: bold 60px/43px Eurostile, Arial;
+		padding-bottom: 10px;
+		letter-spacing: -1px;
+		word-spacing: -1px;
+		color: #055;
+	}
+	.article p {
+		text-indent: 15px;
+	}
+	.article blockquote {
+		margin: 0;
+		color:#444;
+		background-color:#DDD;
+		-webkit-border-radius: 10px;
+		padding:13px;
+		font: Normal 22px/22px Georgia;
+		text-indent: -7px;
+		letter-spacing: -1px;
+	}
+	.resources h2 {
+		font: bold 20px/16px Eurostile;
+		padding-top: 20px;
+		color: #055;
+		border-top: 1px dotted #000;
+	}
+	.resources li a {
+		color: #555;
+	}
+	.resources ul {
+		padding: 0;
+		margin: 0;
+	}
+	.resources li {
+		font: 14px/18px Arial;
+		list-style-image: url(images/arrow.png);
+		margin: 0 0 5px 22px;
+	}
+	
+</style>
+</head>
+<body>
+	<div class="article">
+		<h1>The state of web typography</h1>
+
+		<p>Typography has dramatically improved on modern browsers. Many special effects can be achieved with CSS rules if you know how to access the right selectors and pseudo classes.</p> 
+		
+		<div class="columns">
+			<p>Although @font-face allows you to include fonts on your site, a lot of fonts require special licensing in order to be used online. Another issue is that different browsers and platforms require the fonts to be in different formats. In order to use a custom font on your site, you might need the font on 4 or 5 different formats.</p> 
+				
+			<p><a href="http://www.fontsquirrel.com/">FontSquirrel</a> along with <a href="http://code.google.com/webfonts">Google&rsquo;s Font Directory</a> showcase font libraries which you can use on your site free of charge. This is a great way to get started with custom fonts online.</p>
+	
+			<p>Google&rsquo;s model makes it easy to incorporate  fonts on your site. Google hosts the fonts on their servers, and gives you an extremely easy to use piece of code to put on your site.</p>
+	
+			<blockquote>“Google&rsquo;s model makes it easy to incorporate  fonts on your site”</blockquote>
+
+			<p>FontSquirrel uses the traditional @font-face tag, but provides all the code you&rsquo;ll need as well as the fonts in all of the necessary formats.</p>
+			
+			<p>Services like <a href="http://typekit.com/">TypeKit</a>, <a href="http://fontdeck.com">FontDeck</a> allow you to license fonts for use on your sites through differing commercial models. A lot of foundries have gotten smart and have made their fonts available on these services. The quantity of these fonts have increased dramatically in recent years.</p>
+	
+			<p>While TypeKit gives you an all you can eat model for a fixed price depending on traffic, FontDeck gives you the option to buy a specific font for an annual fee. Both of these sites store the fonts on their own servers.</p>
+		<div class="resources">
+			<h2>Resources</h2>
+				<ul>
+					<li><a href="http://www.fontsquirrel.com/">FontSquirrel</a></li>
+					<li><a href="http://code.google.com/webfonts">Google&rsquo;s Font Directory</a></li>
+					<li><a href="http://typekit.com/">TypeKit</a></li>
+					<li><a href="http://fontdeck.com">FontDeck</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

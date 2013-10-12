@@ -1,0 +1,16 @@
+CREATE TRIGGER [dbo].[CategoryDeactivation]
+ON [dbo].[Categories]
+AFTER UPDATE
+AS
+BEGIN 
+	DECLARE @isActive AS bit
+
+	SELECT @isActive = Active
+	FROM Inserted
+
+	IF (@isActive = 0)
+		UPDATE Products
+		SET Active = 0
+		WHERE CategoryID IN (SELECT CategoryID FROM Inserted)
+
+END

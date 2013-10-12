@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- 
+    workerPrimeSeries.html by Bill Weinman 
+    <http://bw.org/contact/>
+    created 2011-11-17
+
+    Copyright (c) 2011 The BearHeart Group, LLC
+    This file may be used for personal educational purposes as needed. 
+    Use for other purposes is granted provided that this notice is
+    retained and any changes made are clearly indicated as such. 
+-->
+
+<head>
+    <title>
+        HTML5: Web Workers &middot; Prime Number Series
+    </title>
+    <link rel="stylesheet" type="text/css" href="../CSS/main.css">
+    <script language="javascript">
+        var version = '1.0.3';
+        var worker = null;
+        var runningState = false;
+
+        // Check if this browser supports getWorkerObject
+        function getWorkerObject() {
+            try {
+                if( !! window.Worker ) return window.Worker;
+                else return undefined;
+            } catch(e) {
+                return undefined;
+            }
+        }
+
+        function toggleRunningState() {
+            runningState = !runningState;
+            if(worker) worker.postMessage(runningState);
+            element('startStopButton').innerHTML = runningState ? 'Stop' : 'Start';
+        }
+
+        // ##### Init #####
+
+        function init() {
+            if(!(oWorker = getWorkerObject())) {
+                dispError('Web Workers not supported.');
+                return;
+            }
+
+            worker = new oWorker('workerPrimeSeries.js');
+            worker.onmessage = function(event) {
+                element('primeResult').textContent = comma(event.data);
+            };
+        }
+
+        // ##### Utilities #####
+
+        // shortcut for getElementById
+        function element(id) { return document.getElementById(id); }
+
+        function dispError(errorMessage) {
+            element('pageResults').innerHTML = 
+                '<p class="error">' + errorMessage + '</p>\n';
+        }
+
+        // return nnn,nnn,nnn formatted number
+        function comma(number) {
+            number = '' + number;   // convert to string
+            if (number.length > 3) {
+                var seg = number.length % 3;
+                var output = seg > 0 ? number.substring(0, seg) : '';
+                for (i=0 ; i < Math.floor(number.length / 3); i++) {
+                    if ((seg == 0) && (i == 0))
+                        output += number.substring(seg + (3 * i), seg + (3 * i) + 3);
+                    else
+                        output+= ',' + number.substring(seg + (3 * i), seg + (3 * i) + 3);
+                }
+                return (output);
+            }
+            else return number;
+        }
+
+        window.onload = init;
+    </script>
+</head>
+
+<body>
+
+<div id="content">
+
+    <h1> 
+        HTML5: Web Workers &middot; Prime Number Series
+    </h1>
+    
+    <div id="pageResults"></div>
+
+    <p>The highest prime number discovered so far is:
+        <output id="primeResult" style="background-color:#ee9; padding: 0 3px; border: solid 1px #ccc">None</output>.<br />
+        <button id="startStopButton" onClick="toggleRunningState()" type="button">Start</button>
+    </p>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+body {
+	background-color:Black;
+}
+.number {
+	color:#00FF00;
+	font-family:Courier New;
+	font-size:12pt;
+}
+button {
+	position:fixed;
+	right:5px;
+	top:5px;
+	padding:15px;
+}

@@ -1,0 +1,1 @@
+$('li').filter(':nth-child(even)').addClass('myClass');

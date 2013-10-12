@@ -1,0 +1,1 @@
+$('p').removeClass('alert alert-error');

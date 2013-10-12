@@ -1,0 +1,1 @@
+$('<a href="#top">Top</a>').insertBefore('p');

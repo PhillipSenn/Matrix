@@ -1,0 +1,35 @@
+#msgDiv {
+	height:1.1em;
+}
+#msg {
+	background-color:#F00;
+	color:#FFF;
+}
+#spinner {
+	display:none;
+	float:left;
+}
+#States {
+	clear:left;
+	float:left;
+}
+#StateList {
+	border:1px solid #000;
+	padding-left: 1em;	
+	padding-right:1em;
+	list-style-type: none;
+}
+#Cities {
+	float:left;
+	margin-left:20px;
+}
+#pretend {
+	float:left;
+}
+#GoogleMap {
+	float:left;
+	margin-left:20px;
+	border:1px solid #000;
+	padding:10px;
+}
+	

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Gradients</title>
+</head>
+<style>
+.box {
+	width: 150px;
+	height: 150px;
+}
+
+#linear { background-image: -webkit-gradient(linear, left top, right bottom, from(blue), to(green));
+}
+
+#colorstop { background-image: -webkit-gradient(linear, left top, right bottom,from(red), to(yellow),color-stop(0.5, green));
+}
+
+#multiple { background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(0,255,255,.9)), to(rgba(255,255,255,0))),url(images/tampa.png);
+}
+
+#radial { background-image: -webkit-gradient(radial, 50% 50%, 0, 50% 50%,100, from(purple), to(blue));
+}
+</style>
+
+<body>
+<h2>Linear</h2>
+<div class="box" id="linear"></div>
+
+<h2>Color Stop</h2>
+<div class="box" id="colorstop"></div>
+
+<h2>Multiple</h2>
+<div class="box" id="multiple" /></div>
+
+<h2>Radial</h2>
+<div class="box" id="radial"></div>
+</body>
+</html>

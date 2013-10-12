@@ -1,0 +1,12 @@
+CREATE PROC [dbo].[securityTest]
+AS
+BEGIN
+	SELECT FirstName, LastName
+	FROM dbo.AUTHORS
+END
+
+GO
+
+EXEC securityTest
+
+

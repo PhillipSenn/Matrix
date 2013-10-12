@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- 
+    start.html by Bill Weinman 
+    <http://bw.org/contact/>
+    created 2011-11-27
+
+    Copyright (c) 2011 The BearHeart Group, LLC
+    This file may be used for personal educational purposes as needed. 
+    Use for other purposes is granted provided that this notice is
+    retained and any changes made are clearly indicated as such. 
+-->
+
+<head>
+    <title>
+        HTML5: Web Workers
+    </title>
+    <link rel="stylesheet" type="text/css" href="../CSS/main.css">
+    <script language="javascript">
+        var version = '1.0.5';
+        var worker = null;
+
+        // Check if this browser supports window.Worker
+        function getWorkerObject() {
+            try {
+                if( !! window.Worker ) return window.Worker;
+                else return undefined;
+            } catch(e) {
+                return undefined;
+            }
+        }
+
+        function workerCallback(event) {
+            var value = event.data.value;
+            var errorMessage = event.data.errorMessage;
+            if(errorMessage) {
+                dispError(errorMessage);
+                element('primeResult').textContent = 'None';
+            } else {
+                element('primeResult').textContent = comma(value);
+            }
+        }
+
+        function errorCallback(error) {
+            error.preventDefault(); // prevent default error actions
+            dispError(error.message + ' (' + error.filename + ':' + error.lineno + ')' );
+        }
+
+        function startSearch() {
+            var textValue = element('startingInteger').value;
+            var intValue = isInt(textValue);
+
+            clearDisp();
+            if(isNaN(intValue)) {
+                dispError(textValue + ' is not an integer.');
+                element('startingInteger').select();
+                return false;
+            }
+
+            element('primeStart').textContent = comma(intValue);
+            worker.postMessage({ value : intValue + 1 });   // start with next integer
+
+            element('startingInteger').select();
+            return false;
+        }
+
+        // ##### Init #####
+
+        function init() {
+            var oWorker = null;
+            if(!(oWorker = getWorkerObject())) {
+                dispError('Web Workers is not supported in this browser.');
+                return;
+            }
+
+            worker = new oWorker('workerFindPrime.js');
+            worker.addEventListener('message', workerCallback, false);
+            worker.addEventListener('error', errorCallback, false);
+            element('startingInteger').select();    // focus and select the integer
+        }
+
+        // ##### Utilities #####
+
+        // shortcut for getElementById
+        function element(id) { return document.getElementById(id); }
+
+        function isInt(value) {
+            var f = parseFloat(value);
+            var i = parseInt(value, 10);
+            if(f == i) return i;
+            else return NaN;
+        }
+
+        function clearDisp() {
+            element('pageResults').innerHTML = '';
+            element('message').innerHTML = '';
+            element('message').className = '';
+        }
+
+        function dispMessage(message) {
+            m = element('message');
+            m.className = 'message';
+            if(m.textContent.length > 0) {
+                m.innerHTML += '<br />' + message;
+            } else m.innerHTML = message;
+        }
+
+        function dispError(errorMessage) {
+            element('pageResults').innerHTML = 
+                '<p class="error">' + errorMessage + '</p>\n';
+        }
+
+        // return nnn,nnn,nnn formatted number
+        function comma(number) {
+            number = '' + number;   // convert to string
+            if (number.length > 3) {
+                var seg = number.length % 3;
+                var output = seg > 0 ? number.substring(0, seg) : '';
+                for (i=0 ; i < Math.floor(number.length / 3); i++) {
+                    if ((seg == 0) && (i == 0))
+                        output += number.substring(seg + (3 * i), seg + (3 * i) + 3);
+                    else
+                        output+= ',' + number.substring(seg + (3 * i), seg + (3 * i) + 3);
+                }
+                return (output);
+            }
+            else return number;
+        }
+
+        window.onload = init;
+
+    </script>
+</head>
+
+<body>
+
+<div id="content">
+
+    <h1> 
+        HTML5: Web Workers
+    </h1>
+
+    <p id="message"></p>
+    <div id="pageResults"></div>
+
+    <form onSubmit="startSearch(); return false;">
+        <p> Start from <input type="text" value="1" style="width: 50px" id="startingInteger" name="startingInteger" />
+        <button id="startStopButton" onClick="startSearch()" type="button">Find First Prime</button>
+    </form>
+
+    <p>The first prime &gt;
+        <output id="primeStart" style="background-color: #667; color: #fff; padding: 2px 3px; border: solid 1px black;">_</output> is:
+        <output id="primeResult" style="background-color: #686; color: #fff; padding: 2px 3px; border: solid 1px black;">_</output>.</p>
+
+</div>
+</body>
+</html>

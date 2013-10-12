@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>Form</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<style>
+body {
+	margin: 0;
+	padding: 0;
+	font-size: 15px;
+}
+#myform fieldset {
+	font-family: Arial;
+	padding: 10px;
+	background-color: #DDD;;
+	width:100%;
+	margin-top: 10px;
+}
+ 
+#myform legend {
+	font-family: Arial;
+	font-size: 14px;
+	color: #FFF;
+	background-color: #666;
+	padding: 5px;
+	margin-top:-30px;
+}
+ 
+#myform ul {
+	margin: 0px;
+	padding: 0px;
+}
+ 
+#myform li {
+	list-style: none;
+	clear: both;
+}
+ 
+#myform label {
+	text-align: right;
+	width: 20%;
+	font-weight: bold;
+	padding-right: 10px;
+	padding-bottom: 10px;;
+	display: block;
+	float: left;
+}
+ 
+#myform input {
+	width: 40%;;
+	margin-bottom: 5px;
+}
+ 
+#myform #submit {
+	clear: both;
+	width: 70%;
+	float: right;
+}
+ 
+</style>
+
+</head>
+<body>
+<form id="myform" enctype="text/plain">
+<fieldset>
+<legend>Comment Form</legend>
+	<ul>
+<li><label>Name:</label><input type="text" name="name" placeholder="Full Name" value="" /></li>
+<li><label>Age:</label><input type="number" name="number"></li>
+<li><label>Email:</label><input type="email" placeholder="email@address.com" autocapitalize="off" name="email" value="" /></li>
+<li><label>Tel:</label><input type="tel" name="telephone" value="" pattern="[0-9]*" /></li>
+<li><label>URL:</label><input type="url" name="url" autocapitalize="off" value="http://" /></li>
+<li><label>Comments:</label><textarea name="comments" autocorrect="off"></textarea></li>
+<li><input type="button" name="submit" value="submit" /></li>
+	<ul>
+</fieldset>
+</form>
+<p>For more information <a href="tel:1-555-123-4567">call us</a> or <a href="sms:1-408-555-1212">text us</a></p>
+</body>
+</html>

@@ -1,0 +1,12 @@
+pre {
+	font-size: 12px;
+	padding: 0px 0px 0px 60px;
+	margin: 20px;
+	background: #f0f0f0;
+	border-left: 1px solid #ccc;
+	line-height: 20px;
+	background: url(pre_code_bg.gif) repeat-y left top;
+	width: 800px;
+	overflow: auto;
+/*	overflow-Y:hidden; */
+}

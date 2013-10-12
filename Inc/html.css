@@ -1,0 +1,17 @@
+body {
+  padding-top: 50px;
+  font-family:Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
+  font-size:20px;
+  margin-left:1em;
+  margin-right:1em;
+  margin-bottom:20em;
+}
+label {
+	display:block;
+}
+.msgdiv {
+	min-height:1.1em;
+}
+.form-actions {
+	margin-top:1em;
+}

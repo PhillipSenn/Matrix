@@ -1,0 +1,50 @@
+
+	/* The following isn't necessary
+	local.svc = new query();
+	local.sql = "
+		SELECT * FROM State#Variables.UsrID#
+		WHERE StateID = :StateID
+	";
+	local.svc.setSQL(local.sql);
+	local.svc.addParam(name="StateID"   ,value="#form.StateID#"   ,cfsqltype="cf_sql_integer"); 
+	local.svc.setName = "qry";
+	local.obj = local.svc.execute();
+	local.result.QRY = local.obj.getResult();
+	return local.result;
+	*/
+
+
+
+
+
+	local.sql = "
+		UPDATE State#Variables.UsrID# SET
+		StateName = :StateName
+		,isState   = :isState
+		,StateAbbr = :StateAbbr
+		,Population= :Population
+		,State_DivisionID = :DivisionID
+		,LastUpdated = getdate()
+		WHERE StateID = :StateID
+	";
+	local.svc = new query();
+	local.svc.setSQL(local.sql);
+	local.svc.addParam(name="StateID"   ,value="#arguments.StateID#"   ,cfsqltype="cf_sql_integer"); 
+	local.svc.addParam(name="StateName" ,value="#arguments.StateName#" ,cfsqltype="cf_sql_varchar"); 
+	local.svc.addParam(name="isState"   ,value="#arguments.isState#"   ,cfsqltype="cf_sql_integer"); 
+	local.svc.addParam(name="Statehood" ,value="#arguments.Statehood#" ,cfsqltype="cf_sql_varchar"); 
+	local.svc.addParam(name="StateAbbr" ,value="#arguments.StateAbbr#" ,cfsqltype="cf_sql_varchar"); 
+	local.svc.addParam(name="Population",value="#arguments.Population#",cfsqltype="cf_sql_integer"); 
+	local.svc.addParam(name="DivisionID",value="#arguments.DivisionID#",cfsqltype="cf_sql_integer"); 
+	local.obj = local.svc.execute();
+	local.svc = new query();
+	local.sql = "
+		SELECT * FROM State#Variables.UsrID#
+		WHERE StateID = :StateID
+	";
+	local.svc.setSQL(local.sql);
+	local.svc.addParam(name="StateID"   ,value="#arguments.StateID#"   ,cfsqltype="cf_sql_integer"); 
+	local.svc.setName = "qry";
+	local.obj = local.svc.execute();
+	local.result.QRY = local.obj.getResult();
+	return local.result;

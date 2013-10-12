@@ -1,0 +1,168 @@
+/*
+    main.css by Bill Weinman 
+    <http://bw.org/contact/>
+    created 2011-04-16
+
+    Copyright (c) 2011 The BearHeart Group, LLC
+    This file may be used for personal educational purposes as needed. 
+    Use for other purposes is granted provided that this notice is
+    retained and any changes made are clearly indicated as such. 
+
+    v 1.0.1 - bw 2011-04-19
+    v 1.0.2 - bw 2011-11-22 - Support for Web Workers course
+*/
+
+/* -------- color guide (From Explore California) ----------
+#3c6b92 : main blue
+#6acce2 : light blue
+#2c566a : teal accent
+#193742 : dark blue
+#e1d8b9 : sand accent
+#cb7d20 : orange accent
+#51341a : brown
+#995522 : dark orange (used for links or high contrast accents)
+#cb202a : red accent (this color does not encode well, use only for small accents)
+#896287 : purple
+*/
+
+/* reasonable reset */
+html, body, div, section, article, aside, header, hgroup, footer, nav, h1, h2, h3, h4, h5, h6, table, tr, td,
+p, blockquote, address, time, span, em, strong, img, ol, ul, li, dl, dt, figure, canvas, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+li {
+    margin-left: 2em;
+}
+
+body  {
+    font-family: Georgia, serif;    /* default page font */
+    background-color: #3c6b92;
+}
+
+body.white {
+    background-color: white;
+}
+
+.red {
+    color: #cb202a;
+}
+
+p.message, p.error {
+    font: normal 1em Helvetica, Arial, sans-serif;
+    padding: 0 3px;
+}
+
+p.message {
+    border: 1px solid #995522;
+    background-color: #e1d8b9;
+    color: black;
+}
+
+p.error {
+    border: 1px solid #193742;
+    background-color: #cb202a;
+    color: white;
+}
+
+#content {
+    width: 85%;
+    margin: 20px auto;
+    padding: 5px;
+    background-color: white;
+    min-height: 300px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.blue,
+#content h1, #content h2, #content h3, #content h4, #content h5, #content h6 {
+    color: #3c6b92;
+}
+
+.normal {
+    font-weight: normal;
+}
+
+#content h1 {
+    font-weight: normal;
+    font-size: 1.4em;
+}
+
+#content p, #content h1, #content h2, #content h3 {
+    margin-bottom: .5em;
+}
+
+#content h1 {
+    border-bottom: solid 2px #3c6b92;
+}
+
+#content h2.error {
+    color: #cb7d20;
+}
+
+/* bwTable */
+
+.bwTable {
+    background: #c3cebc;
+    margin-bottom: .5em;
+    border: 1px solid #995522;
+    border-collapse: collapse;
+}
+
+.bwTable tr, .bwTable td, .bwTable th {
+    font: normal 1em Helvetica, Arial, sans-serif;
+    text-align: left;
+    border: solid 1px #995522;
+    padding: 1px 3px;
+}
+
+.bwTable tr:nth-child(odd) {
+    background: #e1d8b9;
+}
+
+.bwTable th {
+    background: #193742;
+    color: #c3cebc;
+    border: solid 1px #51341a;
+}
+
+.bwTable td {
+    min-width: 100px;
+}
+
+/* form */
+
+#form {
+    margin-bottom: 10px;
+    border-bottom: 2px solid #3c6b92;
+}
+
+#form input[type=text] {
+    width: 300px;
+}
+
+#form td.button, #form td.label {
+    text-align: right;
+}
+
+#form td.label {
+    padding-right: 3px;
+}
+
+/* frame */
+
+iframe.workerFrame {
+    width: 300px;
+    height: 200px;
+    margin: 0 5px;
+    padding: 3px;
+    border-top: 2px solid #3c6b92;
+    border-left: 2px solid #3c6b92;
+    border-bottom: 2px solid #ccc;
+    border-right: 2px solid #ccc;
+}

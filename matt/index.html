@@ -1,0 +1,27 @@
+<!doctype html>
+<html ng-app>
+<head>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+<script src="index.js"></script>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+<body ng-controller="PhilController">
+
+<input ng-model="inputText">
+
+Hello,
+<span ng-bind="inputText"></span>
+
+<input type="button" 
+	value="Click me!"
+	ng-click="clicker(inputText)">
+
+<ul>
+	<li ng-repeat="value in myarray">
+		{{value}}
+	</li>
+</ul>
+
+</body>
+</html>

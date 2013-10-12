@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html manifest="cache.manifest">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JQM Hello World!</title>
+<script src="/Library/jQuery/jQuery.js"></script>
+<link rel="stylesheet" type="text/css" href="/Library/jQuery/Mobile/jQueryMobile.css">
+<script>
+$(document).bind("mobileinit", function() {
+	$.mobile.ajaxEnabled = false;
+});
+</script>
+<script src="/Library/jQuery/Mobile/jQueryMobile.js"></script>
+</head>
+
+<body>
+<div data-role="page" id="myPage">
+	<div data-role="header">
+		<h1>Header</h1>
+	</div>
+	<div data-role="content">
+		What happens if we do a &lt;form method="get"> is that the browser thinks it's a new page each time.
+		<form>
+			<input name="Save" type="submit" value="Save">
+		</form>
+	</div>
+	<div data-role="footer">
+		<h1>Footer</h1>
+	</div>
+</div>
+<script src="005.js"></script>
+</body>
+</html>

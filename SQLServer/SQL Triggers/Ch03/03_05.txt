@@ -1,0 +1,10 @@
+ALTER PROCEDURE myTest
+AS
+BEGIN
+	SELECT 'Hello World this is fun'
+	RETURN -1
+END
+
+GO
+
+EXEC myTest 

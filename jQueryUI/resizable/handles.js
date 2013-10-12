@@ -1,0 +1,3 @@
+$('#myID').resizable({
+	handles:'se'
+});
